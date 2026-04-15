@@ -50,6 +50,7 @@ export function HeroSection() {
                   sizes="(max-width: 1024px) 320px, 448px"
                   className="h-full w-full object-cover object-center"
                   priority
+                  fetchPriority="high"
                 />
               </div>
 
