@@ -1,4 +1,6 @@
 import { cache } from "react"
+import { formatDistanceToNow } from "date-fns"
+import { ptBR } from "date-fns/locale"
 import type { GoogleBusinessData, GoogleReview } from "@/lib/data"
 import { googleBusinessData as mockGoogleBusinessData } from "@/lib/data"
 
@@ -11,9 +13,21 @@ interface PlacesReview {
   authorAttribution?: { displayName?: string }
 }
 
+/** Data da avaliação em português (ex.: «há cerca de 4 meses»). Ignora o texto em inglês da API. */
+function formatReviewDatePt(publishTime: string | undefined): string {
+  if (!publishTime?.trim()) return ""
+  const d = new Date(publishTime)
+  if (Number.isNaN(d.getTime())) return ""
+  try {
+    return formatDistanceToNow(d, { addSuffix: true, locale: ptBR })
+  } catch {
+    return ""
+  }
+}
+
 function mapPlacesReview(review: PlacesReview, index: number): GoogleReview {
   const publish = review.publishTime
-  let date = review.relativePublishTimeDescription ?? ""
+  let date = formatReviewDatePt(publish)
   if (!date && publish) {
     try {
       date = new Intl.DateTimeFormat("pt-BR", {
