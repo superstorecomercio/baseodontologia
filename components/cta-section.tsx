@@ -1,3 +1,4 @@
+import { ScrollFadeSection } from "@/components/motion/scroll-fade-section"
 import { Button } from "@/components/ui/button"
 import { clinicData } from "@/lib/data"
 import { phoneDigits } from "@/lib/utils"
@@ -21,7 +22,7 @@ export function CTASection({
 
   if (whatsappOnly) {
     return (
-      <section
+      <ScrollFadeSection
         className={
           variant === "light"
             ? "bg-muted py-14 md:py-20"
@@ -80,13 +81,13 @@ export function CTASection({
             )}
           </div>
         </div>
-      </section>
+      </ScrollFadeSection>
     )
   }
 
   if (variant === "light") {
     return (
-      <section className="bg-muted py-14 md:py-20">
+      <ScrollFadeSection className="bg-muted py-14 md:py-20">
         <div className="page-container">
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="mb-5 font-serif text-3xl font-semibold tracking-tight text-balance text-foreground md:text-4xl lg:text-[2.5rem] lg:leading-[1.15]">
@@ -111,12 +112,12 @@ export function CTASection({
             </div>
           </div>
         </div>
-      </section>
+      </ScrollFadeSection>
     )
   }
 
   return (
-    <section className="bg-primary py-14 md:py-20">
+    <ScrollFadeSection className="bg-primary py-14 md:py-20">
       <div className="page-container">
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="mb-5 font-serif text-3xl font-semibold tracking-tight text-balance text-primary-foreground md:text-4xl lg:text-[2.5rem] lg:leading-[1.15]">
@@ -151,6 +152,6 @@ export function CTASection({
           </div>
         </div>
       </div>
-    </section>
+    </ScrollFadeSection>
   )
 }

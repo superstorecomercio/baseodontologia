@@ -51,7 +51,7 @@ export function Header() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20)
     }
-    window.addEventListener("scroll", handleScroll)
+    window.addEventListener("scroll", handleScroll, { passive: true })
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
@@ -79,7 +79,7 @@ export function Header() {
               height={LOGO_HEIGHT}
               className="block h-[76px] w-[141px] max-w-none"
               sizes={`${LOGO_WIDTH}px`}
-              quality={100}
+              quality={85}
               priority
             />
           </Link>

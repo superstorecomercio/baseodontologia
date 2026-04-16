@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { notFound } from "next/navigation"
+import { PageHero } from "@/components/motion/page-hero"
 import { Section } from "@/components/ui/section"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -64,7 +65,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   return (
     <>
       {/* Hero */}
-      <section className="bg-muted pb-12 pt-28 md:pb-14 md:pt-32">
+      <PageHero className="bg-muted pb-12 pt-28 md:pb-14 md:pt-32">
         <div className="page-container">
           <div className="mx-auto max-w-4xl">
             <Link
@@ -103,7 +104,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             </div>
           </div>
         </div>
-      </section>
+      </PageHero>
 
       {/* Content */}
       <Section>

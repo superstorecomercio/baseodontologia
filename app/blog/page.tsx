@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { PageHero } from "@/components/motion/page-hero"
 import { Section } from "@/components/ui/section"
 import { BlogCard } from "@/components/blog-card"
 import { Badge } from "@/components/ui/badge"
@@ -18,7 +19,7 @@ export default function BlogPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="bg-muted pb-16 pt-28 md:pb-20 md:pt-32">
+      <PageHero className="bg-muted pb-16 pt-28 md:pb-20 md:pt-32">
         <div className="page-container">
           <div className="max-w-3xl">
             <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary">
@@ -33,7 +34,7 @@ export default function BlogPage() {
             </p>
           </div>
         </div>
-      </section>
+      </PageHero>
 
       {/* Search and Categories */}
       <Section className="pb-8">

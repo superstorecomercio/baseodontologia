@@ -1,3 +1,4 @@
+import { ScrollFadeSection } from "@/components/motion/scroll-fade-section"
 import { StarRating } from "@/components/ui/star-rating"
 import { getGoogleBusinessData } from "@/lib/get-google-business-data"
 import { clinicData } from "@/lib/data"
@@ -7,7 +8,7 @@ export async function SocialProofSection() {
   const googleBusinessData = await getGoogleBusinessData()
 
   return (
-    <section className="border-y border-border bg-card py-8 md:py-10">
+    <ScrollFadeSection className="border-y border-border bg-card py-8 md:py-10">
       <div className="page-container">
         <div className="flex flex-col items-center justify-center gap-6 md:flex-row md:gap-10">
           {/* Google Rating */}
@@ -73,6 +74,6 @@ export async function SocialProofSection() {
           </div>
         </div>
       </div>
-    </section>
+    </ScrollFadeSection>
   )
 }

@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
+import { PageHero } from "@/components/motion/page-hero"
 import { Section, SectionHeader } from "@/components/ui/section"
 import { TreatmentCard } from "@/components/treatment-card"
 import { CTASection } from "@/components/cta-section"
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
 export default function TratamentosPage() {
   return (
     <>
-      <section className="bg-muted pb-16 pt-28 md:pb-20 md:pt-32">
+      <PageHero className="bg-muted pb-16 pt-28 md:pb-20 md:pt-32">
         <div className="page-container">
           <div className="max-w-3xl">
             <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary">
@@ -31,7 +32,7 @@ export default function TratamentosPage() {
             </p>
           </div>
         </div>
-      </section>
+      </PageHero>
 
       <Section>
         <SectionHeader

@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { PageHero } from "@/components/motion/page-hero"
 import { Section, SectionHeader } from "@/components/ui/section"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -27,7 +28,7 @@ export default function ContatoPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="bg-muted pb-16 pt-28 md:pb-20 md:pt-32">
+      <PageHero className="bg-muted pb-16 pt-28 md:pb-20 md:pt-32">
         <div className="page-container">
           <div className="max-w-3xl">
             <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary">
@@ -41,7 +42,7 @@ export default function ContatoPage() {
             </p>
           </div>
         </div>
-      </section>
+      </PageHero>
 
       {/* Contact Options */}
       <Section>

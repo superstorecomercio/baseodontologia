@@ -1,24 +1,27 @@
 import type { Metadata, Viewport } from "next"
 import { Plus_Jakarta_Sans, Playfair_Display } from "next/font/google"
-import { Analytics } from "@vercel/analytics/next"
+import { AnalyticsLoader } from "@/components/layout/analytics-loader"
 import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
 import { WhatsAppButton } from "@/components/layout/whatsapp-button"
 import "./globals.css"
 
 const playfair = Playfair_Display({
-  subsets: ["latin"],
+  subsets: ["latin", "latin-ext"],
   variable: "--font-display",
   display: "swap",
+  adjustFontFallback: true,
 })
 
 const plusJakarta = Plus_Jakarta_Sans({
-  subsets: ["latin"],
+  subsets: ["latin", "latin-ext"],
   variable: "--font-body",
   display: "swap",
+  adjustFontFallback: true,
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://baseodontologia.com.br"),
   title: {
     default: "Dr. Danilo Sorgini | Base Odontologia — São Paulo",
     template: "%s | Base Odontologia",
@@ -81,7 +84,7 @@ export default function RootLayout({
         <main>{children}</main>
         <Footer />
         <WhatsAppButton />
-        {process.env.NODE_ENV === "production" && <Analytics />}
+        <AnalyticsLoader />
       </body>
     </html>
   )

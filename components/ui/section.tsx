@@ -1,4 +1,8 @@
+"use client"
+
+import { motion, useReducedMotion } from "framer-motion"
 import { cn } from "@/lib/utils"
+import { transitionReveal } from "@/lib/motion"
 
 interface SectionProps {
   children: React.ReactNode
@@ -13,8 +17,10 @@ export function Section({
   id,
   variant = "default",
 }: SectionProps) {
+  const reduce = useReducedMotion()
+
   return (
-    <section
+    <motion.section
       id={id}
       className={cn(
         "py-14 md:py-20 lg:py-24",
@@ -22,9 +28,13 @@ export function Section({
         variant === "primary" && "bg-primary text-primary-foreground",
         className
       )}
+      initial={reduce ? false : { opacity: 0, y: 36 }}
+      whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
+      viewport={reduce ? undefined : { once: true, amount: 0.12, margin: "0px 0px -72px 0px" }}
+      transition={reduce ? { duration: 0 } : transitionReveal}
     >
       <div className="page-container">{children}</div>
-    </section>
+    </motion.section>
   )
 }
 
