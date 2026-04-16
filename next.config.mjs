@@ -7,6 +7,30 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const nextConfig = {
   compress: true,
   poweredByHeader: false,
+  async redirects() {
+    return [
+      {
+        source: "/tratamentos/dentistica",
+        destination: "/tratamentos",
+        permanent: true,
+      },
+      {
+        source: "/tratamentos/harmonizacao",
+        destination: "/tratamentos",
+        permanent: true,
+      },
+      {
+        source: "/tratamentos/limpeza",
+        destination: "/tratamentos",
+        permanent: true,
+      },
+      {
+        source: "/tratamentos/avaliacao",
+        destination: "/tratamentos",
+        permanent: true,
+      },
+    ]
+  },
   async headers() {
     return [
       {

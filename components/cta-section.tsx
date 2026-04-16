@@ -141,7 +141,7 @@ export function CTASection({
             <Button
               size="lg"
               variant="outline"
-              className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"
+              className="border-primary-foreground/40 bg-transparent text-primary-foreground shadow-none hover:bg-primary-foreground/15 hover:text-primary-foreground [&_svg]:text-primary-foreground"
               asChild
             >
               <a href={`tel:${phoneDigits(clinicData.phone)}`}>

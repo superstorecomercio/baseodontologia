@@ -21,3 +21,10 @@ export function getTreatmentBySlug(slug: string): TreatmentWithPage | undefined 
 export function getAllTreatmentSlugs(): string[] {
   return treatments.map((t) => t.id)
 }
+
+const requiredSeoIds = new Set(treatments.map((t) => t.id))
+for (const id of requiredSeoIds) {
+  if (!(id in treatmentPageSeoById)) {
+    throw new Error(`treatmentPageSeoById: falta conteúdo SEO para o id "${id}"`)
+  }
+}

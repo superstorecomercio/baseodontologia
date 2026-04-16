@@ -59,9 +59,12 @@ export function HeroSection() {
               ))}
             </h1>
 
-            <p className="mx-auto max-w-xl text-pretty text-base leading-relaxed text-muted-foreground md:text-lg md:leading-relaxed lg:mx-0 lg:mb-8">
-              {heroData.subheadline}
-            </p>
+            <div className="mx-auto max-w-xl space-y-4 text-pretty text-base leading-relaxed md:text-lg md:leading-relaxed lg:mx-0 lg:mb-8">
+              <p className="text-muted-foreground">{heroData.subheadline}</p>
+              <p className="font-medium text-foreground/90">
+                {heroData.subheadlineLead}
+              </p>
+            </div>
           </div>
 
           <div className="hero-fade-item hero-fade-item--3 order-3 flex flex-col items-center justify-center gap-4 sm:flex-row lg:col-start-1 lg:row-start-2 lg:justify-start">

@@ -79,17 +79,17 @@ export const instagramOfficialEmbedUrls: string[] = []
 
 /** Partes do título do hero (cor / ênfase por trecho) */
 export const heroHeadlineSegments = [
-  { text: "Excelência", className: "text-primary" },
-  { text: " em ", className: "text-foreground/85" },
-  { text: "reabilitação oral", className: "font-semibold text-foreground" },
-  { text: " e ", className: "text-foreground/85" },
-  { text: "implantes", className: "text-[#4a7287]" },
+  { text: "Mais do que odontologia, ", className: "text-primary" },
+  { text: "uma experiência pensada para você.", className: "font-semibold text-foreground" },
 ] as const
 
 export const heroData = {
-  headline: "Excelência em reabilitação oral e implantes",
+  headline: "Mais do que odontologia, uma experiência pensada para você.",
   subheadline:
-    "Atendimento clínico e acadêmico de alto nível: prótese dentária, implantodontia e reabilitação oral com base científica e tecnologia de ponta.",
+    "Ambiente acolhedor, atendimento personalizado e resultados naturais.",
+  /** Terceiro parágrafo do hero (convite à ação) */
+  subheadlineLead:
+    "Agende sua consulta e eleve o padrão do seu cuidado com o sorriso.",
   ctaPrimary: "Agendar pelo WhatsApp",
   ctaSecondary: "Marcar Avaliação",
 }
@@ -167,213 +167,261 @@ export const differentials = [
 
 export const treatments = [
   {
-    id: "dentistica",
-    title: "Dentística",
+    id: "tratamento-de-canal",
+    title: "Tratamento de canal (endodontia)",
     shortDescription:
-      "Recupere a estética do seu sorriso com soluções inovadoras.",
+      "Remoção da polpa comprometida, desinfecção e obturação dos canais para salvar o dente natural e eliminar dor e infecção.",
     fullDescription:
-      "A dentística reúne procedimentos restauradores e estéticos que devolvem forma, cor e função aos dentes. Utilizamos materiais modernos e técnicas conservadoras para um resultado natural, confortável e duradouro.",
+      "O tratamento de canal (endodontia) trata a polpa dentária inflamada ou infectada: remove o tecido interno, desinfeta os canais radiculares e sela o espaço, preservando o dente e evitando extração quando há condição de restaurar.",
     benefits: [
-      "Restaurações estéticas em resina composta",
-      "Correção de desgastes, fraturas e espaços",
-      "Planejamento voltado a um sorriso harmônico",
-      "Procedimentos minimamente invasivos quando possível",
+      "Preservação do dente natural",
+      "Eliminação da dor",
+      "Remoção ou controle da infecção",
+      "Evita extração na maioria dos casos indicados",
+      "Restabelecimento da função mastigatória",
+      "Melhora estética e funcional após restauração adequada",
     ],
     indication:
-      "Indicado para quem deseja melhorar a aparência dos dentes ou tratar cáries e pequenas alterações com foco em estética e mastigação.",
-    duration: "1 a 2 horas por sessão (conforme o caso)",
+      "Indicado em cárie profunda, fratura, trauma, abscesso ou fístula, polpa necrosada ou inflamada intensa e prolongada, e em retratamento quando um canal prévio falhou.",
+    duration: "Em geral 1 a 3 sessões por dente (conforme complexidade e infecção)",
     icon: "gem",
     image: "/images/treatments/dentistica.png",
   },
   {
-    id: "periodontia",
-    title: "Periodontia",
-    shortDescription:
-      "Cuide da sua gengiva e evite consequências graves para seus dentes.",
-    fullDescription:
-      "A periodontia cuida das estruturas de suporte dos dentes—gengiva, osso e ligamento—prevenindo e tratando gengivite e periodontite. Realizamos raspagem supra e subgengival, alisamento radicular e acompanhamento para estabilizar a saúde bucal.",
-    benefits: [
-      "Redução de inflamação e sangramento gengival",
-      "Prevenção da perda óssea e mobilidade dentária",
-      "Hálito e conforto bucal melhores",
-      "Base saudável para implantes, próteses e facetas",
-    ],
-    indication:
-      "Indicado para pacientes com sangramento ao escovar, gengiva inchada ou sensação de dentes “solto”, ou com diagnóstico de doença periodontal.",
-    duration: "Conforme protocolo e grau da doença",
-    icon: "heartPulse",
-    image: "/images/treatments/periodontia.png",
-  },
-  {
-    id: "harmonizacao",
-    title: "Harmonização Orofacial",
-    shortDescription:
-      "Diversos procedimentos para realçar a sua beleza e curvas faciais.",
-    fullDescription:
-      "A harmonização orofacial combina diferentes procedimentos estéticos para equilibrar e realçar os traços do rosto. Oferecemos botox, preenchimento labial, bichectomia e outros tratamentos.",
-    benefits: [
-      "Rejuvenescimento facial",
-      "Correção de assimetrias",
-      "Resultados naturais",
-      "Procedimentos rápidos e seguros",
-    ],
-    indication:
-      "Indicado para pacientes que desejam realçar a beleza natural do rosto.",
-    duration: "30 minutos a 1 hora",
-    icon: "heart",
-    image: "/images/treatments/harmonizacao.png",
-  },
-  {
-    id: "implantes",
-    title: "Implantes Dentários",
-    shortDescription:
-      "Tratamento personalizado para recuperar seu prazer em sorrir.",
-    fullDescription:
-      "Os implantes dentários são a melhor solução para substituir dentes perdidos. Utilizamos implantes de titânio de última geração, com planejamento digital 3D para garantir precisão e resultados excepcionais.",
-    benefits: [
-      "Função mastigatória restaurada",
-      "Estética natural",
-      "Durabilidade de décadas",
-      "Preservação do osso maxilar",
-    ],
-    indication:
-      "Indicado para pacientes que perderam um ou mais dentes e desejam uma solução definitiva.",
-    duration: "Tratamento de 3 a 6 meses",
-    icon: "plus",
-    image: "/images/treatments/implantes.png",
-  },
-  {
-    id: "proteses",
-    title: "Próteses Dentárias",
-    shortDescription:
-      "Próteses feitas sob medida para você sorrir com segurança e naturalidade.",
-    fullDescription:
-      "As próteses dentárias substituem dentes ausentes e restauram mastigação, fala e estética. Planejamos cada caso com critério clínico e laboratorial para próteses fixas ou removíveis com encaixe, conforto e aparência natural.",
-    benefits: [
-      "Reposição de dentes com estética personalizada",
-      "Melhora da mastigação e da fala",
-      "Materiais e desenho adaptados ao seu caso",
-      "Acompanhamento para ajustes e manutenção",
-    ],
-    indication:
-      "Indicado para quem perdeu dentes e precisa de rehabilitação parcial ou total, com ou sem implantes.",
-    duration: "Conforme tipo de prótese e planejamento",
-    icon: "layers",
-    image: "/images/treatments/proteses.png",
-  },
-  {
-    id: "clareamento",
-    title: "Clareamento Dental",
-    shortDescription:
-      "Recupere o branco natural do seu sorriso com este tratamento.",
-    fullDescription:
-      "O clareamento dental é um dos tratamentos estéticos mais procurados. Oferecemos clareamento em consultório com LED e clareamento caseiro supervisionado, ambos seguros e com resultados comprovados.",
-    benefits: [
-      "Dentes até 8 tons mais claros",
-      "Resultados visíveis já na primeira sessão",
-      "Procedimento indolor",
-      "Autoestima renovada",
-    ],
-    indication:
-      "Ideal para quem deseja um sorriso mais branco e jovem, sem procedimentos invasivos.",
-    duration: "1 a 2 horas por sessão",
-    icon: "sun",
-    image: "/images/treatments/clareamento.png",
-  },
-  {
-    id: "limpeza",
-    title: "Limpeza e Profilaxia",
-    shortDescription:
-      "Remoção de tártaro e placa bacteriana para uma saúde bucal impecável.",
-    fullDescription:
-      "A limpeza dental profissional é essencial para manter a saúde bucal em dia. Utilizamos equipamentos de última geração para remover tártaro, placa bacteriana e manchas superficiais, deixando seus dentes limpos, polidos e saudáveis.",
-    benefits: [
-      "Prevenção de cáries e doenças gengivais",
-      "Remoção de manchas superficiais",
-      "Hálito mais fresco",
-      "Dentes mais brancos e brilhantes",
-    ],
-    indication:
-      "Indicado para todos os pacientes, recomendamos realizar a cada 6 meses para manter a saúde bucal em dia.",
-    duration: "45 minutos",
-    icon: "sparkles",
-    image: "/images/treatments/limpeza.jpg",
-  },
-  {
-    id: "lentes-dentais",
-    title: "Lentes de Contato Dental",
-    shortDescription:
-      "Transforme seu sorriso com lâminas ultrafinas de porcelana.",
-    fullDescription:
-      "As lentes de contato dental são lâminas ultrafinas de porcelana que são coladas na superfície dos dentes, corrigindo cor, forma, tamanho e alinhamento. É a solução perfeita para um sorriso de Hollywood.",
-    benefits: [
-      "Correção de dentes tortos ou desalinhados",
-      "Fechamento de espaços entre dentes",
-      "Correção de manchas permanentes",
-      "Resultado natural e duradouro",
-    ],
-    indication:
-      "Indicado para pacientes que desejam transformar completamente o visual do sorriso.",
-    duration: "2 a 3 sessões",
-    icon: "smile",
-    image: "/images/treatments/lentes-dentais.jpg",
-  },
-  {
     id: "ortodontia",
-    title: "Ortodontia",
+    title: "Tratamentos ortodônticos",
     shortDescription:
-      "Alinhe seus dentes com aparelhos tradicionais ou invisíveis.",
+      "Correção de apinhamento, diastema, mordida cruzada e prognatismo — com aparelho fixo, expansores, elásticos ou, em casos selecionados, cirurgia ortognática.",
     fullDescription:
-      "Oferecemos diversas opções de tratamento ortodôntico, desde aparelhos fixos tradicionais até alinhadores invisíveis. Cada caso é planejado individualmente para garantir os melhores resultados.",
+      "Os tratamentos ortodônticos corrigem o alinhamento dos dentes e a relação entre maxila e mandíbula, melhorando estética, mastigação e saúde bucal. Atendem crianças, adolescentes e adultos com aparelhos fixos, mecânicas removíveis funcionais e outros recursos conforme o diagnóstico; em desequilíbrios ósseos severos pode haver indicação de cirurgia ortognática.",
     benefits: [
-      "Correção de má oclusão",
-      "Dentes alinhados e harmônicos",
-      "Melhora na mastigação",
-      "Facilita a higienização",
+      "Sorriso mais harmônico e alinhado",
+      "Melhora da mastigação",
+      "Melhor higiene em dentes alinhados",
+      "Prevenção de cáries e gengivite relacionadas a maloclusão",
+      "Melhora da autoestima",
+      "Correção funcional da mordida",
     ],
     indication:
-      "Indicado para crianças, adolescentes e adultos com dentes desalinhados ou problemas de mordida.",
-    duration: "12 a 36 meses",
+      "Para apinhamento, espaços entre dentes (diastema), mordida cruzada anterior ou posterior, prognatismo ou outras alterações esqueléticas e dentárias avaliadas clinicamente.",
+    duration: "Em média 12 a 36 meses (conforme a maloclusão e a mecânica utilizada)",
     icon: "alignCenter",
     image: "/images/treatments/ortodontia.jpg",
-  },
-  {
-    id: "avaliacao",
-    title: "Avaliação Odontológica",
-    shortDescription:
-      "Diagnóstico completo para planejar seu tratamento ideal.",
-    fullDescription:
-      "Nossa avaliação odontológica é completa e detalhada. Utilizamos tecnologia de ponta, incluindo scanner intraoral 3D e radiografias digitais, para um diagnóstico preciso e um plano de tratamento personalizado.",
-    benefits: [
-      "Diagnóstico preciso e completo",
-      "Plano de tratamento personalizado",
-      "Prevenção de problemas futuros",
-      "Orçamento detalhado",
-    ],
-    indication:
-      "Recomendado para todos que desejam conhecer a real condição da saúde bucal.",
-    duration: "1 hora",
-    icon: "search",
-    image: "/images/treatments/avaliacao.jpg",
   },
   {
     id: "odontopediatria",
     title: "Odontopediatria",
     shortDescription:
-      "Cuidado especial e carinhoso para a saúde bucal dos pequenos.",
+      "Saúde bucal de bebês, crianças e adolescentes: prevenção, cáries, aparelhos, hábitos e acompanhamento humanizado.",
     fullDescription:
-      "Nossa equipe é especializada em atender crianças de todas as idades, desde bebês até adolescentes. Criamos um ambiente lúdico e acolhedor para que a visita ao dentista seja uma experiência positiva.",
+      "A odontopediatria cuida da boca desde o nascimento até o início da vida adulta — prevenindo doenças, tratando cáries e trauma e promovendo hábitos saudáveis para o desenvolvimento dos dentes, dos ossos e das funções orais, em ambiente acolhedor.",
     benefits: [
-      "Ambiente adaptado para crianças",
-      "Prevenção desde cedo",
-      "Tratamento de cáries e traumas",
-      "Orientação para pais",
+      "Prevenção de cáries desde cedo",
+      "Crescimento adequado dos dentes e da arcada",
+      "Menos necessidade de tratamentos complexos no futuro",
+      "Hábitos de higiene oral saudáveis",
+      "Redução do medo de dentista",
+      "Melhora da autoestima infantil e juvenil",
     ],
     indication:
-      "Indicado para crianças de 0 a 14 anos, com acompanhamento preventivo e curativo.",
-    duration: "30 a 45 minutos",
+      "Para bebês (orientação e primeira consulta), crianças em dentição decídua ou mista e adolescentes com dentição permanente — prevenção, cáries, selantes, ortodontia, clareamento quando indicado e orientação à família.",
+    duration: "Consultas de rotina em geral 30 a 45 minutos; planos mais longos conforme tratamento",
     icon: "baby",
     image: "/images/treatments/odontopediatria.jpg",
+  },
+  {
+    id: "terceira-idade",
+    title: "Tratamentos odontológicos para a terceira idade",
+    shortDescription:
+      "Boca seca, cáries (incluindo radiculares), perda dentária e saburra lingual — cuidados personalizados para mastigar, falar e sorrir com saúde.",
+    fullDescription:
+      "Os tratamentos odontológicos para a terceira idade previnem e tratam alterações ligadas ao envelhecimento, medicamentos e doenças sistêmicas — com foco em saliva, dentes, gengiva e próteses, sempre com plano individualizado para função e qualidade de vida.",
+    benefits: [
+      "Melhora da qualidade de vida",
+      "Mastigação mais eficiente",
+      "Prevenção de doenças bucais",
+      "Redução de dor e desconforto",
+      "Melhora estética do sorriso",
+      "Maior autonomia alimentar",
+      "Redução do mau hálito",
+    ],
+    indication:
+      "Para idosos com boca seca, cáries ou raiz exposta, perda parcial ou total de dentes, saburra lingual ou halitose, dificuldade com próteses ou necessidade de reabilitação e manutenção periódica.",
+    duration: "Variável: consultas de manutenção em geral a cada 6 meses; tratamentos específicos conforme o plano",
+    icon: "heart",
+    image: "/images/treatments/avaliacao.jpg",
+  },
+  {
+    id: "implantes",
+    title: "Implante dentário",
+    shortDescription:
+      "Titânio no osso como raiz artificial, com coroa, ponte ou protocolo — planejamento por imagem e prótese fixa estável.",
+    fullDescription:
+      "O implante dentário é uma estrutura de titânio (ou material biocompatível) inserida no osso da maxila ou mandíbula para substituir a raiz do dente perdido. Sobre ele instala-se coroa, ponte ou protocolo, devolvendo mastigação e estética com alta previsibilidade quando bem planejado.",
+    benefits: [
+      "Substituição fixa e estável do dente perdido",
+      "Estética natural e harmoniosa",
+      "Melhora da mastigação",
+      "Preservação do osso alveolar",
+      "Não desgasta dentes vizinhos como em algumas pontes convencionais",
+      "Alta durabilidade com manutenção",
+      "Melhora da autoestima e da qualidade de vida",
+    ],
+    indication:
+      "Para quem perdeu um ou mais dentes, tem dificuldade com prótese removível, busca reabilitação fixa, apresenta boa saúde geral e gengival e osso suficiente — ou possibilidade de enxerto — e deseja solução duradoura.",
+    duration:
+      "Cirurgia em geral 40 a 90 minutos por etapa; osseointegração frequentemente entre 2 e 6 meses antes da prótese definitiva (variável)",
+    icon: "plus",
+    image: "/images/treatments/implantes.png",
+  },
+  {
+    id: "periodontia",
+    title: "Tratamentos e cirurgias gengivais",
+    shortDescription:
+      "Gengivite, periodontite, retração gengival, gengivoplastia, frenectomia e bridectomia — saúde, função e estética da gengiva.",
+    fullDescription:
+      "Tratamentos e cirurgias gengivais abrangem desde o controle de inflamações (gengivite e periodontite) até cirurgias plásticas periodontais, enxertos para retração e remoção de freios ou bridas que interferem na saúde, na ortodontia ou nas próteses — sempre com planejamento individualizado.",
+    benefits: [
+      "Melhora da saúde gengival",
+      "Prevenção da perda dentária",
+      "Correção estética do sorriso quando indicada",
+      "Redução de inflamações e sangramentos",
+      "Melhora funcional mastigatória",
+      "Harmonização do contorno gengival",
+      "Maior estabilidade ortodôntica e protética em casos compatíveis",
+    ],
+    indication:
+      "Para inflamação gengival inicial, periodontite com bolsas e perda de suporte, retração com sensibilidade ou aspecto, sorriso gengival ou contorno irregular, freios ou bridas que atrapalham higiene, prótese ou ortodontia.",
+    duration: "Variável: sessões clínicas ou cirúrgicas; cicatrização gengival típica em cerca de 7 a 14 dias nos procedimentos cirúrgicos",
+    icon: "heartPulse",
+    image: "/images/treatments/periodontia.png",
+  },
+  {
+    id: "proteses",
+    title: "Próteses dentárias",
+    shortDescription:
+      "Substituição de dentes perdidos ou muito comprometidos — fixas, removíveis ou sobre implantes — com planejamento individualizado.",
+    fullDescription:
+      "As próteses dentárias são dispositivos que substituem dentes perdidos ou parcialmente comprometidos, restaurando mastigação, estética e saúde bucal. Podem ser fixas ou removíveis, parciais ou totais, sempre planejadas conforme a necessidade de cada paciente.",
+    benefits: [
+      "Recuperação da função mastigatória",
+      "Melhora da estética do sorriso",
+      "Reabilitação da fala",
+      "Prevenção do deslocamento dos dentes remanescentes",
+      "Melhora da autoestima",
+      "Apoio à estrutura facial quando indicado",
+      "Distribuição adequada da força mastigatória",
+    ],
+    indication:
+      "Para quem apresenta perda parcial ou total dos dentes, dentes muito destruídos sem condição de restauração, dificuldade mastigatória, prejuízo estético ou necessidade de reabilitação funcional e de suporte facial.",
+    duration: "Variável: semanas a meses conforme tipo de prótese, laboratório e necessidade de implantes ou preparos",
+    icon: "layers",
+    image: "/images/treatments/proteses.png",
+  },
+  {
+    id: "lentes-dentais",
+    title: "Lentes de contato dental",
+    shortDescription:
+      "Lâminas finas de porcelana ou resina cerâmica, sob medida, para cor, formato e sorriso com planejamento digital e mínimo desgaste.",
+    fullDescription:
+      "As lentes de contato dental são lâminas extremamente finas de porcelana ou resina cerâmica, confeccionadas sob medida e cimentadas na face frontal dos dentes. Corrigem cor, formato, tamanho e pequenos desalinhamentos, com transformação estética moderna e preservação máxima da estrutura — em alguns casos sem desgaste.",
+    benefits: [
+      "Transformação estética imediata do sorriso",
+      "Alta durabilidade (principalmente em porcelana)",
+      "Naturalidade e estética avançada",
+      "Resistência a pigmentação",
+      "Procedimento minimamente invasivo",
+      "Correção de múltiplos aspectos estéticos em um único tratamento",
+      "Melhora da autoestima e da confiança",
+    ],
+    indication:
+      "Indicadas para quem busca harmonizar o sorriso com dentes escurecidos ou cor irregular, pequenos desalinhamentos, diastemas, formato irregular, dentes pequenos, desgastes leves, assimetria ou reabilitação estética anterior.",
+    duration: "Em geral 2 a 3 sessões principais ao longo de algumas semanas (conforme laboratório)",
+    icon: "smile",
+    image: "/images/treatments/lentes-dentais.jpg",
+  },
+  {
+    id: "disfuncao-temporomandibular",
+    title: "Disfunção temporomandibular (DTM)",
+    shortDescription:
+      "Dor, estalos ou travamento na mandíbula? Avaliação e tratamento conservador da ATM e dos músculos da mastigação.",
+    fullDescription:
+      "A DTM é um conjunto de alterações na articulação temporomandibular (ATM), nos músculos da mastigação e estruturas associadas — não é uma única doença, mas um grupo de condições que podem causar dor, estalos, limitação de movimento e desconforto facial. O manejo costuma ser conservador e multidisciplinar.",
+    benefits: [
+      "Redução da dor facial e muscular",
+      "Melhora da função mastigatória",
+      "Diminuição de estalos e travamentos",
+      "Relaxamento muscular",
+      "Melhora da qualidade do sono",
+      "Redução de cefaleias associadas",
+      "Melhora da qualidade de vida",
+    ],
+    indication:
+      "Para quem apresenta dor na mandíbula ou face, dor ao mastigar ou falar, estalos ou crepitação na ATM, travamento ou limitação de abertura, cefaleia tensional frequente, dor ou pressão auricular e tensão em face ou pescoço.",
+    duration: "Variável: semanas a meses conforme o tipo de DTM e o plano de tratamento",
+    icon: "heartPulse",
+    image: "/images/treatments/harmonizacao.png",
+  },
+  {
+    id: "clareamento",
+    title: "Clareamento dental",
+    shortDescription:
+      "Clareamento em consultório, caseiro supervisionado ou combinado, com agentes à base de peróxidos e acompanhamento clínico.",
+    fullDescription:
+      "O clareamento dental profissional clareia dentes naturais com agentes à base de peróxidos, sob supervisão do cirurgião-dentista, com segurança, controle e previsibilidade. Atua por oxidação no esmalte e dentina, sem alterar cor de restaurações, coroas ou facetas.",
+    benefits: [
+      "Melhora significativa da estética do sorriso",
+      "Procedimento minimamente invasivo",
+      "Preservação da estrutura dental",
+      "Aumento da autoestima e autoconfiança",
+      "Possibilidade de associação com outros tratamentos estéticos",
+      "Resultados naturais e progressivos (conforme a técnica)",
+    ],
+    indication:
+      "Indicado para escurecimento por pigmentos alimentares, amarelamento natural, alterações leves a moderadas de cor, dentes vitais ou não vitais com técnicas específicas, em pacientes com boa saúde bucal geral.",
+    duration:
+      "Consultório: em geral 40 a 90 minutos por sessão; caseiro supervisionado: cerca de 2 a 4 semanas; combinado conforme protocolo",
+    icon: "sun",
+    image: "/images/treatments/clareamento.png",
+  },
+  {
+    id: "alinhadores-transparentes",
+    title: "Aparelhos transparentes",
+    shortDescription:
+      "Alinhadores ortodônticos removíveis e discretos, com escaneamento digital e trocas programadas sob supervisão do ortodontista.",
+    fullDescription:
+      "Os aparelhos ortodônticos transparentes (alinhadores) são placas individuais, quase imperceptíveis, fabricadas após digitalização da arcada. Cada etapa aplica força controlada até a posição planejada, com orientação de tempo de uso diário e consultas de controle.",
+    benefits: [
+      "Estética durante o tratamento ativo",
+      "Higiene oral facilitada em relação a muitos aparelhos fixos",
+      "Menos irritação de mucosa em diversos casos",
+      "Planejamento digital com previsibilidade de movimentos",
+    ],
+    indication:
+      "Para adolescentes e adultos com boa colaboração (horas de uso diárias), higiene adequada e maloclusões compatíveis com mecânica por placas — avaliação ortodôntica define se substituem ou complementam o aparelho fixo.",
+    duration: "Em muitos casos cerca de 6 a 24 meses, conforme complexidade e refinamentos",
+    icon: "alignCenter",
+    image: "/images/treatments/ortodontia.jpg",
+  },
+  {
+    id: "extracao-dentaria",
+    title: "Extração de dente",
+    shortDescription:
+      "Remoção segura do dente quando não há como mantê-lo com funcionalidade ou sem risco — simples, cirúrgica ou inclusos (sisos).",
+    fullDescription:
+      "A extração dentária (exodontia) remove o dente da cavidade oral quando ele não pode ser mantido com segurança ou função adequada, por cárie, infecção, trauma, periodontite ou indicação ortodôntica. A odontologia moderna prioriza a preservação, mas a extração ainda evita complicações e prepara reabilitação.",
+    benefits: [
+      "Eliminação de dor e foco infeccioso",
+      "Prevenção de complicações locais e sistêmicas",
+      "Melhora da saúde bucal geral",
+      "Possibilidade de planejamento protético ou ortodôntico",
+      "Evita comprometimento de dentes vizinhos",
+    ],
+    indication:
+      "Indicada em cáries irreversíveis, infecções recorrentes, periodontite avançada com mobilidade, fraturas sem reparo, dentes inclusos ou por necessidade de espaço na arcada, entre outras situações avaliadas clinicamente.",
+    duration: "Em geral 20 minutos a 1 hora (conforme a complexidade)",
+    icon: "plus",
+    image: "/images/treatments/periodontia.png",
   },
 ]
 

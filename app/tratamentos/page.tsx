@@ -9,7 +9,7 @@ import { treatments, clinicData } from "@/lib/data"
 export const metadata: Metadata = {
   title: "Tratamentos",
   description:
-    "Conheça nossos tratamentos odontológicos: clareamento, lentes de contato dental, implantes, ortodontia e muito mais. Tecnologia de ponta e profissionais qualificados.",
+    "Conheça nossos tratamentos odontológicos: clareamento, lentes de contato dental, implantes, alinhadores transparentes e muito mais. Tecnologia de ponta e profissionais qualificados.",
 }
 
 export default function TratamentosPage() {
