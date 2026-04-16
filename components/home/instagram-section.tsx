@@ -1,6 +1,6 @@
 import { Section, SectionHeader } from "@/components/ui/section"
 import { Button } from "@/components/ui/button"
-import { InstagramOfficialEmbeds } from "@/components/instagram-official-embeds"
+import { InstagramEmbedsLazyGate } from "@/components/instagram-embeds-lazy-gate"
 import { getInstagramDisplayPosts } from "@/lib/get-instagram-display-posts"
 import { clinicData } from "@/lib/data"
 import { Instagram, ExternalLink } from "lucide-react"
@@ -71,7 +71,7 @@ export async function InstagramSection() {
       ) : null}
 
       {display.view === "embed" ? (
-        <InstagramOfficialEmbeds urls={embedUrls} />
+        <InstagramEmbedsLazyGate urls={embedUrls} />
       ) : (
         <div className="mx-auto grid max-w-5xl grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3">
           {posts.map((post, index) => (

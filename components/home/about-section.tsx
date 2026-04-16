@@ -48,6 +48,8 @@ export function AboutSection() {
                 fill
                 sizes="(max-width: 1024px) 320px, 352px"
                 className="object-cover object-center"
+                loading="lazy"
+                fetchPriority="low"
               />
             </div>
             {/* Credential card — ancorado à foto */}

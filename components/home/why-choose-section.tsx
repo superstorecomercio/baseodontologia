@@ -25,6 +25,8 @@ export function WhyChooseSection() {
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover object-center"
+              loading="lazy"
+              fetchPriority="low"
             />
           </div>
           {/* Stats card */}

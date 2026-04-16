@@ -41,7 +41,11 @@ const nextConfig = {
     qualities: [75, 80, 85, 100],
   },
   experimental: {
-    optimizePackageImports: ["lucide-react"],
+    optimizePackageImports: [
+      "lucide-react",
+      "@radix-ui/react-slot",
+      "@radix-ui/react-accordion",
+    ],
     /**
      * Inline de CSS no HTML (produção): remove `<link rel="stylesheet">` bloqueantes
      * no primeiro paint — alivia FCP/LCP no PageSpeed (Tailwind ~25 KiB é um bom alvo).
