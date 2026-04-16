@@ -42,6 +42,12 @@ const nextConfig = {
   },
   experimental: {
     optimizePackageImports: ["lucide-react"],
+    /**
+     * Inline de CSS no HTML (produção): remove `<link rel="stylesheet">` bloqueantes
+     * no primeiro paint — alivia FCP/LCP no PageSpeed (Tailwind ~25 KiB é um bom alvo).
+     * @see https://nextjs.org/docs/app/api-reference/config/next-config-js/inlineCss
+     */
+    inlineCss: true,
   },
 }
 
