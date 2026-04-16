@@ -3,7 +3,6 @@ import { Section, SectionHeader } from "@/components/ui/section"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { SocialFeedCard } from "@/components/social-feed-card"
-import { CTASection } from "@/components/cta-section"
 import { clinicData, socialPosts } from "@/lib/data"
 import { Instagram, Facebook, Youtube, MessageCircle, ExternalLink } from "lucide-react"
 
@@ -228,8 +227,6 @@ export default function RedesSociaisPage() {
           ))}
         </div>
       </Section>
-
-      <CTASection variant="light" />
     </>
   )
 }

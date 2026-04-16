@@ -6,8 +6,6 @@ import { AboutSection } from "@/components/home/about-section"
 import { InstagramSection } from "@/components/home/instagram-section"
 import { GoogleReviewsSection } from "@/components/home/google-reviews-section"
 import { LocationSection } from "@/components/home/location-section"
-import { FAQSection } from "@/components/home/faq-section"
-import { CTASection } from "@/components/cta-section"
 
 export default function HomePage() {
   return (
@@ -20,8 +18,6 @@ export default function HomePage() {
       <InstagramSection />
       <GoogleReviewsSection />
       <LocationSection />
-      <FAQSection />
-      <CTASection whatsappOnly />
     </>
   )
 }

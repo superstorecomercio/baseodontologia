@@ -1,7 +1,6 @@
 import type { Metadata } from "next"
 import Image from "next/image"
 import { Section, SectionHeader } from "@/components/ui/section"
-import { CTASection } from "@/components/cta-section"
 import { clinicData, aboutData, differentials } from "@/lib/data"
 import { CheckCircle2, Target, Eye, Heart, Shield, Camera, Clock, CreditCard, Award } from "lucide-react"
 
@@ -214,26 +213,25 @@ export default function SobrePage() {
         </div>
       </Section>
 
-      {/* Clinic Image */}
+      {/* Team at clinic */}
       <Section variant="muted">
-        <div className="relative aspect-[21/9] rounded-3xl overflow-hidden shadow-xl">
+        <div className="relative aspect-[4/3] md:aspect-[3/2] lg:aspect-[2/1] rounded-3xl overflow-hidden shadow-xl">
           <Image
-            src="/images/clinic-interior.jpg"
-            alt={`Interior da ${clinicData.clinicName}`}
+            src="/images/equipe-fachada-base.png"
+            alt={`Equipe da ${clinicData.clinicName} em frente à clínica`}
             fill
-            className="object-cover"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1120px"
+            className="object-cover object-[center_35%]"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 to-transparent" />
           <div className="absolute bottom-8 left-8 right-8">
             <p className="text-2xl md:text-3xl font-semibold text-white max-w-2xl text-balance">
-              Um ambiente acolhedor pensado para proporcionar a melhor
-              experiência em cada visita.
+              A equipe que transforma sorrisos com excelência e acolhimento na{" "}
+              {clinicData.clinicName}.
             </p>
           </div>
         </div>
       </Section>
-
-      <CTASection variant="light" />
     </>
   )
 }
