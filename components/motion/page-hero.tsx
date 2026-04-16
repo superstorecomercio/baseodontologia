@@ -1,8 +1,4 @@
-"use client"
-
-import { motion, useReducedMotion } from "framer-motion"
 import { cn } from "@/lib/utils"
-import { transitionHero } from "@/lib/motion"
 
 interface PageHeroProps {
   children: React.ReactNode
@@ -10,19 +6,8 @@ interface PageHeroProps {
 }
 
 /**
- * Hero institucional acima da dobra: entrada suave ao carregar a página.
+ * Hero institucional acima da dobra: entrada via CSS (sem JS na main thread).
  */
 export function PageHero({ children, className }: PageHeroProps) {
-  const reduce = useReducedMotion()
-
-  return (
-    <motion.section
-      className={cn(className)}
-      initial={reduce ? false : { opacity: 0, y: 18 }}
-      animate={reduce ? undefined : { opacity: 1, y: 0 }}
-      transition={transitionHero}
-    >
-      {children}
-    </motion.section>
-  )
+  return <section className={cn(className, "anim-page-hero")}>{children}</section>
 }

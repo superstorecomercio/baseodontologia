@@ -41,9 +41,133 @@ function navLinkActive(pathname: string, href: string): string {
   )
 }
 
-export function Header() {
+interface HeaderMobileNavProps {
+  pathname: string
+}
+
+/**
+ * Estado do drawer remonta com `key={pathname}` no pai (fecha ao navegar)
+ * sem setState em effect. O drawer usa `basis-full` + `flex-wrap` no header.
+ */
+function HeaderMobileNav({ pathname }: HeaderMobileNavProps) {
   const [isOpen, setIsOpen] = useState(false)
   const [mobileTreatmentsOpen, setMobileTreatmentsOpen] = useState(false)
+
+  return (
+    <>
+      <button
+        className="-mr-2 p-2 lg:hidden"
+        onClick={() => setIsOpen(!isOpen)}
+        aria-label={isOpen ? "Fechar menu" : "Abrir menu"}
+      >
+        {isOpen ? (
+          <X className="h-6 w-6 text-foreground" />
+        ) : (
+          <Menu className="h-6 w-6 text-foreground" />
+        )}
+      </button>
+
+      <div
+        className={cn(
+          "w-full basis-full overflow-y-auto transition-all duration-300 lg:hidden",
+          isOpen ? "max-h-[min(85vh,32rem)] pb-6" : "max-h-0"
+        )}
+      >
+        <div className="flex flex-col gap-1 border-t border-border pt-4">
+          {simpleNav.slice(0, 2).map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              onClick={() => setIsOpen(false)}
+              className={cn(
+                "rounded-lg px-4 py-3 text-base font-medium transition-colors",
+                pathname === item.href || pathname.startsWith(`${item.href}/`)
+                  ? "bg-primary/10 text-primary"
+                  : "text-muted-foreground hover:bg-accent hover:text-foreground"
+              )}
+            >
+              {item.name}
+            </Link>
+          ))}
+
+          <div className="rounded-lg">
+            <button
+              type="button"
+              onClick={() => setMobileTreatmentsOpen((v) => !v)}
+              className={cn(
+                "flex w-full items-center justify-between rounded-lg px-4 py-3 text-left text-base font-medium transition-colors",
+                isTratamentosSection(pathname)
+                  ? "bg-primary/10 text-primary"
+                  : "text-muted-foreground hover:bg-accent hover:text-foreground"
+              )}
+              aria-expanded={mobileTreatmentsOpen}
+            >
+              Tratamentos
+              <ChevronDown
+                className={cn(
+                  "h-4 w-4 shrink-0 transition-transform",
+                  mobileTreatmentsOpen && "rotate-180"
+                )}
+                aria-hidden
+              />
+            </button>
+            {mobileTreatmentsOpen ? (
+              <div className="ml-4 space-y-0.5 border-l border-border py-1 pl-3">
+                <Link
+                  href="/tratamentos"
+                  onClick={() => setIsOpen(false)}
+                  className="block rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-accent hover:text-foreground"
+                >
+                  Ver todos
+                </Link>
+                {treatments.map((t) => (
+                  <Link
+                    key={t.id}
+                    href={`/tratamentos/${t.id}`}
+                    onClick={() => setIsOpen(false)}
+                    className="block rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-accent hover:text-foreground"
+                  >
+                    {t.title}
+                  </Link>
+                ))}
+              </div>
+            ) : null}
+          </div>
+
+          {simpleNav.slice(2).map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              onClick={() => setIsOpen(false)}
+              className={cn(
+                "rounded-lg px-4 py-3 text-base font-medium transition-colors",
+                pathname === item.href || pathname.startsWith(`${item.href}/`)
+                  ? "bg-primary/10 text-primary"
+                  : "text-muted-foreground hover:bg-accent hover:text-foreground"
+              )}
+            >
+              {item.name}
+            </Link>
+          ))}
+
+          <div className="mt-4 border-t border-border pt-4">
+            <Button asChild className="w-full">
+              <a
+                href={`https://wa.me/${clinicData.whatsapp}?text=Olá! Gostaria de agendar uma consulta.`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Agendar Consulta
+              </a>
+            </Button>
+          </div>
+        </div>
+      </div>
+    </>
+  )
+}
+
+export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const pathname = usePathname()
 
@@ -55,11 +179,6 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  useEffect(() => {
-    setMobileTreatmentsOpen(false)
-    setIsOpen(false)
-  }, [pathname])
-
   return (
     <header
       className={cn(
@@ -70,7 +189,7 @@ export function Header() {
       )}
     >
       <nav className="page-container">
-        <div className="flex min-h-[4.5rem] items-center justify-between gap-4 py-2 lg:min-h-20">
+        <div className="flex min-h-[4.5rem] flex-wrap items-center justify-between gap-4 py-2 lg:min-h-20 lg:flex-nowrap">
           <Link href="/" className="flex shrink-0 items-center">
             <Image
               src="/images/logo-base-odontologia.png"
@@ -161,114 +280,7 @@ export function Header() {
             </Button>
           </div>
 
-          <button
-            className="-mr-2 p-2 lg:hidden"
-            onClick={() => setIsOpen(!isOpen)}
-            aria-label={isOpen ? "Fechar menu" : "Abrir menu"}
-          >
-            {isOpen ? (
-              <X className="h-6 w-6 text-foreground" />
-            ) : (
-              <Menu className="h-6 w-6 text-foreground" />
-            )}
-          </button>
-        </div>
-
-        <div
-          className={cn(
-            "overflow-y-auto transition-all duration-300 lg:hidden",
-            isOpen ? "max-h-[min(85vh,32rem)] pb-6" : "max-h-0"
-          )}
-        >
-          <div className="flex flex-col gap-1 border-t border-border pt-4">
-            {simpleNav.slice(0, 2).map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => setIsOpen(false)}
-                className={cn(
-                  "rounded-lg px-4 py-3 text-base font-medium transition-colors",
-                  pathname === item.href || pathname.startsWith(`${item.href}/`)
-                    ? "bg-primary/10 text-primary"
-                    : "text-muted-foreground hover:bg-accent hover:text-foreground"
-                )}
-              >
-                {item.name}
-              </Link>
-            ))}
-
-            <div className="rounded-lg">
-              <button
-                type="button"
-                onClick={() => setMobileTreatmentsOpen((v) => !v)}
-                className={cn(
-                  "flex w-full items-center justify-between rounded-lg px-4 py-3 text-left text-base font-medium transition-colors",
-                  isTratamentosSection(pathname)
-                    ? "bg-primary/10 text-primary"
-                    : "text-muted-foreground hover:bg-accent hover:text-foreground"
-                )}
-                aria-expanded={mobileTreatmentsOpen}
-              >
-                Tratamentos
-                <ChevronDown
-                  className={cn(
-                    "h-4 w-4 shrink-0 transition-transform",
-                    mobileTreatmentsOpen && "rotate-180"
-                  )}
-                  aria-hidden
-                />
-              </button>
-              {mobileTreatmentsOpen ? (
-                <div className="ml-4 space-y-0.5 border-l border-border py-1 pl-3">
-                  <Link
-                    href="/tratamentos"
-                    onClick={() => setIsOpen(false)}
-                    className="block rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-accent hover:text-foreground"
-                  >
-                    Ver todos
-                  </Link>
-                  {treatments.map((t) => (
-                    <Link
-                      key={t.id}
-                      href={`/tratamentos/${t.id}`}
-                      onClick={() => setIsOpen(false)}
-                      className="block rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-accent hover:text-foreground"
-                    >
-                      {t.title}
-                    </Link>
-                  ))}
-                </div>
-              ) : null}
-            </div>
-
-            {simpleNav.slice(2).map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => setIsOpen(false)}
-                className={cn(
-                  "rounded-lg px-4 py-3 text-base font-medium transition-colors",
-                  pathname === item.href || pathname.startsWith(`${item.href}/`)
-                    ? "bg-primary/10 text-primary"
-                    : "text-muted-foreground hover:bg-accent hover:text-foreground"
-                )}
-              >
-                {item.name}
-              </Link>
-            ))}
-
-            <div className="mt-4 border-t border-border pt-4">
-              <Button asChild className="w-full">
-                <a
-                  href={`https://wa.me/${clinicData.whatsapp}?text=Olá! Gostaria de agendar uma consulta.`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Agendar Consulta
-                </a>
-              </Button>
-            </div>
-          </div>
+          <HeaderMobileNav key={pathname} pathname={pathname} />
         </div>
       </nav>
     </header>

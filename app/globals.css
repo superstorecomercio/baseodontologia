@@ -143,4 +143,132 @@
   .page-container {
     @apply mx-auto w-full max-w-[1200px] px-6 sm:px-8 md:px-10 lg:px-14 xl:px-16;
   }
+
+  /**
+   * Animações leves (CSS) em vez de Framer Motion — menos JS na main thread (TBT / PSI).
+   * Curva alinhada ao antigo easePremium [0.22, 1, 0.36, 1].
+   */
+  @keyframes page-hero-in {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes hero-fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(1.625rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .anim-page-hero {
+      opacity: 0;
+      animation: page-hero-in 0.58s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(2.25rem);
+      transition:
+        opacity 0.62s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.62s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .scroll-reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .scroll-reveal-treatment-figure {
+      transform: translateY(1.75rem);
+      transition-duration: 0.58s;
+    }
+
+    .hero-fade-item {
+      opacity: 0;
+      animation: hero-fade-up 0.58s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    .hero-fade-item--1 {
+      animation-delay: 0.05s;
+    }
+
+    .hero-fade-item--2 {
+      animation-delay: 0.16s;
+    }
+
+    .hero-fade-item--3 {
+      animation-delay: 0.27s;
+    }
+
+    .treatment-article-stagger > section {
+      opacity: 0;
+      transform: translateY(22px);
+      transition:
+        opacity 0.52s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.52s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .treatment-article-stagger.is-visible > section {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .treatment-article-stagger.is-visible > section:nth-child(1) {
+      transition-delay: 0.05s;
+    }
+
+    .treatment-article-stagger.is-visible > section:nth-child(2) {
+      transition-delay: 0.14s;
+    }
+
+    .treatment-article-stagger.is-visible > section:nth-child(3) {
+      transition-delay: 0.23s;
+    }
+
+    .treatment-article-stagger.is-visible > section:nth-child(4) {
+      transition-delay: 0.32s;
+    }
+
+    .treatment-article-stagger.is-visible > section:nth-child(5) {
+      transition-delay: 0.41s;
+    }
+
+    .treatment-article-stagger.is-visible > section:nth-child(6) {
+      transition-delay: 0.5s;
+    }
+
+    .treatment-article-stagger.is-visible > section:nth-child(7) {
+      transition-delay: 0.59s;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .anim-page-hero,
+    .scroll-reveal,
+    .scroll-reveal.is-visible,
+    .hero-fade-item {
+      opacity: 1;
+      transform: none;
+      animation: none;
+      transition: none;
+    }
+
+    .treatment-article-stagger > section,
+    .treatment-article-stagger.is-visible > section {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
 }

@@ -1,8 +1,7 @@
 "use client"
 
-import { motion, useReducedMotion } from "framer-motion"
 import { cn } from "@/lib/utils"
-import { transitionReveal } from "@/lib/motion"
+import { useRevealInView } from "@/hooks/use-reveal-in-view"
 
 interface SectionProps {
   children: React.ReactNode
@@ -17,24 +16,26 @@ export function Section({
   id,
   variant = "default",
 }: SectionProps) {
-  const reduce = useReducedMotion()
+  const { ref, isVisible } = useRevealInView({
+    rootMargin: "0px 0px -72px 0px",
+    threshold: 0.12,
+    once: true,
+  })
 
   return (
-    <motion.section
+    <section
+      ref={ref}
       id={id}
       className={cn(
-        "py-14 md:py-20 lg:py-24",
+        "scroll-reveal py-14 md:py-20 lg:py-24",
+        isVisible && "is-visible",
         variant === "muted" && "bg-muted",
         variant === "primary" && "bg-primary text-primary-foreground",
         className
       )}
-      initial={reduce ? false : { opacity: 0, y: 36 }}
-      whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
-      viewport={reduce ? undefined : { once: true, amount: 0.12, margin: "0px 0px -72px 0px" }}
-      transition={reduce ? { duration: 0 } : transitionReveal}
     >
       <div className="page-container">{children}</div>
-    </motion.section>
+    </section>
   )
 }
 

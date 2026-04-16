@@ -1,14 +1,12 @@
-"use client"
-
 import Image from "next/image"
 import Link from "next/link"
-import { motion, useReducedMotion } from "framer-motion"
 import { PageHero } from "@/components/motion/page-hero"
+import { RevealOnView } from "@/components/motion/reveal-on-view"
+import { TreatmentStaggerArticle } from "@/components/motion/treatment-stagger-article"
 import { Section } from "@/components/ui/section"
 import { Button } from "@/components/ui/button"
 import { TreatmentFaqAccordion } from "@/components/treatment-faq-accordion"
 import { clinicData } from "@/lib/data"
-import { easePremium } from "@/lib/motion"
 import type { TreatmentWithPage } from "@/lib/treatments"
 import { CheckCircle2, ChevronRight, MessageCircle, XCircle } from "lucide-react"
 
@@ -21,29 +19,6 @@ function buildWhatsAppHref(treatmentTitle: string): string {
     `Olá! Tenho interesse em ${treatmentTitle}. Gostaria de agendar uma avaliação.`
   )
   return `https://wa.me/${clinicData.whatsapp}?text=${text}`
-}
-
-function itemFade(reduce: boolean) {
-  return {
-    hidden: { opacity: reduce ? 1 : 0, y: reduce ? 0 : 22 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: reduce ? 0 : 0.52, ease: easePremium },
-    },
-  }
-}
-
-function containerVariants(reduce: boolean) {
-  return {
-    hidden: {},
-    visible: {
-      transition: {
-        staggerChildren: reduce ? 0 : 0.09,
-        delayChildren: reduce ? 0 : 0.05,
-      },
-    },
-  }
 }
 
 const h1Class =
@@ -65,7 +40,6 @@ const listCheckClass = "flex gap-3.5 py-1.5 leading-relaxed text-muted-foregroun
 export function TreatmentDetail({ treatment }: TreatmentDetailProps) {
   const { page } = treatment
   const whatsappHref = buildWhatsAppHref(treatment.title)
-  const reduce = !!useReducedMotion()
 
   return (
     <>
@@ -98,12 +72,12 @@ export function TreatmentDetail({ treatment }: TreatmentDetailProps) {
 
       <Section className="!pt-10 md:!pt-14">
         <div className="mx-auto max-w-2xl">
-          <motion.figure
+          <RevealOnView
+            as="figure"
+            rootMargin="0px"
+            threshold={0.2}
             className="mb-14 overflow-hidden rounded-2xl bg-muted shadow-lg ring-1 ring-black/5 md:mb-20"
-            initial={reduce ? false : { opacity: 0, y: 28 }}
-            whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
-            viewport={reduce ? undefined : { once: true, amount: 0.2 }}
-            transition={reduce ? { duration: 0 } : { duration: 0.58, ease: easePremium }}
+            revealClassName="scroll-reveal scroll-reveal-treatment-figure"
           >
             <div className="relative aspect-[4/3] w-full">
               <Image
@@ -115,20 +89,10 @@ export function TreatmentDetail({ treatment }: TreatmentDetailProps) {
                 priority
               />
             </div>
-          </motion.figure>
+          </RevealOnView>
 
-          <motion.article
-            className="flex flex-col gap-14 md:gap-[4.5rem]"
-            variants={containerVariants(reduce)}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.06, margin: "0px 0px -60px 0px" }}
-          >
-            <motion.section
-              variants={itemFade(reduce)}
-              className="space-y-6"
-              aria-labelledby="sec-indicacoes"
-            >
+          <TreatmentStaggerArticle className="flex flex-col gap-14 md:gap-[4.5rem]">
+            <section className="space-y-6" aria-labelledby="sec-indicacoes">
               <h2 id="sec-indicacoes" className={h2Class}>
                 {page.whoCanH2}
               </h2>
@@ -162,10 +126,9 @@ export function TreatmentDetail({ treatment }: TreatmentDetailProps) {
                   </ul>
                 </div>
               </div>
-            </motion.section>
+            </section>
 
-            <motion.section
-              variants={itemFade(reduce)}
+            <section
               className="space-y-6 border-t border-border pt-14 md:space-y-8 md:pt-16"
               aria-labelledby="sec-como"
             >
@@ -200,13 +163,9 @@ export function TreatmentDetail({ treatment }: TreatmentDetailProps) {
                   </div>
                 ) : null}
               </div>
-            </motion.section>
+            </section>
 
-            <motion.section
-              variants={itemFade(reduce)}
-              className="space-y-6 border-t border-border pt-14 md:pt-16"
-              aria-labelledby="sec-beneficios"
-            >
+            <section className="space-y-6 border-t border-border pt-14 md:pt-16" aria-labelledby="sec-beneficios">
               <h2 id="sec-beneficios" className={h2Class}>
                 {page.benefitsH2}
               </h2>
@@ -221,10 +180,9 @@ export function TreatmentDetail({ treatment }: TreatmentDetailProps) {
                   </li>
                 ))}
               </ul>
-            </motion.section>
+            </section>
 
-            <motion.section
-              variants={itemFade(reduce)}
+            <section
               className="space-y-8 border-t border-border pt-14 md:pt-16"
               aria-labelledby="sec-recuperacao"
             >
@@ -249,13 +207,9 @@ export function TreatmentDetail({ treatment }: TreatmentDetailProps) {
                   <p className={bodyClass}>{page.returnToActivities}</p>
                 </div>
               </div>
-            </motion.section>
+            </section>
 
-            <motion.section
-              variants={itemFade(reduce)}
-              className="space-y-6 border-t border-border pt-14 md:pt-16"
-              aria-labelledby="sec-resultados"
-            >
+            <section className="space-y-6 border-t border-border pt-14 md:pt-16" aria-labelledby="sec-resultados">
               <h2 id="sec-resultados" className={h2Class}>
                 {page.resultsH2}
               </h2>
@@ -276,10 +230,9 @@ export function TreatmentDetail({ treatment }: TreatmentDetailProps) {
                   {page.beforeAfterNote}
                 </p>
               ) : null}
-            </motion.section>
+            </section>
 
-            <motion.section
-              variants={itemFade(reduce)}
+            <section
               className="space-y-6 border-t border-border pt-14 md:space-y-8 md:pt-16"
               aria-labelledby="sec-faq"
             >
@@ -287,19 +240,13 @@ export function TreatmentDetail({ treatment }: TreatmentDetailProps) {
                 {page.faqH2}
               </h2>
               <TreatmentFaqAccordion items={page.faqItems} />
-            </motion.section>
-          </motion.article>
+            </section>
+          </TreatmentStaggerArticle>
 
-          <motion.div
+          <RevealOnView
+            rootMargin="0px"
+            threshold={0.3}
             className="mx-auto mt-16 flex max-w-2xl flex-col gap-3 border-t border-border pt-12 sm:flex-row sm:items-center md:mt-20 md:pt-14"
-            initial={reduce ? false : { opacity: 0, y: 16 }}
-            whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
-            viewport={reduce ? undefined : { once: true, amount: 0.3 }}
-            transition={
-              reduce
-                ? { duration: 0 }
-                : { duration: 0.5, ease: easePremium, delay: 0.08 }
-            }
           >
             <Button asChild size="lg">
               <a href={whatsappHref} target="_blank" rel="noopener noreferrer">
@@ -310,7 +257,7 @@ export function TreatmentDetail({ treatment }: TreatmentDetailProps) {
             <Button variant="outline" size="lg" asChild>
               <Link href="/tratamentos">Ver todos os tratamentos</Link>
             </Button>
-          </motion.div>
+          </RevealOnView>
         </div>
       </Section>
     </>

@@ -1,8 +1,7 @@
 "use client"
 
-import { motion, useReducedMotion } from "framer-motion"
 import { cn } from "@/lib/utils"
-import { transitionReveal } from "@/lib/motion"
+import { useRevealInView } from "@/hooks/use-reveal-in-view"
 
 interface ScrollFadeSectionProps {
   children: React.ReactNode
@@ -11,21 +10,22 @@ interface ScrollFadeSectionProps {
 }
 
 /**
- * Bloco `<section>` que entra suave ao entrar na viewport (server-friendly wrapper).
+ * Bloco `<section>` que entra suave ao entrar na viewport (CSS + IO leve).
  */
 export function ScrollFadeSection({ children, className, id }: ScrollFadeSectionProps) {
-  const reduce = useReducedMotion()
+  const { ref, isVisible } = useRevealInView({
+    rootMargin: "0px 0px -64px 0px",
+    threshold: 0.15,
+    once: true,
+  })
 
   return (
-    <motion.section
+    <section
+      ref={ref}
       id={id}
-      className={cn(className)}
-      initial={reduce ? false : { opacity: 0, y: 32 }}
-      whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
-      viewport={reduce ? undefined : { once: true, amount: 0.15, margin: "0px 0px -64px 0px" }}
-      transition={reduce ? { duration: 0 } : transitionReveal}
+      className={cn("scroll-reveal", isVisible && "is-visible", className)}
     >
       {children}
-    </motion.section>
+    </section>
   )
 }
