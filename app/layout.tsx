@@ -7,14 +7,15 @@ import { WhatsAppButton } from "@/components/layout/whatsapp-button"
 import "./globals.css"
 
 const playfair = Playfair_Display({
-  subsets: ["latin", "latin-ext"],
+  /** `latin` cobre pt-BR; sem `latin-ext` reduz bytes e CSS bloqueante no mobile. */
+  subsets: ["latin"],
   variable: "--font-display",
   display: "swap",
   adjustFontFallback: true,
 })
 
 const plusJakarta = Plus_Jakarta_Sans({
-  subsets: ["latin", "latin-ext"],
+  subsets: ["latin"],
   variable: "--font-body",
   display: "swap",
   adjustFontFallback: true,
