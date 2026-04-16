@@ -4,26 +4,46 @@ import { useState, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Menu, X } from "lucide-react"
+import { Menu, X, ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
-import { clinicData } from "@/lib/data"
+import { clinicData, treatments } from "@/lib/data"
 
 /** Dimensões nativas do PNG em `public/images/logo-base-odontologia.png` (evita blur por upscale/downscale). */
 const LOGO_WIDTH = 141
 const LOGO_HEIGHT = 76
 
-const navigation = [
+const simpleNav = [
   { name: "Início", href: "/" },
   { name: "Sobre", href: "/sobre" },
-  { name: "Tratamentos", href: "/tratamentos" },
   { name: "Blog", href: "/blog" },
   { name: "Redes Sociais", href: "/redes-sociais" },
   { name: "Contato", href: "/contato" },
-]
+] as const
+
+function isTratamentosSection(path: string): boolean {
+  return path === "/tratamentos" || path.startsWith("/tratamentos/")
+}
+
+const navLinkClass =
+  "rounded-lg px-4 py-2 text-sm font-medium tracking-wide transition-colors"
+
+function navLinkActive(pathname: string, href: string): string {
+  const active =
+    href === "/"
+      ? pathname === "/"
+      : pathname === href || pathname.startsWith(`${href}/`)
+  return cn(
+    navLinkClass,
+    active
+      ? "bg-primary/10 text-primary"
+      : "text-muted-foreground hover:bg-accent hover:text-foreground"
+  )
+}
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false)
+  const [mobileTreatmentsOpen, setMobileTreatmentsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const pathname = usePathname()
 
@@ -35,18 +55,22 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
+  useEffect(() => {
+    setMobileTreatmentsOpen(false)
+    setIsOpen(false)
+  }, [pathname])
+
   return (
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         isScrolled
-          ? "bg-card/95 backdrop-blur-md shadow-sm border-b border-border"
+          ? "border-b border-border bg-card/95 shadow-sm backdrop-blur-md"
           : "bg-transparent"
       )}
     >
       <nav className="page-container">
         <div className="flex min-h-[4.5rem] items-center justify-between gap-4 py-2 lg:min-h-20">
-          {/* Logo — 1:1 em pixels CSS com o arquivo (141×76) */}
           <Link href="/" className="flex shrink-0 items-center">
             <Image
               src="/images/logo-base-odontologia.png"
@@ -62,23 +86,69 @@ export function Header() {
 
           {/* Desktop Navigation */}
           <div className="hidden items-center gap-0.5 lg:flex">
-            {navigation.map((item) => (
+            {simpleNav.slice(0, 2).map((item) => (
+              <Link key={item.href} href={item.href} className={navLinkActive(pathname, item.href)}>
+                {item.name}
+              </Link>
+            ))}
+
+            <div className="group/tratamentos relative">
               <Link
-                key={item.name}
-                href={item.href}
+                href="/tratamentos"
                 className={cn(
-                  "rounded-lg px-4 py-2 text-sm font-medium tracking-wide transition-colors",
-                  pathname === item.href
-                    ? "text-primary bg-primary/10"
-                    : "text-muted-foreground hover:text-foreground hover:bg-accent"
+                  "inline-flex items-center gap-1 outline-none ring-offset-background focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+                  navLinkClass,
+                  isTratamentosSection(pathname)
+                    ? "bg-primary/10 text-primary"
+                    : "text-muted-foreground hover:bg-accent hover:text-foreground"
                 )}
               >
+                Tratamentos
+                <ChevronDown
+                  className="h-3.5 w-3.5 opacity-70 transition-transform duration-200 group-hover/tratamentos:rotate-180 group-focus-within/tratamentos:rotate-180"
+                  aria-hidden
+                />
+              </Link>
+              <div
+                className={cn(
+                  "absolute left-0 top-full z-50 pt-2",
+                  "pointer-events-none opacity-0 transition-opacity duration-150",
+                  "group-hover/tratamentos:pointer-events-auto group-hover/tratamentos:opacity-100",
+                  "group-focus-within/tratamentos:pointer-events-auto group-focus-within/tratamentos:opacity-100"
+                )}
+                role="presentation"
+              >
+                <div className="min-w-[15rem] rounded-md border border-border bg-popover py-1 text-popover-foreground shadow-md">
+                  <Link
+                    href="/tratamentos"
+                    className="block px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground"
+                  >
+                    Todos os tratamentos
+                  </Link>
+                  <div className="my-1 h-px bg-border" role="separator" />
+                  <ul className="max-h-[min(70vh,22rem)] overflow-y-auto py-0.5">
+                    {treatments.map((t) => (
+                      <li key={t.id}>
+                        <Link
+                          href={`/tratamentos/${t.id}`}
+                          className="block px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground"
+                        >
+                          {t.title}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {simpleNav.slice(2).map((item) => (
+              <Link key={item.href} href={item.href} className={navLinkActive(pathname, item.href)}>
                 {item.name}
               </Link>
             ))}
           </div>
 
-          {/* Desktop CTA */}
           <div className="hidden items-center gap-3 lg:flex">
             <Button asChild size="sm">
               <a
@@ -91,9 +161,8 @@ export function Header() {
             </Button>
           </div>
 
-          {/* Mobile Menu Button */}
           <button
-            className="lg:hidden p-2 -mr-2"
+            className="-mr-2 p-2 lg:hidden"
             onClick={() => setIsOpen(!isOpen)}
             aria-label={isOpen ? "Fechar menu" : "Abrir menu"}
           >
@@ -105,30 +174,90 @@ export function Header() {
           </button>
         </div>
 
-        {/* Mobile Navigation */}
         <div
           className={cn(
-            "lg:hidden overflow-hidden transition-all duration-300",
-            isOpen ? "max-h-96 pb-6" : "max-h-0"
+            "overflow-y-auto transition-all duration-300 lg:hidden",
+            isOpen ? "max-h-[min(85vh,32rem)] pb-6" : "max-h-0"
           )}
         >
-          <div className="flex flex-col gap-1 pt-4 border-t border-border">
-            {navigation.map((item) => (
+          <div className="flex flex-col gap-1 border-t border-border pt-4">
+            {simpleNav.slice(0, 2).map((item) => (
               <Link
-                key={item.name}
+                key={item.href}
                 href={item.href}
                 onClick={() => setIsOpen(false)}
                 className={cn(
-                  "px-4 py-3 text-base font-medium rounded-lg transition-colors",
-                  pathname === item.href
-                    ? "text-primary bg-primary/10"
-                    : "text-muted-foreground hover:text-foreground hover:bg-accent"
+                  "rounded-lg px-4 py-3 text-base font-medium transition-colors",
+                  pathname === item.href || pathname.startsWith(`${item.href}/`)
+                    ? "bg-primary/10 text-primary"
+                    : "text-muted-foreground hover:bg-accent hover:text-foreground"
                 )}
               >
                 {item.name}
               </Link>
             ))}
-            <div className="mt-4 pt-4 border-t border-border">
+
+            <div className="rounded-lg">
+              <button
+                type="button"
+                onClick={() => setMobileTreatmentsOpen((v) => !v)}
+                className={cn(
+                  "flex w-full items-center justify-between rounded-lg px-4 py-3 text-left text-base font-medium transition-colors",
+                  isTratamentosSection(pathname)
+                    ? "bg-primary/10 text-primary"
+                    : "text-muted-foreground hover:bg-accent hover:text-foreground"
+                )}
+                aria-expanded={mobileTreatmentsOpen}
+              >
+                Tratamentos
+                <ChevronDown
+                  className={cn(
+                    "h-4 w-4 shrink-0 transition-transform",
+                    mobileTreatmentsOpen && "rotate-180"
+                  )}
+                  aria-hidden
+                />
+              </button>
+              {mobileTreatmentsOpen ? (
+                <div className="ml-4 space-y-0.5 border-l border-border py-1 pl-3">
+                  <Link
+                    href="/tratamentos"
+                    onClick={() => setIsOpen(false)}
+                    className="block rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-accent hover:text-foreground"
+                  >
+                    Ver todos
+                  </Link>
+                  {treatments.map((t) => (
+                    <Link
+                      key={t.id}
+                      href={`/tratamentos/${t.id}`}
+                      onClick={() => setIsOpen(false)}
+                      className="block rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-accent hover:text-foreground"
+                    >
+                      {t.title}
+                    </Link>
+                  ))}
+                </div>
+              ) : null}
+            </div>
+
+            {simpleNav.slice(2).map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={() => setIsOpen(false)}
+                className={cn(
+                  "rounded-lg px-4 py-3 text-base font-medium transition-colors",
+                  pathname === item.href || pathname.startsWith(`${item.href}/`)
+                    ? "bg-primary/10 text-primary"
+                    : "text-muted-foreground hover:bg-accent hover:text-foreground"
+                )}
+              >
+                {item.name}
+              </Link>
+            ))}
+
+            <div className="mt-4 border-t border-border pt-4">
               <Button asChild className="w-full">
                 <a
                   href={`https://wa.me/${clinicData.whatsapp}?text=Olá! Gostaria de agendar uma consulta.`}

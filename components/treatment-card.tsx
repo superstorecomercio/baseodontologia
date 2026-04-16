@@ -45,7 +45,7 @@ export function TreatmentCard({
           className="h-auto justify-start p-0 text-primary hover:bg-transparent hover:text-primary/80"
           asChild
         >
-          <Link href={href || `/tratamentos#${id}`}>
+          <Link href={href || `/tratamentos/${id}`}>
             Saiba mais
             <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Link>
