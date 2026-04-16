@@ -18,8 +18,21 @@ function buildWhatsAppHref(treatmentTitle: string): string {
   return `https://wa.me/${clinicData.whatsapp}?text=${text}`
 }
 
-const proseArticle =
-  "prose prose-lg max-w-none prose-headings:font-serif prose-headings:font-semibold prose-headings:text-foreground prose-h2:mt-12 prose-h2:mb-4 prose-h3:mt-8 prose-h3:mb-3 prose-p:text-muted-foreground prose-p:leading-relaxed prose-li:text-muted-foreground prose-strong:text-foreground"
+const h1Class =
+  "font-serif text-3xl font-semibold tracking-tight text-balance text-foreground sm:text-4xl md:text-[2.5rem] md:leading-[1.12]"
+
+const h2Class =
+  "font-serif text-2xl font-semibold tracking-tight text-balance text-foreground sm:text-3xl md:text-[2rem] md:leading-snug"
+
+const h3Class = "text-base font-semibold text-foreground sm:text-lg"
+
+const h3LabelClass =
+  "text-xs font-semibold uppercase tracking-[0.18em] text-primary sm:text-[11px]"
+
+const bodyClass =
+  "text-base leading-[1.7] text-muted-foreground sm:text-[1.0625rem] sm:leading-[1.75]"
+
+const listCheckClass = "flex gap-3.5 py-1.5 leading-relaxed text-muted-foreground sm:gap-4"
 
 export function TreatmentDetail({ treatment }: TreatmentDetailProps) {
   const { page } = treatment
@@ -27,9 +40,12 @@ export function TreatmentDetail({ treatment }: TreatmentDetailProps) {
 
   return (
     <>
-      <section className="bg-muted pb-8 pt-28 md:pb-10 md:pt-32">
+      <section className="bg-muted pb-10 pt-28 md:pb-14 md:pt-32">
         <div className="page-container">
-          <nav className="mb-8 flex max-w-3xl flex-wrap items-center gap-1 text-sm text-muted-foreground">
+          <nav
+            className="mb-8 flex max-w-2xl flex-wrap items-center gap-1 text-sm text-muted-foreground md:mb-10"
+            aria-label="Navegação estrutural"
+          >
             <Link href="/" className="hover:text-foreground">
               Início
             </Link>
@@ -40,132 +56,192 @@ export function TreatmentDetail({ treatment }: TreatmentDetailProps) {
             <ChevronRight className="h-4 w-4 shrink-0 opacity-60" aria-hidden />
             <span className="font-medium text-foreground">{treatment.title}</span>
           </nav>
+
+          <div className="mx-auto max-w-2xl">
+            <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary">
+              Tratamento
+            </p>
+            <h1 className={h1Class}>{page.h1WhatIs}</h1>
+            <p className={`mt-6 max-w-prose ${bodyClass}`}>{page.whatIsParagraph}</p>
+          </div>
         </div>
       </section>
 
-      <Section className="pt-0 md:pt-0">
-        <article className={`mx-auto max-w-3xl ${proseArticle}`}>
-          {/* 1 — H1 + o que é */}
-          <h1 className="text-balance">{page.h1WhatIs}</h1>
-          <p className="text-lg leading-relaxed text-muted-foreground md:text-xl">
-            {page.whatIsParagraph}
-          </p>
-
-          <figure className="not-prose my-10 overflow-hidden rounded-2xl bg-muted shadow-lg ring-1 ring-black/5">
+      <Section className="!pt-10 md:!pt-14">
+        <div className="mx-auto max-w-2xl">
+          <figure className="mb-14 overflow-hidden rounded-2xl bg-muted shadow-lg ring-1 ring-black/5 md:mb-20">
             <div className="relative aspect-[4/3] w-full">
               <Image
                 src={treatment.image}
                 alt={`${treatment.title} — imagem ilustrativa do tratamento na ${clinicData.clinicName}`}
                 fill
-                sizes="(max-width: 768px) 100vw, 720px"
+                sizes="(max-width: 768px) 100vw, 672px"
                 className="object-cover"
                 priority
               />
             </div>
           </figure>
 
-          {/* 2 — Para quem é indicado */}
-          <h2>{page.whoCanH2}</h2>
-          <h3>Indicações</h3>
-          <ul className="list-none space-y-2 pl-0">
-            {page.indications.map((line) => (
-              <li key={line} className="flex gap-3">
-                <CheckCircle2
-                  className="mt-1 h-5 w-5 shrink-0 text-primary"
-                  aria-hidden
-                />
-                <span>{line}</span>
-              </li>
-            ))}
-          </ul>
-          <h3>Contraindicações</h3>
-          <ul className="list-none space-y-2 pl-0">
-            {page.contraindications.map((line) => (
-              <li key={line} className="flex gap-3">
-                <XCircle className="mt-1 h-5 w-5 shrink-0 text-muted-foreground" aria-hidden />
-                <span>{line}</span>
-              </li>
-            ))}
-          </ul>
+          <article className="flex flex-col gap-14 md:gap-[4.5rem]">
+            {/* Indicações */}
+            <section className="space-y-6" aria-labelledby="sec-indicacoes">
+              <h2 id="sec-indicacoes" className={h2Class}>
+                {page.whoCanH2}
+              </h2>
+              <div className="space-y-8">
+                <div className="space-y-4">
+                  <h3 className={h3Class}>Indicações</h3>
+                  <ul className="space-y-1" role="list">
+                    {page.indications.map((line) => (
+                      <li key={line} className={listCheckClass}>
+                        <CheckCircle2
+                          className="mt-0.5 h-5 w-5 shrink-0 text-primary"
+                          aria-hidden
+                        />
+                        <span>{line}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="space-y-4">
+                  <h3 className={h3Class}>Contraindicações</h3>
+                  <ul className="space-y-1" role="list">
+                    {page.contraindications.map((line) => (
+                      <li key={line} className={listCheckClass}>
+                        <XCircle
+                          className="mt-0.5 h-5 w-5 shrink-0 text-muted-foreground"
+                          aria-hidden
+                        />
+                        <span>{line}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </section>
 
-          {/* 3 — Como funciona */}
-          <h2>{page.howItWorksH2}</h2>
-          <h3>Etapas</h3>
-          <ol>
-            {page.procedureSteps.map((step) => (
-              <li key={step}>{step}</li>
-            ))}
-          </ol>
-          <p>
-            <strong>Tempo médio</strong>: {page.procedureDurationDetail}
-          </p>
-          {page.technologies.length > 0 ? (
-            <>
-              <h3>Tecnologias e materiais</h3>
-              <ul>
-                {page.technologies.map((tech) => (
-                  <li key={tech}>{tech}</li>
+            {/* Como funciona */}
+            <section className="space-y-6 border-t border-border pt-14 md:space-y-8 md:pt-16" aria-labelledby="sec-como">
+              <h2 id="sec-como" className={h2Class}>
+                {page.howItWorksH2}
+              </h2>
+              <div className="space-y-6">
+                <div className="space-y-4">
+                  <h3 className={h3Class}>Etapas do procedimento</h3>
+                  <ol className="list-decimal space-y-4 pl-6 marker:font-semibold marker:text-primary">
+                    {page.procedureSteps.map((step) => (
+                      <li key={step} className={`pl-2 ${bodyClass}`}>
+                        {step}
+                      </li>
+                    ))}
+                  </ol>
+                </div>
+                <p className={`rounded-xl border border-border bg-muted/50 px-5 py-4 ${bodyClass}`}>
+                  <span className="font-semibold text-foreground">Tempo médio: </span>
+                  {page.procedureDurationDetail}
+                </p>
+                {page.technologies.length > 0 ? (
+                  <div className="space-y-4">
+                    <h3 className={h3Class}>Tecnologias e materiais</h3>
+                    <ul className="list-disc space-y-3 pl-6 marker:text-primary" role="list">
+                      {page.technologies.map((tech) => (
+                        <li key={tech} className={bodyClass}>
+                          {tech}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ) : null}
+              </div>
+            </section>
+
+            {/* Benefícios */}
+            <section className="space-y-6 border-t border-border pt-14 md:pt-16" aria-labelledby="sec-beneficios">
+              <h2 id="sec-beneficios" className={h2Class}>
+                {page.benefitsH2}
+              </h2>
+              <ul className="space-y-1" role="list">
+                {treatment.benefits.map((benefit) => (
+                  <li key={benefit} className={listCheckClass}>
+                    <CheckCircle2
+                      className="mt-0.5 h-5 w-5 shrink-0 text-primary"
+                      aria-hidden
+                    />
+                    <span>{benefit}</span>
+                  </li>
                 ))}
               </ul>
-            </>
-          ) : null}
+            </section>
 
-          {/* 4 — Benefícios */}
-          <h2>{page.benefitsH2}</h2>
-          <ul className="list-none space-y-2 pl-0">
-            {treatment.benefits.map((benefit) => (
-              <li key={benefit} className="flex gap-3">
-                <CheckCircle2
-                  className="mt-1 h-5 w-5 shrink-0 text-primary"
-                  aria-hidden
-                />
-                <span>{benefit}</span>
-              </li>
-            ))}
-          </ul>
+            {/* Recuperação */}
+            <section className="space-y-8 border-t border-border pt-14 md:pt-16" aria-labelledby="sec-recuperacao">
+              <h2 id="sec-recuperacao" className={h2Class}>
+                {page.recoveryH2}
+              </h2>
+              <div className="space-y-10">
+                <div className="space-y-3">
+                  <h3 className={h3LabelClass}>Tempo de recuperação</h3>
+                  <p className={bodyClass}>{page.recoveryTime}</p>
+                </div>
+                <div className="space-y-3">
+                  <h3 className={h3LabelClass}>Dor e inchaço</h3>
+                  <p className={bodyClass}>{page.painAndSwelling}</p>
+                </div>
+                <div className="space-y-3">
+                  <h3 className={h3LabelClass}>Cuidados</h3>
+                  <p className={bodyClass}>{page.postOpCare}</p>
+                </div>
+                <div className="space-y-3">
+                  <h3 className={h3LabelClass}>Retorno às atividades</h3>
+                  <p className={bodyClass}>{page.returnToActivities}</p>
+                </div>
+              </div>
+            </section>
 
-          {/* 5 — Recuperação */}
-          <h2>{page.recoveryH2}</h2>
-          <h3>Tempo de recuperação</h3>
-          <p>{page.recoveryTime}</p>
-          <h3>Dor e inchaço</h3>
-          <p>{page.painAndSwelling}</p>
-          <h3>Cuidados</h3>
-          <p>{page.postOpCare}</p>
-          <h3>Retorno às atividades</h3>
-          <p>{page.returnToActivities}</p>
+            {/* Resultados */}
+            <section className="space-y-6 border-t border-border pt-14 md:pt-16" aria-labelledby="sec-resultados">
+              <h2 id="sec-resultados" className={h2Class}>
+                {page.resultsH2}
+              </h2>
+              <ul className="list-disc space-y-4 pl-6 marker:text-primary" role="list">
+                {page.expectedResults.map((line) => (
+                  <li key={line} className={bodyClass}>
+                    {line}
+                  </li>
+                ))}
+              </ul>
+              <p className={`rounded-xl border border-border bg-muted/50 px-5 py-4 ${bodyClass}`}>
+                <span className="font-semibold text-foreground">Tempo para resultado final: </span>
+                {page.timeToFinalResult}
+              </p>
+              {page.beforeAfterNote ? (
+                <p className={bodyClass}>
+                  <span className="font-semibold text-foreground">Antes e depois: </span>
+                  {page.beforeAfterNote}
+                </p>
+              ) : null}
+            </section>
 
-          {/* 6 — Resultados */}
-          <h2>{page.resultsH2}</h2>
-          <ul>
-            {page.expectedResults.map((line) => (
-              <li key={line}>{line}</li>
-            ))}
-          </ul>
-          <p>
-            <strong>Tempo para resultado final</strong>: {page.timeToFinalResult}
-          </p>
-          {page.beforeAfterNote ? (
-            <p>
-              <strong>Antes e depois</strong>: {page.beforeAfterNote}
-            </p>
-          ) : null}
+            {/* FAQ */}
+            <section className="space-y-6 border-t border-border pt-14 md:space-y-8 md:pt-16" aria-labelledby="sec-faq">
+              <h2 id="sec-faq" className={h2Class}>
+                {page.faqH2}
+              </h2>
+              <TreatmentFaqAccordion items={page.faqItems} />
+            </section>
+          </article>
 
-          {/* 7 — FAQ */}
-          <h2>{page.faqH2}</h2>
-          <TreatmentFaqAccordion items={page.faqItems} />
-        </article>
-
-        <div className="not-prose mx-auto mt-14 flex max-w-3xl flex-col gap-3 sm:flex-row sm:items-center">
-          <Button asChild size="lg">
-            <a href={whatsappHref} target="_blank" rel="noopener noreferrer">
-              <MessageCircle className="mr-2 h-5 w-5" />
-              Agendar avaliação
-            </a>
-          </Button>
-          <Button variant="outline" size="lg" asChild>
-            <Link href="/tratamentos">Ver todos os tratamentos</Link>
-          </Button>
+          <div className="mx-auto mt-16 flex max-w-2xl flex-col gap-3 border-t border-border pt-12 sm:flex-row sm:items-center md:mt-20 md:pt-14">
+            <Button asChild size="lg">
+              <a href={whatsappHref} target="_blank" rel="noopener noreferrer">
+                <MessageCircle className="mr-2 h-5 w-5" />
+                Agendar avaliação
+              </a>
+            </Button>
+            <Button variant="outline" size="lg" asChild>
+              <Link href="/tratamentos">Ver todos os tratamentos</Link>
+            </Button>
+          </div>
         </div>
       </Section>
     </>
