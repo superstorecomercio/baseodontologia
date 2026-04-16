@@ -170,6 +170,14 @@
     }
   }
 
+  /**
+   * Coluna da foto do hero: sem fade-in inicial — `opacity: 0` no pai atrasa o LCP
+   * (o Lighthouse passa a considerar o logo ou outro elemento antes da animação).
+   */
+  .hero-lcp-col {
+    opacity: 1;
+  }
+
   @media (prefers-reduced-motion: no-preference) {
     .anim-page-hero {
       opacity: 0;

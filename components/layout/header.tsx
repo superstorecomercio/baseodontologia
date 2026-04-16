@@ -199,6 +199,7 @@ export function Header() {
               className="block h-[76px] w-[141px] max-w-none"
               sizes={`${LOGO_WIDTH}px`}
               quality={85}
+              loading="eager"
               fetchPriority="low"
             />
           </Link>

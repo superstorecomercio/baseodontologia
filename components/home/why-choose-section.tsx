@@ -21,7 +21,7 @@ export function WhyChooseSection() {
           <div className="relative mx-auto aspect-[3/4] w-full max-w-md overflow-hidden rounded-3xl shadow-xl lg:mx-0 lg:max-w-none lg:aspect-[4/5]">
             <Image
               src="/images/clinic-diferenciais.png"
-              alt="Consultório odontológico moderno com microscópio especializado, cadeira de atendimento e ambiente iluminado com vista para área verde."
+              alt={`Recepção e sala de espera da ${clinicData.clinicName}: ambiente moderno, iluminado e acolhedor para o seu atendimento.`}
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover object-center"
