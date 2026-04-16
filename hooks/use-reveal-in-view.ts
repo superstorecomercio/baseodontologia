@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { useLayoutEffect, useRef, useState } from "react"
 
 export interface UseRevealInViewOptions {
   rootMargin?: string
@@ -16,7 +16,7 @@ export function useRevealInView(options: UseRevealInViewOptions = {}) {
   const ref = useRef<HTMLElement | null>(null)
   const [isVisible, setIsVisible] = useState(false)
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (isVisible) return
     const el = ref.current
     if (!el) return
@@ -30,7 +30,21 @@ export function useRevealInView(options: UseRevealInViewOptions = {}) {
       { rootMargin, threshold }
     )
     obs.observe(el)
-    return () => obs.disconnect()
+
+    // IO pode atrasar o primeiro callback; takeRecords pega interseções já válidas no frame atual.
+    const raf = requestAnimationFrame(() => {
+      const records =
+        typeof obs.takeRecords === "function" ? obs.takeRecords() : []
+      if (records.some((e) => e.isIntersecting)) {
+        setIsVisible(true)
+        if (once) obs.disconnect()
+      }
+    })
+
+    return () => {
+      cancelAnimationFrame(raf)
+      obs.disconnect()
+    }
   }, [isVisible, once, rootMargin, threshold])
 
   return { ref, isVisible }

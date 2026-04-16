@@ -14,8 +14,8 @@ interface ScrollFadeSectionProps {
  */
 export function ScrollFadeSection({ children, className, id }: ScrollFadeSectionProps) {
   const { ref, isVisible } = useRevealInView({
-    rootMargin: "0px 0px -64px 0px",
-    threshold: 0.15,
+    rootMargin: "0px",
+    threshold: 0,
     once: true,
   })
 

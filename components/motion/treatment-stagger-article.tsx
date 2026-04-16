@@ -13,8 +13,8 @@ interface TreatmentStaggerArticleProps {
  */
 export function TreatmentStaggerArticle({ children, className }: TreatmentStaggerArticleProps) {
   const { ref, isVisible } = useRevealInView({
-    rootMargin: "0px 0px -60px 0px",
-    threshold: 0.06,
+    rootMargin: "0px",
+    threshold: 0,
     once: true,
   })
 

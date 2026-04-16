@@ -17,8 +17,9 @@ export function Section({
   variant = "default",
 }: SectionProps) {
   const { ref, isVisible } = useRevealInView({
-    rootMargin: "0px 0px -72px 0px",
-    threshold: 0.12,
+    rootMargin: "0px",
+    /** 0 = qualquer pixel visível; valores altos falham em seções muito altas (ratio nunca atinge o mínimo). */
+    threshold: 0,
     once: true,
   })
 

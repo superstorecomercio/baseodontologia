@@ -75,7 +75,7 @@ export function TreatmentDetail({ treatment }: TreatmentDetailProps) {
           <RevealOnView
             as="figure"
             rootMargin="0px"
-            threshold={0.2}
+            threshold={0}
             className="mb-14 overflow-hidden rounded-2xl bg-muted shadow-lg ring-1 ring-black/5 md:mb-20"
             revealClassName="scroll-reveal scroll-reveal-treatment-figure"
           >
@@ -245,7 +245,7 @@ export function TreatmentDetail({ treatment }: TreatmentDetailProps) {
 
           <RevealOnView
             rootMargin="0px"
-            threshold={0.3}
+            threshold={0}
             className="mx-auto mt-16 flex max-w-2xl flex-col gap-3 border-t border-border pt-12 sm:flex-row sm:items-center md:mt-20 md:pt-14"
           >
             <Button asChild size="lg">
