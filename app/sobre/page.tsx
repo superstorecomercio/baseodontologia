@@ -194,21 +194,26 @@ export default function SobrePage() {
         </div>
       </Section>
 
-      {/* Equipe */}
+      {/* Equipe — foto primeiro no DOM (mobile: acima do texto; desktop: coluna direita) */}
       <Section>
-        <SectionHeader
-          subtitle="Nossa equipe"
-          title="Sobre nós"
-          description="Profissionais experientes e acolhedores, em um ambiente moderno, trabalhando com você em cada etapa do tratamento."
-        />
-        <div className="mx-auto max-w-xl">
-          <div className="relative aspect-[3/4] w-full overflow-hidden rounded-3xl shadow-xl ring-1 ring-black/5">
-            <Image
-              src="/images/equipe-base-odontologia.png"
-              alt={`Equipe da ${clinicData.clinicName} reunida no consultório`}
-              fill
-              sizes="(max-width: 896px) 100vw, 640px"
-              className="object-cover object-center"
+        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
+          <div className="mx-auto w-full max-w-xl lg:col-start-2 lg:row-start-1 lg:max-w-none">
+            <div className="relative aspect-[3/4] w-full overflow-hidden rounded-3xl shadow-xl ring-1 ring-black/5">
+              <Image
+                src="/images/equipe-base-odontologia.png"
+                alt={`Equipe da ${clinicData.clinicName} reunida no consultório`}
+                fill
+                sizes="(max-width: 896px) 100vw, 50vw"
+                className="object-cover object-center"
+              />
+            </div>
+          </div>
+          <div className="min-w-0 lg:col-start-1 lg:row-start-1">
+            <SectionHeader
+              subtitle="Nossa equipe"
+              title="Sobre nós"
+              description="Profissionais experientes e acolhedores, em um ambiente moderno, trabalhando com você em cada etapa do tratamento."
+              align="left"
             />
           </div>
         </div>
