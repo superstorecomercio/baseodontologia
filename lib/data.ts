@@ -53,6 +53,16 @@ export const clinicData = {
     tiktok: "https://tiktok.com/@baseodontologia",
     youtube: "https://youtube.com/@baseodontologia",
   },
+  /** Perfil da clínica na Doctoralia (avaliações). */
+  doctoraliaUrl:
+    "https://www.doctoralia.com.br/clinicas/base-odontologia-inteligente",
+  /** Página de avaliações no Facebook. */
+  facebookReviewsUrl: "https://www.facebook.com/baseodontologia/reviews",
+  /** Contagens exibidas na faixa da home (atualizar quando mudar nas plataformas). */
+  platformReviewCounts: {
+    doctoralia: 87,
+    facebook: 18,
+  },
   googleMapsEmbed:
     "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.3061326145844!2d-46.64358392466901!3d-23.593351478777755!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5b9127af8abb%3A0xc632ffa000e3273f!2sBASE%20Odontologia%20Inteligente!5e0!3m2!1spt-BR!2sbr!4v1776289640707!5m2!1spt-BR!2sbr",
   /** Ficha no Google Maps (ler todas as avaliações) */
@@ -94,7 +104,6 @@ export const heroData = {
   subheadlineLead:
     "Agende sua consulta e eleve o padrão do seu cuidado com o sorriso.",
   ctaPrimary: "Agendar pelo WhatsApp",
-  ctaSecondary: "Marcar Avaliação",
 }
 
 export const aboutData = {

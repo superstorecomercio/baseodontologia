@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useCallback, useLayoutEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
@@ -26,7 +26,7 @@ function isTratamentosSection(path: string): boolean {
 }
 
 const navLinkClass =
-  "rounded-lg px-4 py-2 text-sm font-medium tracking-wide transition-colors"
+  "rounded-lg px-4 py-2 text-sm font-medium tracking-wide transition-colors nav-link-underline"
 
 function navLinkActive(pathname: string, href: string): string {
   const active =
@@ -43,22 +43,40 @@ function navLinkActive(pathname: string, href: string): string {
 
 interface HeaderMobileNavProps {
   pathname: string
-  isOpen: boolean
-  setIsOpen: (open: boolean) => void
+  onOpenChange: (open: boolean) => void
 }
 
 /**
- * Estado do drawer remonta com `key={pathname}` no pai (fecha ao navegar)
- * sem setState em effect. O drawer usa `basis-full` + `flex-wrap` no header.
+ * Menu mobile: estado local remonta com `key={pathname}` no pai (fecha ao mudar de rota).
+ * `onOpenChange` mantém o fundo sólido do header sincronizado sem effect com setState no Header.
  */
-function HeaderMobileNav({ pathname, isOpen, setIsOpen }: HeaderMobileNavProps) {
+function HeaderMobileNav({ pathname, onOpenChange }: HeaderMobileNavProps) {
+  const [isOpen, setIsOpen] = useState(false)
   const [mobileTreatmentsOpen, setMobileTreatmentsOpen] = useState(false)
+
+  /** Após troca de rota o pai remonta este bloco com `key={pathname}`; alinhar fundo sólido do header. */
+  useLayoutEffect(() => {
+    onOpenChange(false)
+  }, [pathname, onOpenChange])
+
+  const closeMenu = useCallback(() => {
+    setIsOpen(false)
+    onOpenChange(false)
+  }, [onOpenChange])
+
+  const toggleMenu = useCallback(() => {
+    setIsOpen((prev) => {
+      const next = !prev
+      onOpenChange(next)
+      return next
+    })
+  }, [onOpenChange])
 
   return (
     <>
       <button
         className="-mr-2 p-2 lg:hidden"
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={toggleMenu}
         aria-label={isOpen ? "Fechar menu" : "Abrir menu"}
       >
         {isOpen ? (
@@ -81,7 +99,7 @@ function HeaderMobileNav({ pathname, isOpen, setIsOpen }: HeaderMobileNavProps) 
             <Link
               key={item.href}
               href={item.href}
-              onClick={() => setIsOpen(false)}
+              onClick={closeMenu}
               className={cn(
                 "rounded-lg px-4 py-3 text-base font-medium transition-colors",
                 pathname === item.href || pathname.startsWith(`${item.href}/`)
@@ -118,7 +136,7 @@ function HeaderMobileNav({ pathname, isOpen, setIsOpen }: HeaderMobileNavProps) 
               <div className="ml-4 space-y-0.5 border-l border-border py-1 pl-3">
                 <Link
                   href="/tratamentos"
-                  onClick={() => setIsOpen(false)}
+                  onClick={closeMenu}
                   className="block rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-accent hover:text-foreground"
                 >
                   Ver todos
@@ -127,7 +145,7 @@ function HeaderMobileNav({ pathname, isOpen, setIsOpen }: HeaderMobileNavProps) 
                   <Link
                     key={t.id}
                     href={`/tratamentos/${t.id}`}
-                    onClick={() => setIsOpen(false)}
+                    onClick={closeMenu}
                     className="block rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-accent hover:text-foreground"
                   >
                     {t.title}
@@ -141,7 +159,7 @@ function HeaderMobileNav({ pathname, isOpen, setIsOpen }: HeaderMobileNavProps) 
             <Link
               key={item.href}
               href={item.href}
-              onClick={() => setIsOpen(false)}
+              onClick={closeMenu}
               className={cn(
                 "rounded-lg px-4 py-3 text-base font-medium transition-colors",
                 pathname === item.href || pathname.startsWith(`${item.href}/`)
@@ -159,7 +177,7 @@ function HeaderMobileNav({ pathname, isOpen, setIsOpen }: HeaderMobileNavProps) 
                 href={`https://wa.me/${clinicData.whatsapp}?text=Olá! Gostaria de agendar uma consulta.`}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => setIsOpen(false)}
+                onClick={closeMenu}
               >
                 Agendar Consulta
               </a>
@@ -176,6 +194,10 @@ export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const pathname = usePathname()
 
+  const handleMobileMenuOpenChange = useCallback((open: boolean) => {
+    setMobileMenuOpen(open)
+  }, [])
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20)
@@ -183,10 +205,6 @@ export function Header() {
     window.addEventListener("scroll", handleScroll, { passive: true })
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
-
-  useEffect(() => {
-    setMobileMenuOpen(false)
-  }, [pathname])
 
   const headerSolid = isScrolled || mobileMenuOpen
 
@@ -295,8 +313,7 @@ export function Header() {
           <HeaderMobileNav
             key={pathname}
             pathname={pathname}
-            isOpen={mobileMenuOpen}
-            setIsOpen={setMobileMenuOpen}
+            onOpenChange={handleMobileMenuOpenChange}
           />
         </div>
       </nav>

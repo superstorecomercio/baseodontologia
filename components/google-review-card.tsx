@@ -19,7 +19,7 @@ export function GoogleReviewCard({
   return (
     <Card
       className={cn(
-        "h-full border border-border/50 bg-card/80 shadow-sm backdrop-blur-[2px]",
+        "premium-card-hover h-full border border-border/50 bg-card/80 shadow-sm backdrop-blur-[2px]",
         className,
       )}
     >

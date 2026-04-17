@@ -21,15 +21,17 @@ export function WhatsAppButton() {
       target="_blank"
       rel="noopener noreferrer"
       className={cn(
-        "fixed bottom-6 right-6 z-50 flex items-center gap-3 bg-[#25D366] text-white px-5 py-4 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300",
+        "fixed bottom-6 right-6 z-50 flex items-center gap-3 bg-[#25D366] text-white px-5 py-4 rounded-full shadow-lg transition-all duration-300 motion-safe:hover:scale-105 motion-safe:hover:shadow-xl",
         isVisible
           ? "translate-y-0 opacity-100"
           : "translate-y-20 opacity-0"
       )}
-      aria-label="Agendar pelo WhatsApp"
+      aria-label="Como posso ajudá-la ou ajudá-lo? Abrir conversa no WhatsApp"
     >
-      <MessageCircle className="h-6 w-6 fill-current" />
-      <span className="hidden sm:inline font-medium">Agendar Consulta</span>
+      <MessageCircle className="h-6 w-6 shrink-0 fill-current" />
+      <span className="hidden max-w-[min(17rem,calc(100vw-7rem))] text-balance text-left text-sm font-medium leading-snug sm:inline">
+        Como posso ajudá-la (o)?
+      </span>
     </a>
   )
 }

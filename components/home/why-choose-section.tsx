@@ -30,12 +30,12 @@ export function WhyChooseSection() {
             />
           </div>
           {/* Stats card */}
-          <div className="absolute -bottom-6 -right-6 max-w-[10.5rem] rounded-2xl border border-border bg-card p-5 shadow-lg sm:max-w-none sm:p-6">
-            <p className="text-lg font-bold leading-tight text-primary sm:text-2xl">
-              USP
+          <div className="absolute -bottom-6 -right-6 max-w-[13.5rem] rounded-2xl border border-border bg-card p-4 shadow-lg sm:max-w-none sm:p-6">
+            <p className="text-lg font-bold leading-tight text-primary sm:text-xl">
+              Clínica Base
             </p>
-            <p className="text-xs leading-snug text-muted-foreground sm:text-sm">
-              Trilha acadêmica de excelência
+            <p className="mt-0.5 text-xs leading-snug text-muted-foreground sm:text-sm">
+              Vila Clementino-SP
             </p>
           </div>
         </div>

@@ -259,6 +259,63 @@
     .treatment-article-stagger.is-visible > section:nth-child(7) {
       transition-delay: 0.59s;
     }
+
+    /**
+     * “Premium” leve: só transform + opacity/box-shadow (GPU), sem animar width/height/margin.
+     * Não aplicar em imagem LCP do hero.
+     */
+    .premium-card-hover {
+      transition:
+        transform 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .premium-card-hover:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 44px -24px rgba(15, 23, 42, 0.12);
+    }
+
+    .nav-link-underline {
+      position: relative;
+    }
+
+    .nav-link-underline::after {
+      content: "";
+      position: absolute;
+      left: 0.65rem;
+      right: 0.65rem;
+      bottom: 0.32rem;
+      height: 2px;
+      border-radius: 9999px;
+      background: var(--primary);
+      opacity: 0;
+      transform: scaleX(0.35);
+      transition:
+        opacity 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.36s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .nav-link-underline:hover::after,
+    .nav-link-underline:focus-visible::after {
+      opacity: 0.92;
+      transform: scaleX(1);
+    }
+
+    .social-icon-premium {
+      transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .social-icon-premium:hover {
+      transform: scale(1.1);
+    }
+
+    .img-zoom-hover {
+      transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .group:hover .img-zoom-hover {
+      transform: scale(1.04);
+    }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -275,6 +332,28 @@
     .treatment-article-stagger > section,
     .treatment-article-stagger.is-visible > section {
       opacity: 1;
+      transform: none;
+      transition: none;
+    }
+
+    .premium-card-hover,
+    .premium-card-hover:hover {
+      transform: none;
+      transition: none;
+    }
+
+    .nav-link-underline::after {
+      display: none;
+    }
+
+    .social-icon-premium,
+    .social-icon-premium:hover {
+      transform: none;
+      transition: none;
+    }
+
+    .img-zoom-hover,
+    .group:hover .img-zoom-hover {
       transform: none;
       transition: none;
     }

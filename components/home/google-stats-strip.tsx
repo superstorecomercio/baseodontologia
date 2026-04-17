@@ -1,7 +1,7 @@
 import { StarRating } from "@/components/ui/star-rating"
 import { getGoogleBusinessData } from "@/lib/get-google-business-data"
 import { clinicData } from "@/lib/data"
-import { ExternalLink } from "lucide-react"
+import { ExternalLink, Facebook } from "lucide-react"
 
 function GoogleMark({ className }: { className?: string }) {
   return (
@@ -26,13 +26,33 @@ function GoogleMark({ className }: { className?: string }) {
   )
 }
 
-/** Faixa horizontal: Google + separador + estatísticas (sem sombra, estilo limpo). */
+/** Marca Doctoralia (cor aproximada da identidade visual). */
+function DoctoraliaMark({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 32 32"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      aria-hidden
+    >
+      <rect width="32" height="32" rx="7" fill="#00BFA5" />
+      <path
+        d="M10 22V10h5.2c2.76 0 5 2.02 5 4.5s-2.24 4.5-5 4.5H14v3H10zm4-8.25V15h.9c1.05 0 1.9-.78 1.9-1.75S15.95 11.5 14.9 11.5H14v2.25z"
+        fill="white"
+      />
+    </svg>
+  )
+}
+
+/** Faixa horizontal: Google + Doctoralia + Facebook (avaliações). */
 export async function GoogleStatsStrip() {
   const googleBusinessData = await getGoogleBusinessData()
+  const { doctoraliaUrl, facebookReviewsUrl, platformReviewCounts } = clinicData
 
   return (
     <div className="flex flex-col items-stretch justify-center gap-8 border-t border-border/60 bg-background pt-8 md:flex-row md:items-center md:gap-0 md:pt-10">
-      <div className="flex flex-1 flex-col items-center gap-4 sm:flex-row sm:justify-center md:flex-initial md:items-center md:gap-4 md:pr-10">
+      <div className="flex flex-1 flex-col items-center gap-4 sm:flex-row sm:justify-center md:flex-initial md:items-center md:gap-4 md:pr-8 lg:pr-10">
         <div className="flex items-center gap-3 sm:gap-4">
           <GoogleMark className="h-8 w-8 shrink-0 sm:h-9 sm:w-9" />
           <div className="text-center sm:text-left">
@@ -63,29 +83,50 @@ export async function GoogleStatsStrip() {
         aria-hidden
       />
 
-      <div className="grid flex-1 grid-cols-3 gap-4 text-center md:flex md:flex-1 md:items-center md:justify-between md:gap-8 md:pl-4">
-        <div>
-          <p className="text-xl font-bold tabular-nums text-foreground sm:text-2xl md:text-3xl">
-            15+
-          </p>
-          <p className="mt-1 text-xs text-muted-foreground sm:text-sm">
-            Anos de experiência
-          </p>
-        </div>
-        <div>
-          <p className="text-xl font-bold tabular-nums text-foreground sm:text-2xl md:text-3xl">
-            3.000+
-          </p>
-          <p className="mt-1 text-xs text-muted-foreground sm:text-sm">
-            Pacientes atendidos
-          </p>
-        </div>
-        <div>
-          <p className="text-xl font-bold tabular-nums text-foreground sm:text-2xl md:text-3xl">
-            98%
-          </p>
-          <p className="mt-1 text-xs text-muted-foreground sm:text-sm">Satisfação</p>
-        </div>
+      <div className="grid flex-1 grid-cols-2 gap-4 text-center sm:gap-8 md:flex md:flex-1 md:items-stretch md:justify-center md:gap-0 md:pl-4 lg:pl-6">
+        <a
+          href={doctoraliaUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex flex-col items-center gap-2 rounded-lg px-2 py-1 text-center transition-colors hover:bg-muted/50 md:flex-1 md:flex-row md:items-center md:justify-center md:gap-3 md:px-4"
+          aria-label={`${platformReviewCounts.doctoralia} avaliações no Doctoralia — abrir perfil`}
+        >
+          <DoctoraliaMark className="h-9 w-9 shrink-0 sm:h-10 sm:w-10" />
+          <div>
+            <p className="text-xl font-bold tabular-nums text-foreground sm:text-2xl md:text-3xl">
+              {platformReviewCounts.doctoralia}
+            </p>
+            <p className="mt-0.5 text-xs text-muted-foreground sm:text-sm">
+              avaliações no Doctoralia
+            </p>
+          </div>
+        </a>
+
+        <div
+          className="hidden w-px shrink-0 self-center bg-border md:block md:h-14"
+          aria-hidden
+        />
+
+        <a
+          href={facebookReviewsUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex flex-col items-center gap-2 rounded-lg px-2 py-1 text-center transition-colors hover:bg-muted/50 md:flex-1 md:flex-row md:items-center md:justify-center md:gap-3 md:px-4"
+          aria-label={`${platformReviewCounts.facebook} avaliações no Facebook — abrir avaliações`}
+        >
+          <Facebook
+            className="h-9 w-9 shrink-0 fill-[#1877F2] text-[#1877F2] sm:h-10 sm:w-10"
+            aria-hidden
+          />
+          <div>
+            <p className="text-xl font-bold tabular-nums text-foreground sm:text-2xl md:text-3xl">
+              {platformReviewCounts.facebook}
+            </p>
+            <p className="mt-0.5 text-xs text-muted-foreground sm:text-sm">
+              avaliações no Facebook
+            </p>
+          </div>
+        </a>
       </div>
     </div>
   )
