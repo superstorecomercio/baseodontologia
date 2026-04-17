@@ -9,8 +9,33 @@ export function AboutSection() {
   return (
     <Section scrollStagger>
       <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
-        {/* Content */}
-        <div>
+        {/**
+         * Foto primeiro no DOM: no mobile aparece e inicia carregamento antes do texto;
+         * no `lg` coluna 2 à direita (`col-start-2`).
+         */}
+        <div className="flex justify-center lg:col-start-2 lg:row-start-1 lg:justify-end">
+          <div className="relative w-full max-w-[17.5rem] pb-14 sm:max-w-[19rem] sm:pb-16 md:max-w-[20rem] lg:max-w-[22rem] lg:pb-[4.5rem]">
+            <div className="relative overflow-hidden rounded-2xl shadow-xl ring-1 ring-black/5">
+              <Image
+                src="/images/dr-danilo-about.png"
+                alt={`${clinicData.name} — gestor clínico da ${clinicData.clinicName}`}
+                width={866}
+                height={1024}
+                sizes="(max-width: 1024px) 90vw, 352px"
+                className="h-auto w-full"
+                loading="lazy"
+                fetchPriority="low"
+              />
+            </div>
+            {/* Credential card — ancorado à foto */}
+            <div className="absolute -bottom-5 left-2 right-2 rounded-2xl border border-border bg-card/95 p-3.5 shadow-lg backdrop-blur-sm sm:-bottom-6 sm:left-4 sm:right-auto sm:p-4 sm:pr-5">
+              <p className="font-semibold text-foreground">{clinicData.name}</p>
+              <p className="text-sm text-muted-foreground">{clinicData.cro}</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="min-w-0 lg:col-start-1 lg:row-start-1">
           <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary">
             {aboutData.eyebrow}
           </p>
@@ -36,29 +61,6 @@ export function AboutSection() {
               <ArrowRight className="h-4 w-4 ml-2" />
             </Link>
           </Button>
-        </div>
-
-        {/* Image */}
-        <div className="flex justify-center lg:justify-end">
-          <div className="relative w-full max-w-[17.5rem] pb-14 sm:max-w-[19rem] sm:pb-16 md:max-w-[20rem] lg:max-w-[22rem] lg:pb-[4.5rem]">
-            <div className="relative overflow-hidden rounded-2xl shadow-xl ring-1 ring-black/5">
-              <Image
-                src="/images/dr-danilo-about.png"
-                alt={`${clinicData.name} — gestor clínico da ${clinicData.clinicName}`}
-                width={866}
-                height={1024}
-                sizes="(max-width: 1024px) 90vw, 352px"
-                className="h-auto w-full"
-                loading="lazy"
-                fetchPriority="low"
-              />
-            </div>
-            {/* Credential card — ancorado à foto */}
-            <div className="absolute -bottom-5 left-2 right-2 rounded-2xl border border-border bg-card/95 p-3.5 shadow-lg backdrop-blur-sm sm:-bottom-6 sm:left-4 sm:right-auto sm:p-4 sm:pr-5">
-              <p className="font-semibold text-foreground">{clinicData.name}</p>
-              <p className="text-sm text-muted-foreground">{clinicData.cro}</p>
-            </div>
-          </div>
         </div>
       </div>
     </Section>

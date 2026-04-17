@@ -3,8 +3,7 @@ import { PageHero } from "@/components/motion/page-hero"
 import { Section, SectionHeader } from "@/components/ui/section"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { SocialFeedCard } from "@/components/social-feed-card"
-import { clinicData, socialPosts } from "@/lib/data"
+import { clinicData } from "@/lib/data"
 import { Instagram, Facebook, Youtube, MessageCircle, ExternalLink } from "lucide-react"
 
 export const metadata: Metadata = {
@@ -143,89 +142,6 @@ export default function RedesSociaisPage() {
               </Card>
             )
           })}
-        </div>
-      </Section>
-
-      {/* Social Feed */}
-      <Section variant="muted">
-        <SectionHeader
-          subtitle="Últimas Publicações"
-          title="Feed do Instagram"
-          description="Confira nossas últimas publicações no Instagram. Clique em qualquer post para ver mais."
-        />
-
-        {/* TODO: Integrar com Instagram Graph API quando disponível */}
-        {/* Este grid está preparado para receber dados reais da API */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-          {socialPosts.map((post) => (
-            <SocialFeedCard key={post.id} post={post} />
-          ))}
-        </div>
-
-        <p className="text-sm text-muted-foreground mt-6 text-center">
-          * Feed mockado. Integre com a Instagram Graph API para exibir posts reais.
-        </p>
-
-        <div className="text-center mt-8">
-          <Button asChild>
-            <a
-              href={clinicData.social.instagram}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Instagram className="h-4 w-4 mr-2" />
-              Ver mais no Instagram
-            </a>
-          </Button>
-        </div>
-      </Section>
-
-      {/* Featured Content */}
-      <Section>
-        <SectionHeader
-          subtitle="Conteúdo em Destaque"
-          title="Vídeos e Reels populares"
-          description="Nossos conteúdos mais visualizados e compartilhados."
-        />
-
-        <div className="grid md:grid-cols-3 gap-6">
-          {[
-            {
-              title: "Clareamento Dental: Antes e Depois",
-              views: "125K visualizações",
-              platform: "Instagram Reels",
-            },
-            {
-              title: "5 Dicas para Manter os Dentes Brancos",
-              views: "89K visualizações",
-              platform: "TikTok",
-            },
-            {
-              title: "Tour pela Nossa Clínica",
-              views: "45K visualizações",
-              platform: "YouTube",
-            },
-          ].map((video, index) => (
-            <Card
-              key={index}
-              className="overflow-hidden border-0 shadow-sm hover:shadow-md transition-all"
-            >
-              <div className="relative aspect-video bg-gradient-to-br from-primary/5 to-primary/10 flex items-center justify-center">
-                <div className="h-16 w-16 rounded-full bg-primary/20 flex items-center justify-center">
-                  <div className="h-0 w-0 border-l-[24px] border-l-primary border-y-[14px] border-y-transparent ml-1" />
-                </div>
-              </div>
-              <CardContent className="p-4">
-                <h3 className="font-semibold text-foreground mb-1">
-                  {video.title}
-                </h3>
-                <div className="flex items-center justify-between text-sm text-muted-foreground">
-                  <span>{video.views}</span>
-                  <span>{video.platform}</span>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
         </div>
       </Section>
     </>

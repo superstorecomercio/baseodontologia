@@ -1,19 +1,29 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import { usePathname } from "next/navigation"
 import { MessageCircle } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { clinicData } from "@/lib/data"
 
 export function WhatsAppButton() {
+  const pathname = usePathname()
   const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
+    if (pathname === "/contato") {
+      setIsVisible(false)
+      return
+    }
     const timer = setTimeout(() => setIsVisible(true), 1000)
     return () => clearTimeout(timer)
-  }, [])
+  }, [pathname])
 
   const whatsappUrl = `https://wa.me/${clinicData.whatsapp}?text=Olá! Gostaria de agendar uma consulta.`
+
+  if (pathname === "/contato") {
+    return null
+  }
 
   return (
     <a

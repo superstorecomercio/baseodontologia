@@ -45,14 +45,14 @@ export default function SobrePage() {
       <Section>
         <div className="grid items-start gap-10 lg:grid-cols-2 lg:gap-14">
           {/* Image */}
-          <div className="flex justify-center lg:justify-start">
-            <div className="relative w-full max-w-[17.5rem] pb-16 sm:max-w-[19rem] md:max-w-[20rem] lg:max-w-[22rem] lg:pb-14">
-              <div className="relative aspect-square overflow-hidden rounded-2xl shadow-xl ring-1 ring-black/5">
+          <div className="flex w-full justify-center lg:w-auto lg:justify-start">
+            <div className="relative w-full max-w-full pb-16 sm:max-w-[19rem] md:max-w-[20rem] lg:max-w-[22rem] lg:pb-14">
+              <div className="relative aspect-square w-full overflow-hidden rounded-2xl shadow-xl ring-1 ring-black/5">
                 <Image
                   src="/images/dentist-hero.png"
                   alt={clinicData.name}
                   fill
-                  sizes="(max-width: 1024px) 320px, 352px"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 352px"
                   className="object-cover object-center"
                 />
               </div>
@@ -198,7 +198,7 @@ export default function SobrePage() {
       <Section>
         <SectionHeader
           subtitle="Nossa equipe"
-          title="Quem cuida de você"
+          title="Sobre nós"
           description="Profissionais experientes e acolhedores, em um ambiente moderno, trabalhando com você em cada etapa do tratamento."
         />
         <div className="mx-auto max-w-xl">
