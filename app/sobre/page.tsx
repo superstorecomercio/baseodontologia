@@ -24,37 +24,38 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
 export default function SobrePage() {
   return (
     <>
-      {/* Secção 1 — antes era o bloco final: fachada + mensagem (ex-hero do fim da página) */}
+      {/* Secção 1 — Equipa (antes no fim da página) */}
       <Section
         variant="muted"
         className="!pt-[calc(4.5rem+1.75rem)] md:!pt-[calc(5rem+2rem)]"
+        scrollStagger
       >
-        <div>
-          <div className="relative aspect-[4/3] md:aspect-[16/9] lg:aspect-[5/2] overflow-hidden rounded-3xl shadow-xl">
-            <Image
-              src="/images/equipe-fachada-base.png"
-              alt={`Equipe da ${clinicData.clinicName} em frente à clínica`}
-              fill
-              sizes="100vw"
-              className="object-cover object-[center_38%] md:object-center"
-              priority
-            />
-            <div className="pointer-events-none absolute inset-0 hidden bg-gradient-to-t from-foreground/60 to-transparent md:block" />
-            <div className="absolute bottom-8 left-8 right-8 hidden md:block">
-              <p className="max-w-2xl text-balance text-2xl font-semibold text-white md:text-3xl">
-                A equipe que transforma sorrisos com excelência e acolhimento na{" "}
-                {clinicData.clinicName}.
-              </p>
+        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
+          <div
+            className={cn(
+              "lg:col-start-2 lg:row-start-1",
+              photoFrameWidthMatchHero,
+              photoFrameLgFullWidth,
+            )}
+          >
+            <div className="relative aspect-[3/4] w-full overflow-hidden rounded-3xl shadow-xl ring-1 ring-black/5">
+              <Image
+                src="/images/equipe-base-odontologia.png"
+                alt={`Equipe da ${clinicData.clinicName} reunida no consultório`}
+                fill
+                sizes="(max-width: 896px) 100vw, 50vw"
+                className="object-cover object-center"
+                priority
+              />
             </div>
           </div>
-          <div className="mt-5 md:hidden">
-            <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary">
-              Nossa equipe
-            </p>
-            <p className="font-serif text-xl font-semibold leading-snug text-balance text-foreground">
-              A equipe que transforma sorrisos com excelência e acolhimento na{" "}
-              {clinicData.clinicName}.
-            </p>
+          <div className="min-w-0 lg:col-start-1 lg:row-start-1">
+            <SectionHeader
+              subtitle="Nossa equipe"
+              title="Conheça nossa equipe"
+              description="Profissionais experientes e acolhedores, em um ambiente moderno, trabalhando com você em cada etapa do tratamento."
+              align="left"
+            />
           </div>
         </div>
       </Section>
@@ -208,37 +209,6 @@ export default function SobrePage() {
               </div>
             )
           })}
-        </div>
-      </Section>
-
-      {/* Equipe — foto primeiro no DOM (mobile: acima do texto; desktop: coluna direita) */}
-      <Section>
-        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
-          <div
-            className={cn(
-              "lg:col-start-2 lg:row-start-1",
-              photoFrameWidthMatchHero,
-              photoFrameLgFullWidth,
-            )}
-          >
-            <div className="relative aspect-[3/4] w-full overflow-hidden rounded-3xl shadow-xl ring-1 ring-black/5">
-              <Image
-                src="/images/equipe-base-odontologia.png"
-                alt={`Equipe da ${clinicData.clinicName} reunida no consultório`}
-                fill
-                sizes="(max-width: 896px) 100vw, 50vw"
-                className="object-cover object-center"
-              />
-            </div>
-          </div>
-          <div className="min-w-0 lg:col-start-1 lg:row-start-1">
-            <SectionHeader
-              subtitle="Nossa equipe"
-              title="Sobre nós"
-              description="Profissionais experientes e acolhedores, em um ambiente moderno, trabalhando com você em cada etapa do tratamento."
-              align="left"
-            />
-          </div>
         </div>
       </Section>
     </>

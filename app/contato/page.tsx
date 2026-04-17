@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import Image from "next/image"
 import { PageHero } from "@/components/motion/page-hero"
 import { Section, SectionHeader } from "@/components/ui/section"
 import { Button } from "@/components/ui/button"
@@ -30,16 +31,46 @@ export default function ContatoPage() {
       {/* Hero Section */}
       <PageHero className="bg-muted pb-16 pt-28 md:pb-20 md:pt-32">
         <div className="page-container">
-          <div className="max-w-3xl">
-            <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary">
-              Contato
-            </p>
-            <h1 className="mb-7 font-serif text-4xl font-semibold tracking-tight text-balance text-foreground md:text-5xl md:leading-[1.08]">
-              Estamos prontos para atender você
-            </h1>
-            <p className="text-pretty text-base leading-relaxed text-muted-foreground md:text-lg">
-              {clinicData.locationParagraphs[0]}
-            </p>
+          {/**
+           * Coluna da foto com largura fixa em `md+` evita largura 0 (grelha `auto` + filho `w-full`).
+           * Mobile: foto primeiro (`order-1`), largura total do contentor.
+           */}
+          <div className="grid items-start gap-8 md:grid-cols-[minmax(0,1fr)_min(20rem,42%)] md:gap-10 lg:grid-cols-[minmax(0,1fr)_22rem] lg:gap-14">
+            <div className="order-2 min-w-0 max-w-2xl md:order-1">
+              <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary md:mb-3">
+                Contato
+              </p>
+              <h1 className="mb-5 font-serif text-3xl font-semibold tracking-tight text-balance text-foreground md:mb-6 md:text-4xl md:leading-[1.1] lg:text-[2.5rem]">
+                Estamos prontos para atender você
+              </h1>
+              <p className="text-pretty text-sm leading-relaxed text-muted-foreground md:text-base md:leading-relaxed">
+                {clinicData.locationParagraphs[0]}
+              </p>
+            </div>
+
+            <div className="order-1 w-full min-w-0 md:order-2">
+              {/** Mobile: panorâmica com recorte na equipa. Desktop: foto vertical original (menos corte). */}
+              <div className="relative w-full max-md:aspect-[21/10] overflow-hidden rounded-3xl shadow-xl ring-1 ring-black/5 md:hidden">
+                <Image
+                  src="/images/equipe-fachada-wide.png"
+                  alt={`Equipe da ${clinicData.clinicName} em frente à clínica`}
+                  fill
+                  sizes="100vw"
+                  className="object-cover object-[center_46%] scale-[1.12]"
+                  priority
+                />
+              </div>
+              <div className="relative hidden aspect-[3/4] w-full overflow-hidden rounded-3xl shadow-xl ring-1 ring-black/5 md:block">
+                <Image
+                  src="/images/equipe-contato-fachada.png"
+                  alt={`Equipe da ${clinicData.clinicName} em frente à clínica`}
+                  fill
+                  sizes="(min-width: 768px) 22rem, 100vw"
+                  className="object-cover object-center"
+                  priority
+                />
+              </div>
+            </div>
           </div>
         </div>
       </PageHero>
