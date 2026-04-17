@@ -29,18 +29,29 @@ export default function SobrePage() {
         variant="muted"
         className="!pt-[calc(4.5rem+1rem)] md:!pt-[calc(5rem+1rem)]"
       >
-        <div className="relative aspect-[4/3] md:aspect-[3/2] lg:aspect-[2/1] overflow-hidden rounded-3xl shadow-xl">
-          <Image
-            src="/images/equipe-fachada-base.png"
-            alt={`Equipe da ${clinicData.clinicName} em frente à clínica`}
-            fill
-            sizes="100vw"
-            className="object-cover object-[center_35%]"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 to-transparent" />
-          <div className="absolute bottom-8 left-8 right-8">
-            <p className="text-2xl font-semibold text-white text-balance md:text-3xl max-w-2xl">
+        <div>
+          <div className="relative aspect-[4/3] md:aspect-[3/2] lg:aspect-[2/1] overflow-hidden rounded-3xl shadow-xl">
+            <Image
+              src="/images/equipe-fachada-base.png"
+              alt={`Equipe da ${clinicData.clinicName} em frente à clínica`}
+              fill
+              sizes="100vw"
+              className="object-cover object-[center_35%]"
+              priority
+            />
+            <div className="pointer-events-none absolute inset-0 hidden bg-gradient-to-t from-foreground/60 to-transparent md:block" />
+            <div className="absolute bottom-8 left-8 right-8 hidden md:block">
+              <p className="max-w-2xl text-balance text-2xl font-semibold text-white md:text-3xl">
+                A equipe que transforma sorrisos com excelência e acolhimento na{" "}
+                {clinicData.clinicName}.
+              </p>
+            </div>
+          </div>
+          <div className="mt-5 md:hidden">
+            <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary">
+              Nossa equipe
+            </p>
+            <p className="font-serif text-xl font-semibold leading-snug text-balance text-foreground">
               A equipe que transforma sorrisos com excelência e acolhimento na{" "}
               {clinicData.clinicName}.
             </p>
