@@ -16,8 +16,8 @@ export function WhyChooseSection() {
   return (
     <Section variant="muted" scrollStagger>
       <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-12">
-        {/* Image */}
-        <div className="relative order-2 lg:order-1">
+        {/* Image: primeiro no DOM e no mobile; coluna esquerda no `lg`. */}
+        <div className="relative order-1">
           <div className="relative mx-auto aspect-[3/4] w-full max-w-md overflow-hidden rounded-3xl shadow-xl lg:mx-0 lg:max-w-none lg:aspect-[4/5]">
             <Image
               src="/images/clinic-diferenciais.png"
@@ -41,7 +41,7 @@ export function WhyChooseSection() {
         </div>
 
         {/* Content */}
-        <div className="order-1 lg:order-2">
+        <div className="order-2">
           <SectionHeader
             subtitle="Por que nos escolher?"
             title="Diferenciais que fazem toda a diferença"
