@@ -30,13 +30,13 @@ export default function SobrePage() {
         className="!pt-[calc(4.5rem+1rem)] md:!pt-[calc(5rem+1rem)]"
       >
         <div>
-          <div className="relative aspect-[4/3] md:aspect-[3/2] lg:aspect-[2/1] overflow-hidden rounded-3xl shadow-xl">
+          <div className="relative aspect-[4/3] md:aspect-[16/9] lg:aspect-[5/2] overflow-hidden rounded-3xl shadow-xl">
             <Image
               src="/images/equipe-fachada-base.png"
               alt={`Equipe da ${clinicData.clinicName} em frente à clínica`}
               fill
               sizes="100vw"
-              className="object-cover object-[center_35%]"
+              className="object-cover object-[center_38%] md:object-center"
               priority
             />
             <div className="pointer-events-none absolute inset-0 hidden bg-gradient-to-t from-foreground/60 to-transparent md:block" />
