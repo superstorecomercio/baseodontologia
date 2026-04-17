@@ -17,7 +17,7 @@ export function AboutSection() {
           <div className="relative w-full max-w-[17.5rem] pb-14 sm:max-w-[19rem] sm:pb-16 md:max-w-[20rem] lg:max-w-[22rem] lg:pb-[4.5rem]">
             <div className="relative overflow-hidden rounded-2xl shadow-xl ring-1 ring-black/5">
               <Image
-                src="/images/dr-danilo-about.png"
+                src="/images/dr-danilo-conheca-home.png"
                 alt={`${clinicData.name} — gestor clínico da ${clinicData.clinicName}`}
                 width={866}
                 height={1024}

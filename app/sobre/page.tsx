@@ -1,6 +1,5 @@
 import type { Metadata } from "next"
 import Image from "next/image"
-import { PageHero } from "@/components/motion/page-hero"
 import { Section, SectionHeader } from "@/components/ui/section"
 import { clinicData, aboutData, differentials } from "@/lib/data"
 import { CheckCircle2, Target, Eye, Heart, Shield, Camera, Clock, CreditCard, Award } from "lucide-react"
@@ -23,28 +22,33 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
 export default function SobrePage() {
   return (
     <>
-      {/* Hero Section */}
-      <PageHero className="bg-muted pb-16 pt-28 md:pb-20 md:pt-32">
-        <div className="page-container">
-          <div className="max-w-3xl">
-            <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary">
-              Sobre Nós
-            </p>
-            <h1 className="mb-7 font-serif text-4xl font-semibold tracking-tight text-balance text-foreground md:text-5xl md:leading-[1.08]">
-              Ciência USP ao serviço do seu sorriso
-            </h1>
-            <p className="text-pretty text-base leading-relaxed text-muted-foreground md:text-lg">
-              Conheça a história da {clinicData.clinicName} e nossa missão de
-              transformar sorrisos com excelência e humanidade.
+      {/* Secção 1 — antes era o bloco final: fachada + mensagem (ex-hero do fim da página) */}
+      <Section
+        variant="muted"
+        className="!pt-[calc(4.5rem+1rem)] md:!pt-[calc(5rem+1rem)]"
+      >
+        <div className="relative aspect-[4/3] md:aspect-[3/2] lg:aspect-[2/1] overflow-hidden rounded-3xl shadow-xl">
+          <Image
+            src="/images/equipe-fachada-base.png"
+            alt={`Equipe da ${clinicData.clinicName} em frente à clínica`}
+            fill
+            sizes="100vw"
+            className="object-cover object-[center_35%]"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 to-transparent" />
+          <div className="absolute bottom-8 left-8 right-8">
+            <p className="text-2xl font-semibold text-white text-balance md:text-3xl max-w-2xl">
+              A equipe que transforma sorrisos com excelência e acolhimento na{" "}
+              {clinicData.clinicName}.
             </p>
           </div>
         </div>
-      </PageHero>
+      </Section>
 
-      {/* About the Dentist */}
+      {/* Secção 2 — Dr. Danilo: foto em anexo + biografia */}
       <Section>
         <div className="grid items-start gap-10 lg:grid-cols-2 lg:gap-14">
-          {/* Image */}
           <div className="flex w-full justify-center lg:w-auto lg:justify-start">
             <div className="relative w-full max-w-full pb-16 sm:max-w-[19rem] md:max-w-[20rem] lg:max-w-[22rem] lg:pb-14">
               <div className="relative aspect-[3/4] w-full overflow-hidden rounded-2xl shadow-xl ring-1 ring-black/5">
@@ -54,6 +58,7 @@ export default function SobrePage() {
                   fill
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 352px"
                   className="object-cover object-[center_20%]"
+                  loading="lazy"
                 />
               </div>
               <div className="absolute -bottom-4 right-2 max-w-[11rem] rounded-2xl border border-border bg-card/95 p-4 shadow-lg backdrop-blur-sm sm:-bottom-5 sm:right-4 sm:max-w-none sm:p-5">
@@ -67,8 +72,7 @@ export default function SobrePage() {
             </div>
           </div>
 
-          {/* Content */}
-          <div>
+          <div className="min-w-0">
             <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary">
               {aboutData.eyebrow}
             </p>
@@ -215,26 +219,6 @@ export default function SobrePage() {
               description="Profissionais experientes e acolhedores, em um ambiente moderno, trabalhando com você em cada etapa do tratamento."
               align="left"
             />
-          </div>
-        </div>
-      </Section>
-
-      {/* Team at clinic */}
-      <Section variant="muted">
-        <div className="relative aspect-[4/3] md:aspect-[3/2] lg:aspect-[2/1] rounded-3xl overflow-hidden shadow-xl">
-          <Image
-            src="/images/equipe-fachada-base.png"
-            alt={`Equipe da ${clinicData.clinicName} em frente à clínica`}
-            fill
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1120px"
-            className="object-cover object-[center_35%]"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 to-transparent" />
-          <div className="absolute bottom-8 left-8 right-8">
-            <p className="text-2xl md:text-3xl font-semibold text-white max-w-2xl text-balance">
-              A equipe que transforma sorrisos com excelência e acolhimento na{" "}
-              {clinicData.clinicName}.
-            </p>
           </div>
         </div>
       </Section>
