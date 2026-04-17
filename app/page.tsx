@@ -1,5 +1,4 @@
 import { HeroSection } from "@/components/home/hero-section"
-import { SocialProofSection } from "@/components/home/social-proof-section"
 import { TreatmentsSection } from "@/components/home/treatments-section"
 import { WhyChooseSection } from "@/components/home/why-choose-section"
 import { AboutSection } from "@/components/home/about-section"
@@ -19,7 +18,6 @@ export default function HomePage() {
       <WhyChooseSection />
       <AboutSection />
       {SHOW_HOME_INSTAGRAM ? <InstagramSection /> : null}
-      <SocialProofSection />
       <LocationSection />
     </>
   )

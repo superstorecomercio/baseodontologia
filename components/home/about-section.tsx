@@ -40,14 +40,15 @@ export function AboutSection() {
 
         {/* Image */}
         <div className="flex justify-center lg:justify-end">
-          <div className="relative w-full max-w-[17.5rem] pb-12 sm:max-w-[19rem] sm:pb-14 md:max-w-[20rem] lg:max-w-[22rem]">
-            <div className="relative aspect-square overflow-hidden rounded-2xl shadow-xl ring-1 ring-black/5">
+          <div className="relative w-full max-w-[17.5rem] pb-14 sm:max-w-[19rem] sm:pb-16 md:max-w-[20rem] lg:max-w-[22rem] lg:pb-[4.5rem]">
+            <div className="relative overflow-hidden rounded-2xl shadow-xl ring-1 ring-black/5">
               <Image
-                src="/images/dentist-hero.png"
-                alt={clinicData.name}
-                fill
-                sizes="(max-width: 1024px) 320px, 352px"
-                className="object-cover object-center"
+                src="/images/dr-danilo-about.png"
+                alt={`${clinicData.name} — gestor clínico da ${clinicData.clinicName}`}
+                width={866}
+                height={1024}
+                sizes="(max-width: 1024px) 90vw, 352px"
+                className="h-auto w-full"
                 loading="lazy"
                 fetchPriority="low"
               />

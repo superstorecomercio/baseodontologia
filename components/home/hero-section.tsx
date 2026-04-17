@@ -23,12 +23,12 @@ export function HeroSection() {
 
               <div className="relative mx-auto aspect-[500/550] w-full max-w-[15.5rem] overflow-hidden rounded-2xl shadow-xl ring-1 ring-black/5 sm:max-w-[17rem] md:max-w-[18rem] lg:mx-0 lg:ml-auto lg:max-w-[min(100%,21rem)] xl:max-w-[min(100%,23rem)]">
                 <Image
-                  src="/images/dr-danilo-hero.png"
+                  src="/images/hero-dr-danilo-recepcao.png"
                   alt={`${clinicData.name} na recepção da ${clinicData.clinicName}`}
                   width={500}
                   height={550}
                   sizes="(max-width: 640px) 70vw, (max-width: 1024px) 280px, 320px"
-                  className="h-full w-full object-cover object-[38%_center] sm:object-[36%_center]"
+                  className="h-full w-full object-cover object-left"
                   priority
                   fetchPriority="high"
                   decoding="sync"
