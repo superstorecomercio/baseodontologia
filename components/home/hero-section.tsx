@@ -1,5 +1,6 @@
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
+import { cn } from "@/lib/utils"
 import { clinicData, heroData, heroHeadlineSegments } from "@/lib/data"
 import { MapPin, MessageCircle } from "lucide-react"
 
@@ -21,26 +22,42 @@ export function HeroSection() {
               <div className="absolute -right-2 -top-3 h-48 w-48 rounded-full bg-primary/10 blur-3xl sm:h-56 sm:w-56 lg:-right-4 lg:-top-4 lg:h-64 lg:w-64" />
               <div className="absolute -bottom-3 -left-2 h-36 w-36 rounded-full bg-primary/5 blur-2xl sm:h-40 sm:w-40" />
 
-              <div className="relative mx-auto aspect-[500/550] w-full max-w-[15.5rem] overflow-hidden rounded-2xl shadow-xl ring-1 ring-black/5 sm:max-w-[17rem] md:max-w-[18rem] lg:mx-0 lg:ml-auto lg:max-w-[min(100%,21rem)] xl:max-w-[min(100%,23rem)]">
-                <Image
-                  src="/images/hero-dr-danilo-recepcao.png"
-                  alt={`${clinicData.name} na recepção da ${clinicData.clinicName}`}
-                  width={500}
-                  height={550}
-                  sizes="(max-width: 640px) 70vw, (max-width: 1024px) 280px, 320px"
-                  className="h-full w-full object-cover object-left"
-                  priority
-                  fetchPriority="high"
-                  decoding="sync"
-                />
-              </div>
+              <div className="relative mx-auto w-full max-w-[15.5rem] pb-7 max-sm:pb-9 sm:max-w-[17rem] sm:pb-0 md:max-w-[18rem] lg:mx-0 lg:ml-auto lg:max-w-[min(100%,21rem)] xl:max-w-[min(100%,23rem)]">
+                <div className="relative aspect-[500/550] w-full overflow-hidden rounded-2xl shadow-xl ring-1 ring-black/5">
+                  <Image
+                    src="/images/hero-dr-danilo-recepcao.png"
+                    alt={`${clinicData.name} na recepção da ${clinicData.clinicName}`}
+                    width={500}
+                    height={550}
+                    sizes="(max-width: 640px) 70vw, (max-width: 1024px) 280px, 320px"
+                    className="h-full w-full object-cover object-left"
+                    priority
+                    fetchPriority="high"
+                    decoding="sync"
+                  />
+                </div>
 
-              <div className="relative z-10 mt-3 w-full rounded-2xl border border-border/50 bg-card p-3 shadow-md sm:mt-4 sm:p-4 lg:absolute lg:-bottom-6 lg:left-2 lg:mt-0 lg:max-w-[200px] lg:bg-card/95 lg:p-4 lg:shadow-lg lg:backdrop-blur-sm">
-                <p className="text-sm font-semibold text-foreground">{clinicData.name}</p>
-                <p className="text-[0.6875rem] leading-snug text-muted-foreground sm:text-xs">
-                  {clinicData.specialty}
-                </p>
-                <p className="mt-1 text-xs text-primary">{clinicData.cro}</p>
+                <div
+                  className={cn(
+                    "z-10 w-full rounded-2xl border border-border/50 bg-card/95 text-center shadow-md backdrop-blur-sm",
+                    "max-sm:absolute max-sm:left-1/2 max-sm:bottom-0 max-sm:w-[calc(100%-1.25rem)] max-sm:-translate-x-1/2 max-sm:translate-y-1/2 max-sm:px-3 max-sm:py-2.5 max-sm:shadow-lg",
+                    "sm:relative sm:bottom-auto sm:left-auto sm:mt-4 sm:translate-x-0 sm:translate-y-0 sm:px-4 sm:py-4 sm:text-left",
+                    "lg:absolute lg:-bottom-6 lg:left-2 lg:mt-0 lg:max-w-[200px] lg:shadow-lg",
+                  )}
+                >
+                  <p className="text-sm font-semibold text-foreground">{clinicData.name}</p>
+                  <p className="hidden text-[0.6875rem] leading-snug text-muted-foreground sm:block sm:text-xs">
+                    {clinicData.specialty}
+                  </p>
+                  <p
+                    className={cn(
+                      "text-xs text-primary",
+                      "max-sm:mt-0.5 sm:mt-1",
+                    )}
+                  >
+                    {clinicData.cro}
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -61,11 +78,8 @@ export function HeroSection() {
               ))}
             </h1>
 
-            <div className="mx-auto max-w-xl space-y-4 text-pretty text-base leading-relaxed md:text-lg md:leading-relaxed lg:mx-0 lg:mb-8">
+            <div className="mx-auto max-w-xl text-pretty text-base leading-relaxed md:text-lg md:leading-relaxed lg:mx-0 lg:mb-8">
               <p className="text-muted-foreground">{heroData.subheadline}</p>
-              <p className="font-medium text-foreground/90">
-                {heroData.subheadlineLead}
-              </p>
             </div>
           </div>
 

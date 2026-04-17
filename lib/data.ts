@@ -100,9 +100,6 @@ export const heroData = {
   headline: "Mais do que odontologia, uma experiência pensada para você.",
   subheadline:
     "Ambiente acolhedor, atendimento personalizado e resultados naturais.",
-  /** Terceiro parágrafo do hero (convite à ação) */
-  subheadlineLead:
-    "Agende sua consulta e eleve o padrão do seu cuidado com o sorriso.",
   ctaPrimary: "Agendar pelo WhatsApp",
 }
 
