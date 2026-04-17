@@ -18,18 +18,18 @@ export function HeroSection() {
          */}
         <div className="grid gap-x-0 gap-y-3 py-3 max-sm:gap-y-2.5 max-sm:py-2.5 sm:gap-y-9 sm:py-10 lg:grid-cols-[minmax(0,1fr)_min(42%,26rem)] lg:items-center lg:gap-x-12 lg:gap-y-0 lg:py-12 xl:grid-cols-[minmax(0,1fr)_28rem] xl:gap-x-16">
           <div className="hero-lcp-col relative order-1 flex justify-center lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:justify-end lg:pb-0">
-            <div className="relative w-full max-w-[14rem] max-sm:max-w-[13.25rem] sm:max-w-[19rem] md:max-w-[20rem] lg:max-w-full">
+            <div className="relative w-full max-w-[15.75rem] sm:max-w-[19rem] md:max-w-[20rem] lg:max-w-full">
               <div className="absolute -right-2 -top-3 h-48 w-48 rounded-full bg-primary/10 blur-3xl sm:h-56 sm:w-56 lg:-right-4 lg:-top-4 lg:h-64 lg:w-64" />
               <div className="absolute -bottom-3 -left-2 h-36 w-36 rounded-full bg-primary/5 blur-2xl sm:h-40 sm:w-40" />
 
-              <div className="relative mx-auto w-full max-w-[13.5rem] max-sm:max-w-[12.75rem] sm:max-w-[17rem] md:max-w-[18rem] lg:mx-0 lg:ml-auto lg:max-w-[min(100%,21rem)] xl:max-w-[min(100%,23rem)]">
+              <div className="relative mx-auto w-full max-w-[15.25rem] sm:max-w-[17rem] md:max-w-[18rem] lg:mx-0 lg:ml-auto lg:max-w-[min(100%,21rem)] xl:max-w-[min(100%,23rem)]">
                 <div className="relative aspect-[500/550] w-full overflow-hidden rounded-2xl shadow-xl ring-1 ring-black/5">
                   <Image
                     src="/images/hero-dr-danilo-recepcao.png"
                     alt={`${clinicData.name} na recepção da ${clinicData.clinicName}`}
                     width={500}
                     height={550}
-                    sizes="(max-width: 640px) 58vw, (max-width: 1024px) 280px, 320px"
+                    sizes="(max-width: 640px) 78vw, (max-width: 1024px) 280px, 320px"
                     className="h-full w-full object-cover object-left"
                     priority
                     fetchPriority="high"
@@ -58,7 +58,7 @@ export function HeroSection() {
             </div>
           </div>
 
-          <div className="hero-fade-item hero-fade-item--1 order-2 max-sm:order-3 min-w-0 text-center lg:order-2 lg:col-start-1 lg:row-start-1 lg:text-left">
+          <div className="hero-fade-item hero-fade-item--1 order-2 min-w-0 text-center lg:col-start-1 lg:row-start-1 lg:text-left">
             <div className="mb-2.5 inline-flex max-w-full items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1.5 text-left text-[11px] font-semibold tracking-wide text-primary max-sm:leading-snug sm:mb-6 sm:gap-2 sm:px-4 sm:py-2 sm:text-sm">
               <MapPin className="h-3.5 w-3.5 shrink-0 sm:h-4 sm:w-4" aria-hidden />
               <span className="text-balance leading-snug">
@@ -79,7 +79,7 @@ export function HeroSection() {
             </div>
           </div>
 
-          <div className="hero-fade-item hero-fade-item--3 order-3 max-sm:order-2 flex justify-center lg:order-3 lg:col-start-1 lg:row-start-2 lg:justify-start">
+          <div className="hero-fade-item hero-fade-item--3 order-3 flex justify-center lg:col-start-1 lg:row-start-2 lg:justify-start">
             <Button
               size="lg"
               className="w-full px-5 text-sm max-sm:h-10 sm:w-auto sm:px-8 sm:text-base"
