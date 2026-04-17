@@ -127,11 +127,10 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-10 flex flex-col gap-2 border-t border-border/60 pt-7 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-10 border-t border-border/60 pt-7 text-xs text-muted-foreground">
           <span>
             © {year} {clinicData.clinicName}. Todos os direitos reservados.
           </span>
-          <span className="tabular-nums">{clinicData.cro}</span>
         </div>
       </div>
     </footer>

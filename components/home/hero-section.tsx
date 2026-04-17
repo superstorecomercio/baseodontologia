@@ -21,14 +21,14 @@ export function HeroSection() {
               <div className="absolute -right-2 -top-3 h-48 w-48 rounded-full bg-primary/10 blur-3xl sm:h-56 sm:w-56 lg:-right-4 lg:-top-4 lg:h-64 lg:w-64" />
               <div className="absolute -bottom-3 -left-2 h-36 w-36 rounded-full bg-primary/5 blur-2xl sm:h-40 sm:w-40" />
 
-              <div className="relative aspect-square overflow-hidden rounded-2xl shadow-xl ring-1 ring-black/5">
+              <div className="relative mx-auto aspect-[500/550] w-full max-w-[15.5rem] overflow-hidden rounded-2xl shadow-xl ring-1 ring-black/5 sm:max-w-[17rem] md:max-w-[18rem] lg:mx-0 lg:ml-auto lg:max-w-[min(100%,21rem)] xl:max-w-[min(100%,23rem)]">
                 <Image
-                  src="/images/dentist-hero.png"
-                  alt={`${clinicData.name} - ${clinicData.specialty}`}
-                  width={800}
-                  height={800}
-                  sizes="(max-width: 640px) 85vw, (max-width: 1024px) 320px, 448px"
-                  className="h-full w-full object-cover object-center"
+                  src="/images/dr-danilo-hero.png"
+                  alt={`${clinicData.name} na recepção da ${clinicData.clinicName}`}
+                  width={500}
+                  height={550}
+                  sizes="(max-width: 640px) 70vw, (max-width: 1024px) 280px, 320px"
+                  className="h-full w-full object-cover object-[38%_center] sm:object-[36%_center]"
                   priority
                   fetchPriority="high"
                   decoding="sync"

@@ -1,10 +1,11 @@
-import { Section, SectionHeader } from "@/components/ui/section"
 import { GoogleReviewCard } from "@/components/google-review-card"
 import { StarRating } from "@/components/ui/star-rating"
 import { Button } from "@/components/ui/button"
+import { Section } from "@/components/ui/section"
 import { getGoogleBusinessData } from "@/lib/get-google-business-data"
 import { clinicData } from "@/lib/data"
-import { ExternalLink } from "lucide-react"
+import { cn } from "@/lib/utils"
+import { MapPin, ShieldCheck } from "lucide-react"
 
 function GoogleMark({ className }: { className?: string }) {
   return (
@@ -33,77 +34,165 @@ export async function GoogleReviewsSection() {
   const googleBusinessData = await getGoogleBusinessData()
 
   return (
-    <Section className="py-10 md:py-14 lg:py-16">
-      {/* Resumo + ações em uma faixa */}
-      <div className="mb-8 flex flex-col gap-4 rounded-2xl border border-border bg-card p-4 shadow-sm sm:flex-row sm:flex-wrap sm:items-center sm:justify-between sm:gap-5 md:p-5">
-        <div className="flex min-w-0 items-center gap-3 sm:gap-4">
-          <GoogleMark className="h-9 w-9 shrink-0 sm:h-10 sm:w-10" />
-          <div className="min-w-0">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-primary">
-              Google Maps
-            </p>
-            <div className="mt-0.5 flex flex-wrap items-center gap-x-2 gap-y-1">
-              <span className="font-serif text-3xl font-bold tabular-nums text-foreground sm:text-4xl">
-                {googleBusinessData.rating}
-              </span>
-              <StarRating
-                rating={googleBusinessData.rating}
-                size="sm"
-                className="shrink-0"
-              />
-              <span className="text-sm text-muted-foreground">
-                {googleBusinessData.totalReviews} avaliações
-              </span>
-            </div>
-            <p className="mt-1 text-[11px] leading-snug text-muted-foreground sm:text-xs">
-              {googleBusinessData.reviewsSource === "live"
-                ? "Dados públicos, atualizados periodicamente."
-                : "Ative a Places API no servidor para listar resenhas ao vivo."}
-            </p>
-          </div>
-        </div>
-
-        <div className="flex w-full flex-col gap-2 sm:w-auto sm:min-w-[200px] sm:max-w-xs">
-          <Button variant="outline" size="sm" className="w-full sm:w-auto" asChild>
-            <a
-              href={clinicData.googleMapsListingUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+    <Section
+      variant="muted"
+      className="border-t border-b border-border/80 py-8 md:py-10 lg:py-11"
+    >
+      <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-start lg:gap-x-10 lg:gap-y-0 xl:gap-x-12">
+        {/* Coluna esquerda: resumo compacto e premium */}
+        <aside className="lg:col-span-4 xl:col-span-5">
+          <div className="lg:sticky lg:top-24 xl:top-28">
+            <div
+              className={cn(
+                "group relative overflow-hidden rounded-2xl border border-border/50 bg-card",
+                "shadow-[0_1px_0_rgba(255,255,255,0.65)_inset,0_14px_36px_-16px_rgba(0,0,0,0.12)]",
+                "ring-1 ring-black/[0.035]",
+                "transition-[box-shadow,transform] duration-300 ease-out",
+                "hover:-translate-y-px hover:shadow-[0_1px_0_rgba(255,255,255,0.65)_inset,0_22px_50px_-18px_rgba(0,0,0,0.14)]",
+                "dark:shadow-[0_1px_0_rgba(255,255,255,0.04)_inset,0_14px_36px_-16px_rgba(0,0,0,0.45)]",
+                "dark:hover:shadow-[0_1px_0_rgba(255,255,255,0.06)_inset,0_22px_50px_-18px_rgba(0,0,0,0.5)]",
+              )}
             >
-              <ExternalLink className="h-3.5 w-3.5" />
-              Ver no Maps
-            </a>
-          </Button>
-          <a
-            href={clinicData.googleWriteReviewUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-center text-xs font-medium text-primary underline-offset-4 hover:underline sm:text-left"
-          >
-            Avaliar no Google
-          </a>
+              <div
+                className="absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-primary/0 via-primary/65 to-primary/0"
+                aria-hidden
+              />
+              <div
+                className="pointer-events-none absolute -right-20 -top-24 h-52 w-52 rounded-full bg-primary/[0.075] blur-3xl"
+                aria-hidden
+              />
+              <div
+                className="pointer-events-none absolute -bottom-20 -left-16 h-44 w-44 rounded-full bg-amber-400/[0.07] blur-3xl"
+                aria-hidden
+              />
+              <div
+                className="pointer-events-none absolute inset-0 opacity-[0.35] dark:opacity-[0.18]"
+                style={{
+                  backgroundImage:
+                    "radial-gradient(circle at 1px 1px, rgba(0,0,0,0.05) 1px, transparent 0)",
+                  backgroundSize: "15px 15px",
+                }}
+                aria-hidden
+              />
+
+              <div className="relative px-5 py-6 md:px-6 md:py-7">
+                <div className="flex items-start gap-3.5">
+                  <div className="relative flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-background shadow-[0_1px_0_rgba(255,255,255,0.9)_inset,0_2px_10px_-2px_rgba(0,0,0,0.08)] ring-1 ring-black/[0.06] dark:shadow-[0_1px_0_rgba(255,255,255,0.05)_inset,0_2px_10px_-2px_rgba(0,0,0,0.5)]">
+                    <GoogleMark className="relative z-10 h-7 w-7" />
+                  </div>
+                  <div className="min-w-0 pt-0.5">
+                    <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-primary">
+                      Google Maps
+                    </p>
+                    <p className="mt-1 text-sm font-semibold leading-snug text-foreground">
+                      Perfil oficial da clínica
+                    </p>
+                    <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
+                      Nota média e avaliações públicas.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="mt-5 rounded-xl border border-border/40 bg-gradient-to-br from-muted/55 via-muted/25 to-transparent p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.5)] dark:from-muted/25 dark:via-muted/10 dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] sm:p-5">
+                  <div className="flex items-end justify-between gap-3">
+                    <span className="font-serif text-[2.65rem] font-semibold leading-none tabular-nums tracking-tight text-foreground sm:text-5xl">
+                      {googleBusinessData.rating}
+                    </span>
+                    <div className="flex min-w-0 flex-col items-end gap-1">
+                      <StarRating
+                        rating={googleBusinessData.rating}
+                        size="lg"
+                        className="shrink-0"
+                      />
+                      <span className="text-right text-[11px] font-medium text-muted-foreground sm:text-xs">
+                        {googleBusinessData.totalReviews} avaliações
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <p className="mt-4 flex gap-2.5 text-[11px] leading-relaxed text-muted-foreground sm:text-xs">
+                  <ShieldCheck
+                    className="mt-0.5 h-4 w-4 shrink-0 text-primary"
+                    strokeWidth={2}
+                    aria-hidden
+                  />
+                  <span>
+                    {googleBusinessData.reviewsSource === "live"
+                      ? "Dados públicos do Google, sincronizados periodicamente."
+                      : "Ative a Places API no servidor para listar resenhas ao vivo."}
+                  </span>
+                </p>
+
+                <div className="mt-5 flex flex-col gap-2 border-t border-border/50 pt-5">
+                  <Button
+                    variant="default"
+                    size="default"
+                    className="h-10 w-full gap-2 rounded-lg text-sm font-semibold shadow-sm"
+                    asChild
+                  >
+                    <a
+                      href={clinicData.googleMapsListingUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <MapPin className="!size-4 shrink-0" />
+                      Abrir no Google Maps
+                    </a>
+                  </Button>
+                  <Button
+                    variant="outline"
+                    size="default"
+                    className="h-10 w-full rounded-lg border-border/65 bg-background/70 text-sm font-medium backdrop-blur-sm"
+                    asChild
+                  >
+                    <a
+                      href={clinicData.googleWriteReviewUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Avaliar no Google
+                    </a>
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        {/* Coluna direita: título enxuto + grade de resenhas */}
+        <div className="min-w-0 lg:col-span-8 xl:col-span-7">
+          <header className="mb-4 border-b border-border/50 pb-4 md:mb-5 md:pb-5">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-primary md:text-[11px]">
+              Avaliações do Google
+            </p>
+            <h2 className="mt-1.5 font-serif text-2xl font-semibold tracking-tight text-foreground text-balance md:text-3xl md:leading-snug">
+              O que as pessoas dizem no Google
+            </h2>
+            <p className="mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground">
+              Trechos públicos. No Maps você vê todas e pode deixar a sua.
+            </p>
+          </header>
+
+          <div className="grid gap-2.5 sm:grid-cols-2 sm:gap-3">
+            {googleBusinessData.reviews.slice(0, 4).map((review) => (
+              <GoogleReviewCard
+                key={review.id}
+                review={review}
+                density="compact"
+                className="rounded-2xl border-border/40 py-0 shadow-sm"
+              />
+            ))}
+          </div>
+
+          {googleBusinessData.reviewsSource !== "live" ? (
+            <p className="mt-3 text-xs text-muted-foreground">
+              Exibindo conteúdo de reserva até a API e as variáveis de ambiente
+              estarem ativas.
+            </p>
+          ) : null}
         </div>
       </div>
-
-      <SectionHeader
-        subtitle="Avaliações do Google"
-        title="O que as pessoas dizem no Google"
-        description="Trechos públicos. No Maps você vê todas e pode deixar a sua."
-        align="left"
-        density="compact"
-      />
-
-      <div className="grid gap-3 sm:grid-cols-2 lg:gap-3.5">
-        {googleBusinessData.reviews.slice(0, 4).map((review) => (
-          <GoogleReviewCard key={review.id} review={review} density="compact" />
-        ))}
-      </div>
-
-      {googleBusinessData.reviewsSource !== "live" ? (
-        <p className="mt-4 text-center text-xs text-muted-foreground sm:text-left">
-          Exibindo conteúdo de reserva até a API e as variáveis de ambiente estarem ativas.
-        </p>
-      ) : null}
     </Section>
   )
 }

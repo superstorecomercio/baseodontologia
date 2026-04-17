@@ -7,15 +7,22 @@ interface GoogleReviewCardProps {
   review: GoogleReview
   /** Padding e texto menores (grade da home). */
   density?: "default" | "compact"
+  className?: string
 }
 
 export function GoogleReviewCard({
   review,
   density = "default",
+  className,
 }: GoogleReviewCardProps) {
   const compact = density === "compact"
   return (
-    <Card className="h-full border border-border/60 shadow-none">
+    <Card
+      className={cn(
+        "h-full border border-border/50 bg-card/80 shadow-sm backdrop-blur-[2px]",
+        className,
+      )}
+    >
       <CardContent className={compact ? "p-4" : "p-6"}>
         <div className={cn("flex items-start gap-2.5", compact ? "mb-2.5" : "mb-4")}>
           <div

@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils"
 
 interface StarRatingProps {
   rating: number
-  size?: "sm" | "md" | "lg"
+  size?: "sm" | "md" | "lg" | "xl"
   showValue?: boolean
   className?: string
 }
@@ -22,11 +22,17 @@ export function StarRating({
     sm: "h-3.5 w-3.5",
     md: "h-5 w-5",
     lg: "h-6 w-6",
+    xl: "h-7 w-7 sm:h-8 sm:w-8",
   }
 
   return (
     <div className={cn("flex items-center gap-1", className)}>
-      <div className="flex items-center gap-0.5">
+      <div
+        className={cn(
+          "flex items-center",
+          size === "xl" ? "gap-1" : "gap-0.5"
+        )}
+      >
         {Array.from({ length: fullStars }).map((_, i) => (
           <Star
             key={`full-${i}`}
