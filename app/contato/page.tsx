@@ -49,23 +49,12 @@ export default function ContatoPage() {
             </div>
 
             <div className="order-1 w-full min-w-0 md:order-2">
-              {/** Mobile: panorâmica com recorte na equipa. Desktop: foto vertical original (menos corte). */}
-              <div className="relative w-full max-md:aspect-[21/10] overflow-hidden rounded-3xl shadow-xl ring-1 ring-black/5 md:hidden">
-                <Image
-                  src="/images/equipe-fachada-wide.png"
-                  alt={`Equipe da ${clinicData.clinicName} em frente à clínica`}
-                  fill
-                  sizes="100vw"
-                  className="object-cover object-[center_46%] scale-[1.12]"
-                  priority
-                />
-              </div>
-              <div className="relative hidden aspect-[3/4] w-full overflow-hidden rounded-3xl shadow-xl ring-1 ring-black/5 md:block">
+              <div className="relative aspect-[3/4] w-full overflow-hidden rounded-3xl shadow-xl ring-1 ring-black/5">
                 <Image
                   src="/images/equipe-contato-fachada.png"
                   alt={`Equipe da ${clinicData.clinicName} em frente à clínica`}
                   fill
-                  sizes="(min-width: 768px) 22rem, 100vw"
+                  sizes="(max-width: 767px) 100vw, 22rem"
                   className="object-cover object-center"
                   priority
                 />
