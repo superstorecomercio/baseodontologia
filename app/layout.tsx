@@ -81,6 +81,9 @@ export default function RootLayout({
       className={`${plusJakarta.variable} ${playfair.variable} bg-background`}
     >
       <body className="font-sans text-base font-normal antialiased">
+        <div className="scroll-doc-progress" aria-hidden>
+          <div className="scroll-doc-progress__fill" />
+        </div>
         <Header />
         <main>{children}</main>
         <Footer />

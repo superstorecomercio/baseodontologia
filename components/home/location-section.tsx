@@ -10,7 +10,7 @@ export function LocationSection() {
   )}`
 
   return (
-    <Section variant="muted">
+    <Section variant="muted" scrollStagger>
       <SectionHeader
         subtitle="Localização"
         title="Vila Clementino, São Paulo"

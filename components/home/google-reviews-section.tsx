@@ -9,6 +9,7 @@ export async function GoogleReviewsSection() {
   return (
     <Section
       variant="default"
+      scrollStagger
       className="border-t border-b border-border/80 bg-background py-8 md:py-10 lg:py-11"
     >
       <SectionHeader

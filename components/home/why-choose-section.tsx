@@ -14,7 +14,7 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
 
 export function WhyChooseSection() {
   return (
-    <Section variant="muted">
+    <Section variant="muted" scrollStagger>
       <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-12">
         {/* Image */}
         <div className="relative order-2 lg:order-1">

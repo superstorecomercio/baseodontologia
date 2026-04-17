@@ -8,6 +8,11 @@ interface SectionProps {
   className?: string
   id?: string
   variant?: "default" | "muted" | "primary"
+  /**
+   * Anima filhos diretos do `page-container` em sequência (mesmo observer; só CSS).
+   * Bom para home — sem JS extra na main thread.
+   */
+  scrollStagger?: boolean
 }
 
 export function Section({
@@ -15,6 +20,7 @@ export function Section({
   className,
   id,
   variant = "default",
+  scrollStagger = false,
 }: SectionProps) {
   const { ref, isVisible } = useRevealInView({
     rootMargin: "0px",
@@ -29,6 +35,7 @@ export function Section({
       id={id}
       className={cn(
         "scroll-reveal py-14 md:py-20 lg:py-24",
+        scrollStagger && "scroll-reveal--stagger",
         isVisible && "is-visible",
         variant === "muted" && "bg-muted",
         variant === "primary" && "bg-primary text-primary-foreground",

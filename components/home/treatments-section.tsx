@@ -50,7 +50,7 @@ export function TreatmentsSection() {
   })
 
   return (
-    <Section>
+    <Section scrollStagger>
       <SectionHeader
         subtitle="Nossos Tratamentos"
         title="Conheça nossos tratamentos"

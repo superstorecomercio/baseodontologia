@@ -197,6 +197,60 @@
       transform: translateY(0);
     }
 
+    /**
+     * Mesmo `is-visible` do Section: o pai segue o fade global; filhos do
+     * `page-container` sobem com atraso escalonado (só opacity + transform).
+     */
+    .scroll-reveal.scroll-reveal--stagger {
+      transform: none;
+      transition: none;
+    }
+
+    .scroll-reveal.scroll-reveal--stagger > .page-container > * {
+      opacity: 0;
+      transform: translateY(1.25rem);
+      transition:
+        opacity 0.58s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.58s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .scroll-reveal.scroll-reveal--stagger.is-visible > .page-container > * {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .scroll-reveal.scroll-reveal--stagger.is-visible > .page-container > *:nth-child(1) {
+      transition-delay: 0.04s;
+    }
+
+    .scroll-reveal.scroll-reveal--stagger.is-visible > .page-container > *:nth-child(2) {
+      transition-delay: 0.11s;
+    }
+
+    .scroll-reveal.scroll-reveal--stagger.is-visible > .page-container > *:nth-child(3) {
+      transition-delay: 0.18s;
+    }
+
+    .scroll-reveal.scroll-reveal--stagger.is-visible > .page-container > *:nth-child(4) {
+      transition-delay: 0.25s;
+    }
+
+    .scroll-reveal.scroll-reveal--stagger.is-visible > .page-container > *:nth-child(5) {
+      transition-delay: 0.32s;
+    }
+
+    .scroll-reveal.scroll-reveal--stagger.is-visible > .page-container > *:nth-child(6) {
+      transition-delay: 0.39s;
+    }
+
+    .scroll-reveal.scroll-reveal--stagger.is-visible > .page-container > *:nth-child(7) {
+      transition-delay: 0.46s;
+    }
+
+    .scroll-reveal.scroll-reveal--stagger.is-visible > .page-container > *:nth-child(8) {
+      transition-delay: 0.53s;
+    }
+
     .scroll-reveal-treatment-figure {
       transform: translateY(1.75rem);
       transition-duration: 0.58s;
@@ -318,10 +372,49 @@
     }
   }
 
+  /**
+   * Barra de progresso de leitura: `scroll()` timeline — sem JS, sem scroll listeners.
+   * Navegadores sem suporte simplesmente não exibem a barra.
+   */
+  @supports (animation-timeline: scroll(root)) {
+    @media (prefers-reduced-motion: no-preference) {
+      .scroll-doc-progress {
+        position: fixed;
+        inset: 0 0 auto 0;
+        z-index: 60;
+        height: 2px;
+        pointer-events: none;
+        overflow: hidden;
+      }
+
+      .scroll-doc-progress__fill {
+        height: 100%;
+        width: 100%;
+        transform-origin: left center;
+        transform: scaleX(0);
+        background: color-mix(in oklch, var(--primary) 78%, transparent);
+        animation: scroll-doc-progress-grow linear both;
+        animation-timeline: scroll(root block);
+      }
+    }
+  }
+
+  @keyframes scroll-doc-progress-grow {
+    from {
+      transform: scaleX(0);
+    }
+
+    to {
+      transform: scaleX(1);
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .anim-page-hero,
     .scroll-reveal,
     .scroll-reveal.is-visible,
+    .scroll-reveal.scroll-reveal--stagger > .page-container > *,
+    .scroll-reveal.scroll-reveal--stagger.is-visible > .page-container > *,
     .hero-fade-item {
       opacity: 1;
       transform: none;
@@ -356,6 +449,11 @@
     .group:hover .img-zoom-hover {
       transform: none;
       transition: none;
+    }
+
+    .scroll-doc-progress,
+    .scroll-doc-progress__fill {
+      display: none;
     }
   }
 }

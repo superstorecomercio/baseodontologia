@@ -7,7 +7,7 @@ import { ArrowRight, CheckCircle2 } from "lucide-react"
 
 export function AboutSection() {
   return (
-    <Section>
+    <Section scrollStagger>
       <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
         {/* Content */}
         <div>
