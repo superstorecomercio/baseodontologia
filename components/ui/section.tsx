@@ -55,6 +55,8 @@ interface SectionHeaderProps {
   /** Menos margem e tipografia menor (blocos densos na home). */
   density?: "default" | "compact"
   className?: string
+  /** Classes extras no `<h2>` (ex.: tamanho no mobile para caber em uma linha). */
+  headingClassName?: string
 }
 
 export function SectionHeader({
@@ -64,6 +66,7 @@ export function SectionHeader({
   align = "center",
   density = "default",
   className,
+  headingClassName,
 }: SectionHeaderProps) {
   const isCompact = density === "compact"
   return (
@@ -92,6 +95,7 @@ export function SectionHeader({
           isCompact
             ? "text-2xl md:text-3xl lg:leading-snug"
             : "text-3xl md:text-4xl lg:text-[2.5rem] lg:leading-[1.15]",
+          headingClassName,
         )}
       >
         {title}

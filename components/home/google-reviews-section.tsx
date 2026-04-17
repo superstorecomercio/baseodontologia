@@ -14,10 +14,11 @@ export async function GoogleReviewsSection() {
     >
       <SectionHeader
         subtitle="Avaliações do Google"
-        title="O que as pessoas dizem no Google"
+        title="O que dizem no Google"
         description="Trechos públicos. No Maps você vê todas e pode deixar a sua."
         align="left"
         density="compact"
+        headingClassName="max-sm:text-[1.1875rem] max-sm:leading-snug max-sm:tracking-tight sm:tracking-tight"
       />
 
       <div className="grid gap-2.5 sm:grid-cols-2 sm:gap-3 lg:grid-cols-4 lg:gap-4">
