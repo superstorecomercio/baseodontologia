@@ -35,8 +35,8 @@ export async function GoogleReviewsSection() {
 
   return (
     <Section
-      variant="muted"
-      className="border-t border-b border-border/80 py-8 md:py-10 lg:py-11"
+      variant="default"
+      className="border-t border-b border-border/80 bg-background py-8 md:py-10 lg:py-11"
     >
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-start lg:gap-x-10 lg:gap-y-0 xl:gap-x-12">
         {/* Coluna esquerda: resumo compacto e premium */}
