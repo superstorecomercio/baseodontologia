@@ -16,7 +16,7 @@ const LOGO_HEIGHT = 76
 const simpleNav = [
   { name: "Início", href: "/" },
   { name: "Sobre", href: "/sobre" },
-  { name: "Blog", href: "/blog" },
+  { name: "Dicas de Saúde Bucal", href: "/blog" },
   { name: "Redes Sociais", href: "/redes-sociais" },
   { name: "Contato", href: "/contato" },
 ] as const

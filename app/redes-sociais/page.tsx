@@ -21,7 +21,7 @@ const socialNetworks = [
     color: "bg-gradient-to-br from-purple-500 via-pink-500 to-orange-400",
     url: clinicData.social.instagram,
     followers: "12.5K",
-    handle: `@${clinicData.instagramHandle}`,
+    handle: clinicData.instagramHandle,
   },
   {
     name: "Facebook",

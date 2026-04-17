@@ -44,7 +44,7 @@ export async function GoogleReviewsSection() {
           <div className="lg:sticky lg:top-24 xl:top-28">
             <div
               className={cn(
-                "group relative overflow-hidden rounded-2xl border border-border/50 bg-card",
+                "group relative overflow-hidden rounded-xl border border-border/50 bg-card",
                 "shadow-[0_1px_0_rgba(255,255,255,0.65)_inset,0_14px_36px_-16px_rgba(0,0,0,0.12)]",
                 "ring-1 ring-black/[0.035]",
                 "transition-[box-shadow,transform] duration-300 ease-out",
@@ -75,60 +75,58 @@ export async function GoogleReviewsSection() {
                 aria-hidden
               />
 
-              <div className="relative px-5 py-6 md:px-6 md:py-7">
-                <div className="flex items-start gap-3.5">
-                  <div className="relative flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-background shadow-[0_1px_0_rgba(255,255,255,0.9)_inset,0_2px_10px_-2px_rgba(0,0,0,0.08)] ring-1 ring-black/[0.06] dark:shadow-[0_1px_0_rgba(255,255,255,0.05)_inset,0_2px_10px_-2px_rgba(0,0,0,0.5)]">
-                    <GoogleMark className="relative z-10 h-7 w-7" />
+              <div className="relative px-4 py-4 md:px-5 md:py-5">
+                <div className="flex flex-col items-center text-center">
+                  <div className="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-background shadow-[0_1px_0_rgba(255,255,255,0.9)_inset,0_2px_8px_-2px_rgba(0,0,0,0.07)] ring-1 ring-black/[0.06] dark:shadow-[0_1px_0_rgba(255,255,255,0.05)_inset,0_2px_8px_-2px_rgba(0,0,0,0.5)]">
+                    <GoogleMark className="relative z-10 h-5 w-5" />
                   </div>
-                  <div className="min-w-0 pt-0.5">
-                    <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-primary">
+                  <div className="mt-2 min-w-0">
+                    <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-primary">
                       Google Maps
                     </p>
-                    <p className="mt-1 text-sm font-semibold leading-snug text-foreground">
+                    <p className="mt-0.5 text-xs font-semibold leading-snug text-foreground sm:text-[13px]">
                       Perfil oficial da clínica
                     </p>
-                    <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
+                    <p className="mt-0.5 text-[11px] leading-snug text-muted-foreground sm:text-xs">
                       Nota média e avaliações públicas.
                     </p>
                   </div>
                 </div>
 
-                <div className="mt-5 rounded-xl border border-border/40 bg-gradient-to-br from-muted/55 via-muted/25 to-transparent p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.5)] dark:from-muted/25 dark:via-muted/10 dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] sm:p-5">
-                  <div className="flex items-end justify-between gap-3">
-                    <span className="font-serif text-[2.65rem] font-semibold leading-none tabular-nums tracking-tight text-foreground sm:text-5xl">
+                <div className="mt-3 rounded-lg border border-border/40 bg-gradient-to-br from-muted/55 via-muted/25 to-transparent px-3 py-3 text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.5)] dark:from-muted/25 dark:via-muted/10 dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] sm:px-3.5 sm:py-3">
+                  <div className="flex flex-col items-center gap-1.5">
+                    <span className="font-serif text-3xl font-semibold tabular-nums tracking-tight text-foreground sm:text-[2.125rem]">
                       {googleBusinessData.rating}
                     </span>
-                    <div className="flex min-w-0 flex-col items-end gap-1">
-                      <StarRating
-                        rating={googleBusinessData.rating}
-                        size="lg"
-                        className="shrink-0"
-                      />
-                      <span className="text-right text-[11px] font-medium text-muted-foreground sm:text-xs">
-                        {googleBusinessData.totalReviews} avaliações
-                      </span>
-                    </div>
+                    <StarRating
+                      rating={googleBusinessData.rating}
+                      size="md"
+                      className="shrink-0 justify-center"
+                    />
+                    <span className="text-[10px] font-medium text-muted-foreground sm:text-[11px]">
+                      {googleBusinessData.totalReviews} avaliações
+                    </span>
                   </div>
                 </div>
 
-                <p className="mt-4 flex gap-2.5 text-[11px] leading-relaxed text-muted-foreground sm:text-xs">
+                <div className="mt-3 flex flex-col items-center gap-1.5 text-center">
                   <ShieldCheck
-                    className="mt-0.5 h-4 w-4 shrink-0 text-primary"
+                    className="h-3.5 w-3.5 shrink-0 text-primary"
                     strokeWidth={2}
                     aria-hidden
                   />
-                  <span>
+                  <p className="max-w-[15.5rem] text-[10px] leading-snug text-muted-foreground sm:text-[11px] sm:leading-relaxed">
                     {googleBusinessData.reviewsSource === "live"
                       ? "Dados públicos do Google, sincronizados periodicamente."
                       : "Ative a Places API no servidor para listar resenhas ao vivo."}
-                  </span>
-                </p>
+                  </p>
+                </div>
 
-                <div className="mt-5 flex flex-col gap-2 border-t border-border/50 pt-5">
+                <div className="mt-4 flex flex-col gap-1.5 border-t border-border/50 pt-4">
                   <Button
                     variant="default"
-                    size="default"
-                    className="h-10 w-full gap-2 rounded-lg text-sm font-semibold shadow-sm"
+                    size="sm"
+                    className="h-9 w-full gap-1.5 rounded-md text-xs font-semibold shadow-sm sm:text-sm"
                     asChild
                   >
                     <a
@@ -136,14 +134,14 @@ export async function GoogleReviewsSection() {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <MapPin className="!size-4 shrink-0" />
+                      <MapPin className="!size-3.5 shrink-0" />
                       Abrir no Google Maps
                     </a>
                   </Button>
                   <Button
                     variant="outline"
-                    size="default"
-                    className="h-10 w-full rounded-lg border-border/65 bg-background/70 text-sm font-medium backdrop-blur-sm"
+                    size="sm"
+                    className="h-9 w-full rounded-md border-border/65 bg-background/70 text-xs font-medium backdrop-blur-sm sm:text-sm"
                     asChild
                   >
                     <a

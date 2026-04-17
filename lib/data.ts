@@ -3,6 +3,9 @@
 // Edite estes dados para personalizar o site
 // ====================================
 
+/** Perfil Instagram oficial (só o usuário, sem @): instagram.com/{handle} */
+const INSTAGRAM_PROFILE_HANDLE = "baseodontologiainteligente"
+
 export const clinicData = {
   name: "Dr. Danilo Sorgini",
   clinicName: "Base Odontologia",
@@ -43,9 +46,9 @@ export const clinicData = {
     sunday: "Domingo: Fechado",
   },
   /** Perfil oficial (feed na home usa este link) */
-  instagramHandle: "baseodontologiainteligente",
+  instagramHandle: INSTAGRAM_PROFILE_HANDLE,
   social: {
-    instagram: "https://www.instagram.com/baseodontologiainteligente/",
+    instagram: `https://www.instagram.com/${INSTAGRAM_PROFILE_HANDLE}/`,
     facebook: "https://facebook.com/baseodontologia",
     tiktok: "https://tiktok.com/@baseodontologia",
     youtube: "https://youtube.com/@baseodontologia",

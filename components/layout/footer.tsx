@@ -7,7 +7,7 @@ const navLinks = [
   { name: "Início", href: "/" },
   { name: "Sobre", href: "/sobre" },
   { name: "Tratamentos", href: "/tratamentos" },
-  { name: "Blog", href: "/blog" },
+  { name: "Dicas de Saúde Bucal", href: "/blog" },
   { name: "Redes Sociais", href: "/redes-sociais" },
   { name: "Contato", href: "/contato" },
 ] as const

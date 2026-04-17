@@ -73,7 +73,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               className="mb-8 inline-flex items-center gap-2 text-sm font-medium tracking-wide text-muted-foreground transition-colors hover:text-foreground"
             >
               <ArrowLeft className="h-4 w-4" />
-              Voltar para o Blog
+              Voltar para Dicas de Saúde Bucal
             </Link>
 
             <Badge variant="secondary" className="mb-5">

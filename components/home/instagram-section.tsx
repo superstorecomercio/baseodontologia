@@ -24,7 +24,7 @@ export async function InstagramSection() {
     <Section variant="muted" id="instagram">
       <SectionHeader
         subtitle="Instagram"
-        title={`@${handle}`}
+        title={handle}
         description={
           isApi
             ? "Últimas publicações sincronizadas automaticamente com a conta comercial (Instagram Graph API)."
@@ -90,7 +90,7 @@ export async function InstagramSection() {
                     alt={
                       post.caption
                         ? post.caption.slice(0, 80)
-                        : `Post do Instagram @${handle}`
+                        : `Post do Instagram — ${handle}`
                     }
                     className="h-full w-full object-cover transition duration-300 group-hover:scale-[1.03]"
                     loading="lazy"

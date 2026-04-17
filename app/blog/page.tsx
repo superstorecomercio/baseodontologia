@@ -7,7 +7,7 @@ import { blogPosts, blogCategories } from "@/lib/data"
 import { Search } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "Blog",
+  title: "Dicas de Saúde Bucal",
   description:
     "Dicas de saúde bucal, novidades sobre tratamentos odontológicos e conteúdo educativo. Fique por dentro das últimas novidades da odontologia.",
 }
@@ -23,7 +23,7 @@ export default function BlogPage() {
         <div className="page-container">
           <div className="max-w-3xl">
             <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-primary">
-              Blog
+              Dicas de Saúde Bucal
             </p>
             <h1 className="mb-7 font-serif text-4xl font-semibold tracking-tight text-balance text-foreground md:text-5xl md:leading-[1.08]">
               Dicas e novidades sobre saúde bucal
