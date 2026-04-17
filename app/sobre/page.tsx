@@ -47,13 +47,13 @@ export default function SobrePage() {
           {/* Image */}
           <div className="flex w-full justify-center lg:w-auto lg:justify-start">
             <div className="relative w-full max-w-full pb-16 sm:max-w-[19rem] md:max-w-[20rem] lg:max-w-[22rem] lg:pb-14">
-              <div className="relative aspect-square w-full overflow-hidden rounded-2xl shadow-xl ring-1 ring-black/5">
+              <div className="relative aspect-[3/4] w-full overflow-hidden rounded-2xl shadow-xl ring-1 ring-black/5">
                 <Image
-                  src="/images/dentist-hero.png"
+                  src="/images/dr-danilo-sobre.png"
                   alt={clinicData.name}
                   fill
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 352px"
-                  className="object-cover object-center"
+                  className="object-cover object-[center_20%]"
                 />
               </div>
               <div className="absolute -bottom-4 right-2 max-w-[11rem] rounded-2xl border border-border bg-card/95 p-4 shadow-lg backdrop-blur-sm sm:-bottom-5 sm:right-4 sm:max-w-none sm:p-5">

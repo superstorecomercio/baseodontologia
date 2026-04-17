@@ -353,16 +353,6 @@ export default function ContatoPage() {
           </Accordion>
         </div>
       </Section>
-
-      {/* Sticky CTA */}
-      <div className="fixed bottom-0 left-0 right-0 bg-card/95 backdrop-blur-md border-t border-border p-4 md:hidden z-40">
-        <Button className="w-full bg-green-500 hover:bg-green-600" size="lg" asChild>
-          <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-            <MessageCircle className="h-5 w-5 mr-2" />
-            Agendar pelo WhatsApp
-          </a>
-        </Button>
-      </div>
     </>
   )
 }
