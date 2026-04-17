@@ -27,7 +27,7 @@ export default function SobrePage() {
       {/* Secção 1 — antes era o bloco final: fachada + mensagem (ex-hero do fim da página) */}
       <Section
         variant="muted"
-        className="!pt-[calc(4.5rem+1rem)] md:!pt-[calc(5rem+1rem)]"
+        className="!pt-[calc(4.5rem+1.75rem)] md:!pt-[calc(5rem+2rem)]"
       >
         <div>
           <div className="relative aspect-[4/3] md:aspect-[16/9] lg:aspect-[5/2] overflow-hidden rounded-3xl shadow-xl">
