@@ -43,14 +43,15 @@ function navLinkActive(pathname: string, href: string): string {
 
 interface HeaderMobileNavProps {
   pathname: string
+  isOpen: boolean
+  setIsOpen: (open: boolean) => void
 }
 
 /**
  * Estado do drawer remonta com `key={pathname}` no pai (fecha ao navegar)
  * sem setState em effect. O drawer usa `basis-full` + `flex-wrap` no header.
  */
-function HeaderMobileNav({ pathname }: HeaderMobileNavProps) {
-  const [isOpen, setIsOpen] = useState(false)
+function HeaderMobileNav({ pathname, isOpen, setIsOpen }: HeaderMobileNavProps) {
   const [mobileTreatmentsOpen, setMobileTreatmentsOpen] = useState(false)
 
   return (
@@ -70,7 +71,9 @@ function HeaderMobileNav({ pathname }: HeaderMobileNavProps) {
       <div
         className={cn(
           "w-full basis-full overflow-y-auto transition-all duration-300 lg:hidden",
-          isOpen ? "max-h-[min(85vh,32rem)] pb-6" : "max-h-0"
+          isOpen
+            ? "max-h-[min(85vh,32rem)] border-b border-border bg-background pb-6 shadow-md"
+            : "max-h-0"
         )}
       >
         <div className="flex flex-col gap-1 border-t border-border pt-4">
@@ -156,6 +159,7 @@ function HeaderMobileNav({ pathname }: HeaderMobileNavProps) {
                 href={`https://wa.me/${clinicData.whatsapp}?text=Olá! Gostaria de agendar uma consulta.`}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => setIsOpen(false)}
               >
                 Agendar Consulta
               </a>
@@ -169,6 +173,7 @@ function HeaderMobileNav({ pathname }: HeaderMobileNavProps) {
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const pathname = usePathname()
 
   useEffect(() => {
@@ -179,12 +184,18 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
+  useEffect(() => {
+    setMobileMenuOpen(false)
+  }, [pathname])
+
+  const headerSolid = isScrolled || mobileMenuOpen
+
   return (
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        isScrolled
-          ? "border-b border-border bg-card/95 shadow-sm backdrop-blur-md"
+        headerSolid
+          ? "border-b border-border bg-background shadow-sm backdrop-blur-md"
           : "bg-transparent"
       )}
     >
@@ -196,8 +207,8 @@ export function Header() {
               alt={`${clinicData.clinicName}, odontologia inteligente — ir para o início`}
               width={LOGO_WIDTH}
               height={LOGO_HEIGHT}
-              className="block h-[76px] w-[141px] max-w-none"
-              sizes={`${LOGO_WIDTH}px`}
+              className="block h-[56px] w-auto max-w-none object-contain lg:h-[76px] lg:w-[141px]"
+              sizes="(max-width: 1023px) 112px, 141px"
               quality={85}
               loading="eager"
               fetchPriority="low"
@@ -281,7 +292,12 @@ export function Header() {
             </Button>
           </div>
 
-          <HeaderMobileNav key={pathname} pathname={pathname} />
+          <HeaderMobileNav
+            key={pathname}
+            pathname={pathname}
+            isOpen={mobileMenuOpen}
+            setIsOpen={setMobileMenuOpen}
+          />
         </div>
       </nav>
     </header>

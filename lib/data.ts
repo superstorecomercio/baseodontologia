@@ -206,7 +206,7 @@ export const treatments = [
       "Para apinhamento, espaços entre dentes (diastema), mordida cruzada anterior ou posterior, prognatismo ou outras alterações esqueléticas e dentárias avaliadas clinicamente.",
     duration: "Em média 12 a 36 meses (conforme a maloclusão e a mecânica utilizada)",
     icon: "alignCenter",
-    image: "/images/treatments/ortodontia.jpg",
+    image: "/images/treatments/ortodontia.png",
   },
   {
     id: "odontopediatria",
@@ -227,7 +227,7 @@ export const treatments = [
       "Para bebês (orientação e primeira consulta), crianças em dentição decídua ou mista e adolescentes com dentição permanente — prevenção, cáries, selantes, ortodontia, clareamento quando indicado e orientação à família.",
     duration: "Consultas de rotina em geral 30 a 45 minutos; planos mais longos conforme tratamento",
     icon: "baby",
-    image: "/images/treatments/odontopediatria.jpg",
+    image: "/images/treatments/odontopediatria.png",
   },
   {
     id: "terceira-idade",
@@ -338,7 +338,7 @@ export const treatments = [
       "Indicadas para quem busca harmonizar o sorriso com dentes escurecidos ou cor irregular, pequenos desalinhamentos, diastemas, formato irregular, dentes pequenos, desgastes leves, assimetria ou reabilitação estética anterior.",
     duration: "Em geral 2 a 3 sessões principais ao longo de algumas semanas (conforme laboratório)",
     icon: "smile",
-    image: "/images/treatments/lentes-dentais.jpg",
+    image: "/images/treatments/lentes-dentais.png",
   },
   {
     id: "disfuncao-temporomandibular",
@@ -401,7 +401,7 @@ export const treatments = [
       "Para adolescentes e adultos com boa colaboração (horas de uso diárias), higiene adequada e maloclusões compatíveis com mecânica por placas — avaliação ortodôntica define se substituem ou complementam o aparelho fixo.",
     duration: "Em muitos casos cerca de 6 a 24 meses, conforme complexidade e refinamentos",
     icon: "alignCenter",
-    image: "/images/treatments/ortodontia.jpg",
+    image: "/images/treatments/alinhadores-transparentes.png",
   },
   {
     id: "extracao-dentaria",
