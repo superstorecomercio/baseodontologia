@@ -1,6 +1,8 @@
+import Image from "next/image"
 import { StarRating } from "@/components/ui/star-rating"
 import { getGoogleBusinessData } from "@/lib/get-google-business-data"
 import { clinicData } from "@/lib/data"
+import { cn } from "@/lib/utils"
 import { ExternalLink, Facebook } from "lucide-react"
 
 function GoogleMark({ className }: { className?: string }) {
@@ -26,22 +28,18 @@ function GoogleMark({ className }: { className?: string }) {
   )
 }
 
-/** Marca Doctoralia (cor aproximada da identidade visual). */
+/** Logo Doctoralia (PNG oficial fornecido pela marca). */
 function DoctoraliaMark({ className }: { className?: string }) {
   return (
-    <svg
-      viewBox="0 0 32 32"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className={className}
+    <Image
+      src="/images/doctoralia-icon.png"
+      alt=""
+      width={80}
+      height={80}
+      sizes="40px"
+      className={cn("shrink-0 rounded-lg object-cover", className)}
       aria-hidden
-    >
-      <rect width="32" height="32" rx="7" fill="#00BFA5" />
-      <path
-        d="M10 22V10h5.2c2.76 0 5 2.02 5 4.5s-2.24 4.5-5 4.5H14v3H10zm4-8.25V15h.9c1.05 0 1.9-.78 1.9-1.75S15.95 11.5 14.9 11.5H14v2.25z"
-        fill="white"
-      />
-    </svg>
+    />
   )
 }
 
