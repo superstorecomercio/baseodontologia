@@ -22,7 +22,7 @@ export function HeroSection() {
               <div className="absolute -right-2 -top-3 h-48 w-48 rounded-full bg-primary/10 blur-3xl sm:h-56 sm:w-56 lg:-right-4 lg:-top-4 lg:h-64 lg:w-64" />
               <div className="absolute -bottom-3 -left-2 h-36 w-36 rounded-full bg-primary/5 blur-2xl sm:h-40 sm:w-40" />
 
-              <div className="relative mx-auto w-full max-w-[15.5rem] pb-7 max-sm:pb-9 sm:max-w-[17rem] sm:pb-0 md:max-w-[18rem] lg:mx-0 lg:ml-auto lg:max-w-[min(100%,21rem)] xl:max-w-[min(100%,23rem)]">
+              <div className="relative mx-auto w-full max-w-[15.5rem] sm:max-w-[17rem] md:max-w-[18rem] lg:mx-0 lg:ml-auto lg:max-w-[min(100%,21rem)] xl:max-w-[min(100%,23rem)]">
                 <div className="relative aspect-[500/550] w-full overflow-hidden rounded-2xl shadow-xl ring-1 ring-black/5">
                   <Image
                     src="/images/hero-dr-danilo-recepcao.png"
@@ -35,28 +35,24 @@ export function HeroSection() {
                     fetchPriority="high"
                     decoding="sync"
                   />
+                  {/* Mobile: card sobre a foto, colado na base interna da imagem */}
+                  <div className="absolute inset-x-3 bottom-3 z-10 rounded-xl border border-border/60 bg-card/92 px-3 py-2 text-center shadow-lg backdrop-blur-sm sm:hidden">
+                    <p className="text-sm font-semibold text-foreground">{clinicData.name}</p>
+                    <p className="mt-0.5 text-xs text-primary">{clinicData.cro}</p>
+                  </div>
                 </div>
 
                 <div
                   className={cn(
-                    "z-10 w-full rounded-2xl border border-border/50 bg-card/95 text-center shadow-md backdrop-blur-sm",
-                    "max-sm:absolute max-sm:left-1/2 max-sm:bottom-0 max-sm:w-[calc(100%-1.25rem)] max-sm:-translate-x-1/2 max-sm:translate-y-1/2 max-sm:px-3 max-sm:py-2.5 max-sm:shadow-lg",
-                    "sm:relative sm:bottom-auto sm:left-auto sm:mt-4 sm:translate-x-0 sm:translate-y-0 sm:px-4 sm:py-4 sm:text-left",
-                    "lg:absolute lg:-bottom-6 lg:left-2 lg:mt-0 lg:max-w-[200px] lg:shadow-lg",
+                    "relative z-10 hidden w-full rounded-2xl border border-border/50 bg-card p-3 shadow-md sm:mt-4 sm:block sm:p-4 sm:text-left",
+                    "lg:absolute lg:-bottom-6 lg:left-2 lg:mt-0 lg:max-w-[200px] lg:bg-card/95 lg:p-4 lg:shadow-lg lg:backdrop-blur-sm",
                   )}
                 >
                   <p className="text-sm font-semibold text-foreground">{clinicData.name}</p>
-                  <p className="hidden text-[0.6875rem] leading-snug text-muted-foreground sm:block sm:text-xs">
+                  <p className="text-[0.6875rem] leading-snug text-muted-foreground sm:text-xs">
                     {clinicData.specialty}
                   </p>
-                  <p
-                    className={cn(
-                      "text-xs text-primary",
-                      "max-sm:mt-0.5 sm:mt-1",
-                    )}
-                  >
-                    {clinicData.cro}
-                  </p>
+                  <p className="mt-1 text-xs text-primary">{clinicData.cro}</p>
                 </div>
               </div>
             </div>
