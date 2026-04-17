@@ -1,6 +1,8 @@
 import Image from "next/image"
 import { Section, SectionHeader } from "@/components/ui/section"
 import { clinicData, differentials } from "@/lib/data"
+import { photoFrameLgFullWidth, photoFrameWidthMatchHero } from "@/lib/photo-frame"
+import { cn } from "@/lib/utils"
 import { Shield, Camera, Clock, CreditCard, Heart, Award } from "lucide-react"
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
@@ -18,7 +20,13 @@ export function WhyChooseSection() {
       <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-12">
         {/* Image: primeiro no DOM e no mobile; coluna esquerda no `lg`. */}
         <div className="relative order-1">
-          <div className="relative mx-auto aspect-[3/4] w-full max-w-md overflow-hidden rounded-3xl shadow-xl lg:mx-0 lg:max-w-none lg:aspect-[4/5]">
+          <div
+            className={cn(
+              "aspect-[3/4] overflow-hidden rounded-3xl shadow-xl lg:aspect-[4/5]",
+              photoFrameWidthMatchHero,
+              photoFrameLgFullWidth,
+            )}
+          >
             <Image
               src="/images/clinic-diferenciais.png"
               alt={`Recepção e sala de espera da ${clinicData.clinicName}: ambiente moderno, iluminado e acolhedor para o seu atendimento.`}

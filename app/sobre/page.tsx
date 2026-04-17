@@ -2,6 +2,8 @@ import type { Metadata } from "next"
 import Image from "next/image"
 import { Section, SectionHeader } from "@/components/ui/section"
 import { clinicData, aboutData, differentials } from "@/lib/data"
+import { photoFrameLgFullWidth, photoFrameLgHeroStart, photoFrameWidthMatchHero } from "@/lib/photo-frame"
+import { cn } from "@/lib/utils"
 import { CheckCircle2, Target, Eye, Heart, Shield, Camera, Clock, CreditCard, Award } from "lucide-react"
 
 export const metadata: Metadata = {
@@ -53,7 +55,7 @@ export default function SobrePage() {
             <div className="relative w-full max-w-full pb-16 sm:max-w-[19rem] md:max-w-[20rem] lg:max-w-[22rem] lg:pb-14">
               <div className="relative aspect-[3/4] w-full overflow-hidden rounded-2xl shadow-xl ring-1 ring-black/5">
                 <Image
-                  src="/images/dr-danilo-sobre.png"
+                  src="/images/dr-danilo-sobre-portrait.png"
                   alt={clinicData.name}
                   fill
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 352px"
@@ -201,7 +203,13 @@ export default function SobrePage() {
       {/* Equipe — foto primeiro no DOM (mobile: acima do texto; desktop: coluna direita) */}
       <Section>
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
-          <div className="mx-auto w-full max-w-xl lg:col-start-2 lg:row-start-1 lg:max-w-none">
+          <div
+            className={cn(
+              "lg:col-start-2 lg:row-start-1",
+              photoFrameWidthMatchHero,
+              photoFrameLgFullWidth,
+            )}
+          >
             <div className="relative aspect-[3/4] w-full overflow-hidden rounded-3xl shadow-xl ring-1 ring-black/5">
               <Image
                 src="/images/equipe-base-odontologia.png"

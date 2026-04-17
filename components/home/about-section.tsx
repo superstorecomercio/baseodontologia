@@ -3,6 +3,8 @@ import Link from "next/link"
 import { Section } from "@/components/ui/section"
 import { Button } from "@/components/ui/button"
 import { aboutData, clinicData } from "@/lib/data"
+import { photoFrameLgHeroEnd, photoFrameWidthMatchHero } from "@/lib/photo-frame"
+import { cn } from "@/lib/utils"
 import { ArrowRight, CheckCircle2 } from "lucide-react"
 
 export function AboutSection() {
@@ -14,14 +16,20 @@ export function AboutSection() {
          * no `lg` coluna 2 à direita (`col-start-2`).
          */}
         <div className="flex justify-center lg:col-start-2 lg:row-start-1 lg:justify-end">
-          <div className="relative w-full max-w-[17.5rem] pb-14 sm:max-w-[19rem] sm:pb-16 md:max-w-[20rem] lg:max-w-[22rem] lg:pb-[4.5rem]">
+          <div
+            className={cn(
+              "pb-14 sm:pb-16 lg:pb-[4.5rem]",
+              photoFrameWidthMatchHero,
+              photoFrameLgHeroEnd,
+            )}
+          >
             <div className="relative overflow-hidden rounded-2xl shadow-xl ring-1 ring-black/5">
               <Image
                 src="/images/dr-danilo-conheca-home.png"
                 alt={`${clinicData.name} — gestor clínico da ${clinicData.clinicName}`}
                 width={866}
                 height={1024}
-                sizes="(max-width: 1024px) 90vw, 352px"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 280px, 352px"
                 className="h-auto w-full"
                 loading="lazy"
                 fetchPriority="low"

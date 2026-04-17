@@ -2,6 +2,7 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import { clinicData, heroData, heroHeadlineSegments } from "@/lib/data"
+import { photoFrameLgHeroEnd, photoFrameWidthMatchHero } from "@/lib/photo-frame"
 import { MapPin, MessageCircle } from "lucide-react"
 
 export function HeroSection() {
@@ -22,7 +23,7 @@ export function HeroSection() {
               <div className="absolute -right-2 -top-3 h-48 w-48 rounded-full bg-primary/10 blur-3xl sm:h-56 sm:w-56 lg:-right-4 lg:-top-4 lg:h-64 lg:w-64" />
               <div className="absolute -bottom-3 -left-2 h-36 w-36 rounded-full bg-primary/5 blur-2xl sm:h-40 sm:w-40" />
 
-              <div className="relative mx-auto w-full max-w-full sm:max-w-[17rem] md:max-w-[18rem] lg:mx-0 lg:ml-auto lg:max-w-[min(100%,21rem)] xl:max-w-[min(100%,23rem)]">
+              <div className={cn(photoFrameWidthMatchHero, photoFrameLgHeroEnd)}>
                 <div className="relative aspect-[500/550] w-full overflow-hidden rounded-2xl shadow-xl ring-1 ring-black/5">
                   <Image
                     src="/images/hero-dr-danilo-recepcao.png"
