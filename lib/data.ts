@@ -12,16 +12,12 @@ export const clinicData = {
   /** Linha secundária do header (nome da clínica / cargo curto) */
   headerSubtitle: "Base Odontologia",
   specialty:
-    "Gestor clínico | Prótese dentária, implantodontia e reabilitação oral (FORP/USP)",
+    "Gestor clínico | Reabilitação oral, implantodontia e prótese dentária (FORP/USP)",
   cro: "CRO-SP 99267",
-  /** Telefone fixo da recepção */
-  phone: "(11) 2985-2965",
-  /** Celular / segundo contato */
-  phoneMobile: "(11) 95959-3508",
-  /** Exibição em uma linha (header, CTAs, etc.) */
-  phonesDisplay: "(11) 2985-2965 / (11) 95959-3508",
+  /** Telefone único de contato (celular com WhatsApp). */
+  phone: "(11) 95959-3508",
   whatsapp: "5511959593508",
-  email: "contato@baseodontologia.com.br",
+  email: "base.odontologiainteligente@gmail.com",
   address: {
     street: "Rua Capitão Macedo, 143",
     complement: "",
@@ -41,9 +37,9 @@ export const clinicData = {
     "Por isso, agende já a sua consulta com a Base Odontologia e conte com uma clínica elegante e moderna para cuidar do seu sorriso.",
   ] as const,
   hours: {
-    weekdays: "Segunda a Sexta: 8h às 19h",
-    saturday: "Sábado: 8h às 13h",
-    sunday: "Domingo: Fechado",
+    weekdays: "Atendimento de segunda a sexta, das 8h30 às 18h",
+    saturday: "Sábados e domingos: fechado",
+    sunday: "",
   },
   /** Perfil oficial (feed na home usa este link) */
   instagramHandle: INSTAGRAM_PROFILE_HANDLE,
@@ -107,10 +103,10 @@ export const aboutData = {
   /** Texto curto acima do título nas seções “sobre” */
   eyebrow: "Conheça o Dr. Danilo",
   shortBio:
-    "O Dr. Danilo Sorgini é gestor clínico da Base Odontologia, com formação e títulos acadêmicos pela FORP/USP (Ribeirão Preto), atuação em prótese, implantes e reabilitação oral, e forte dedicação à pesquisa e ao ensino.",
+    "O Dr. Danilo Sorgini é gestor clínico da Base Odontologia, com formação e títulos acadêmicos pela FORP/USP (Ribeirão Preto), atuação em reabilitação oral, implantodontia e prótese dentária, e forte dedicação à pesquisa e ao ensino.",
   fullBio: `O Dr. Danilo Sorgini é gestor clínico da Base Odontologia. Graduou-se em Odontologia pela Faculdade de Odontologia de Ribeirão Preto (USP). Na mesma instituição tornou-se especialista em Prótese Dentária e obteve os títulos de Mestre e Doutor em Reabilitação Oral. Além disso, acumula diversas pós-graduações em Implantodontia e Odontologia Estética.
 
-Além de atuar na clínica, o Dr. Danilo coordena o curso de especialização em Implantodontia e Periodontia do Instituto Orofacial das Américas (IOA) e é professor convidado do curso de especialização em Prótese e Dentística (IOA) e do curso de atualização em Implantodontia da APCD (Santana).
+Além de atuar na clínica, o Dr. Danilo coordena o curso de especialização em Implantodontia e Periodontia do Instituto Orofacial das Américas (IOA) e é speaker do Grupo Straumann, referência mundial em implantodontia.
 
 Em sua jornada acadêmica, também publicou diversos artigos voltados ao segmento odontológico em revistas nacionais e internacionais.`,
   credentials: [
@@ -119,7 +115,7 @@ Em sua jornada acadêmica, também publicou diversos artigos voltados ao segment
     "Mestrado e Doutorado em Reabilitação Oral — FORP/USP",
     "Pós-graduações em Implantodontia e Odontologia Estética",
     "Coordenador do curso de especialização em Implantodontia e Periodontia — IOA",
-    "Professor convidado — IOA (Prótese e Dentística) e APCD Santana (Implantodontia)",
+    "Speaker do Grupo Straumann (implantodontia)",
     "Autor de artigos científicos em revistas nacionais e internacionais",
   ],
   mission:
@@ -176,18 +172,40 @@ export const differentials = [
 
 export const treatments = [
   {
+    id: "prevencao",
+    title: "Prevenção e manutenção",
+    shortDescription:
+      "Limpezas profissionais, controle de placa e cáries, orientação de higiene e check-up periódico para manter saúde bucal e tratamentos estáveis.",
+    fullDescription:
+      "A prevenção é a base da odontologia: protege dentes, gengiva e implantes, identifica problemas no início e mantém o resultado de tratamentos como ortodontia, próteses, lentes e implantes. Inclui consultas periódicas, profilaxia profissional, aplicação de flúor quando indicada, instrução de higiene personalizada e acompanhamento de hábitos e fatores de risco.",
+    benefits: [
+      "Menos cáries e doença gengival a longo prazo",
+      "Diagnóstico precoce de pequenas alterações",
+      "Maior durabilidade de restaurações, lentes, próteses e implantes",
+      "Hálito mais fresco e gengiva mais saudável",
+      "Menos urgências e tratamentos complexos no futuro",
+      "Custo total de tratamento menor ao longo do tempo",
+    ],
+    indication:
+      "Indicado para todas as idades — desde bebês com primeiros dentes até adultos e idosos, especialmente quem tem implantes, próteses, ortodontia em curso ou alto risco de cárie e doença periodontal.",
+    duration: "Sessões de profilaxia em geral 40 a 60 minutos; intervalos definidos pelo risco individual (em geral a cada 6 meses)",
+    icon: "shield",
+    image: "/images/treatments/prevencao.png",
+  },
+  {
     id: "tratamento-de-canal",
     title: "Tratamento de canal (endodontia)",
     shortDescription:
-      "Remoção da polpa comprometida, desinfecção e obturação dos canais para salvar o dente natural e eliminar dor e infecção.",
+      "Endodontia com microscopia digital: remoção da polpa comprometida, desinfecção e obturação dos canais para salvar o dente natural e eliminar dor e infecção.",
     fullDescription:
-      "O tratamento de canal (endodontia) trata a polpa dentária inflamada ou infectada: remove o tecido interno, desinfeta os canais radiculares e sela o espaço, preservando o dente e evitando extração quando há condição de restaurar.",
+      "O tratamento de canal (endodontia) trata a polpa dentária inflamada ou infectada: remove o tecido interno, desinfeta os canais radiculares e sela o espaço, preservando o dente e evitando extração quando há condição de restaurar. Realizamos os procedimentos com microscopia digital, recurso que aumenta significativamente a iluminação e a magnificação da área tratada — permitindo localizar canais de difícil acesso, controlar a limpeza e melhorar a previsibilidade do tratamento.",
     benefits: [
       "Preservação do dente natural",
       "Eliminação da dor",
       "Remoção ou controle da infecção",
       "Evita extração na maioria dos casos indicados",
       "Restabelecimento da função mastigatória",
+      "Maior precisão e previsibilidade com microscopia digital",
       "Melhora estética e funcional após restauração adequada",
     ],
     indication:
@@ -200,40 +218,60 @@ export const treatments = [
     id: "ortodontia",
     title: "Tratamentos ortodônticos",
     shortDescription:
-      "Correção de apinhamento, diastema, mordida cruzada e prognatismo — com aparelho fixo, expansores, elásticos ou, em casos selecionados, cirurgia ortognática.",
+      "Ortodontia preventiva, interceptativa e corretiva — incluindo ortopedia funcional para crianças, aparelhos fixos, alinhadores e preparo pré-cirurgia ortognática.",
     fullDescription:
-      "Os tratamentos ortodônticos corrigem o alinhamento dos dentes e a relação entre maxila e mandíbula, melhorando estética, mastigação e saúde bucal. Atendem crianças, adolescentes e adultos com aparelhos fixos, mecânicas removíveis funcionais e outros recursos conforme o diagnóstico; em desequilíbrios ósseos severos pode haver indicação de cirurgia ortognática.",
+      "Os tratamentos ortodônticos corrigem o alinhamento dos dentes e a relação entre maxila e mandíbula, melhorando estética, mastigação e saúde bucal. O planejamento começa por uma avaliação clínica e radiográfica completa: documentação ortodôntica, radiografia panorâmica e, para alinhadores, escaneamento intraoral. A partir daí define-se a abordagem adequada — preventiva, interceptativa, corretiva, ortopedia funcional ou preparo pré-cirurgia ortognática — para cada faixa etária e tipo de maloclusão.",
     benefits: [
       "Sorriso mais harmônico e alinhado",
       "Melhora da mastigação",
       "Melhor higiene em dentes alinhados",
       "Prevenção de cáries e gengivite relacionadas a maloclusão",
-      "Melhora da autoestima",
-      "Correção funcional da mordida",
+      "Tratamento adequado a cada idade (preventiva, interceptativa ou corretiva)",
+      "Correção funcional da mordida e harmonia facial",
     ],
     indication:
-      "Para apinhamento, espaços entre dentes (diastema), mordida cruzada anterior ou posterior, prognatismo ou outras alterações esqueléticas e dentárias avaliadas clinicamente.",
+      "Para apinhamento, espaços entre dentes (diastema), mordida cruzada anterior ou posterior, prognatismo ou outras alterações esqueléticas e dentárias avaliadas clinicamente — em crianças, adolescentes e adultos.",
     duration: "Em média 12 a 36 meses (conforme a maloclusão e a mecânica utilizada)",
     icon: "alignCenter",
     image: "/images/treatments/ortodontia.png",
   },
   {
+    id: "alinhadores-transparentes",
+    title: "Aparelhos transparentes",
+    shortDescription:
+      "Alinhadores ortodônticos removíveis e discretos, com escaneamento intraoral e trocas programadas sob supervisão do ortodontista.",
+    fullDescription:
+      "Os aparelhos ortodônticos transparentes (alinhadores) são placas individuais, quase imperceptíveis, fabricadas após digitalização da arcada com escaneamento intraoral. Cada etapa aplica força controlada até a posição planejada, com orientação de tempo de uso diário e consultas de controle. Podem ser usados isoladamente ou em combinação com outras mecânicas, conforme o diagnóstico ortodôntico.",
+    benefits: [
+      "Estética durante o tratamento ativo",
+      "Higiene oral facilitada em relação a muitos aparelhos fixos",
+      "Menos irritação de mucosa em diversos casos",
+      "Planejamento digital com previsibilidade de movimentos",
+    ],
+    indication:
+      "Para adolescentes e adultos com boa colaboração (horas de uso diárias), higiene adequada e maloclusões compatíveis com mecânica por placas — avaliação ortodôntica define se substituem ou complementam o aparelho fixo.",
+    duration: "Em muitos casos cerca de 6 a 24 meses, conforme complexidade e refinamentos",
+    icon: "alignCenter",
+    image: "/images/treatments/alinhadores-transparentes.png",
+  },
+  {
     id: "odontopediatria",
     title: "Odontopediatria",
     shortDescription:
-      "Saúde bucal de bebês, crianças e adolescentes: prevenção, cáries, aparelhos, hábitos e acompanhamento humanizado.",
+      "Atendimento humanizado a bebês, crianças, adolescentes e pacientes especiais — sedação na clínica, frenectomia, hábitos, traumas, pré-natal odontológico e laser de baixa potência.",
     fullDescription:
-      "A odontopediatria cuida da boca desde o nascimento até o início da vida adulta — prevenindo doenças, tratando cáries e trauma e promovendo hábitos saudáveis para o desenvolvimento dos dentes, dos ossos e das funções orais, em ambiente acolhedor.",
+      "A odontopediatria cuida da boca desde o nascimento até o início da vida adulta — prevenindo doenças, tratando cáries e traumas e promovendo hábitos saudáveis para o desenvolvimento dos dentes, dos ossos e das funções orais. Na Base oferecemos pré-natal odontológico para gestantes, frenectomia em bebês com dificuldade de amamentação ou ganho de peso e em crianças maiores com impacto na fala ou alimentação, manejo de hábitos (sucção de dedo, mamadeira, chupeta), atendimento de emergência em traumas (com possibilidade de reimplantação dentária quando indicada), atendimento a pacientes especiais e no espectro autista, e laser de baixa potência para auxiliar na cicatrização e reduzir inflamação. Quando necessário, realizamos sedação com equipe especializada na própria clínica para garantir conforto e segurança.",
     benefits: [
       "Prevenção de cáries desde cedo",
       "Crescimento adequado dos dentes e da arcada",
       "Menos necessidade de tratamentos complexos no futuro",
-      "Hábitos de higiene oral saudáveis",
-      "Redução do medo de dentista",
-      "Melhora da autoestima infantil e juvenil",
+      "Sedação na clínica com equipe especializada quando indicada",
+      "Atendimento humanizado a pacientes especiais e no espectro autista",
+      "Apoio no controle de hábitos (sucção, mamadeira, chupeta)",
+      "Frenectomia para bebês e crianças com indicação clínica",
     ],
     indication:
-      "Para bebês (orientação e primeira consulta), crianças em dentição decídua ou mista e adolescentes com dentição permanente — prevenção, cáries, selantes, ortodontia, clareamento quando indicado e orientação à família.",
+      "Para bebês (pré-natal odontológico, frenectomia em casos indicados, primeira consulta), crianças em dentição decídua ou mista e adolescentes com dentição permanente — prevenção, hábitos, ortodontia, traumas, pacientes especiais e no espectro autista.",
     duration: "Consultas de rotina em geral 30 a 45 minutos; planos mais longos conforme tratamento",
     icon: "baby",
     image: "/images/treatments/odontopediatria.png",
@@ -264,22 +302,22 @@ export const treatments = [
     id: "implantes",
     title: "Implante dentário",
     shortDescription:
-      "Titânio no osso como raiz artificial, com coroa, ponte ou protocolo — planejamento por imagem e prótese fixa estável.",
+      "Implantes com cirurgia guiada, carga imediata em unitário com prótese provisória e protocolo de carga imediata com prótese fixa definitiva no mesmo dia.",
     fullDescription:
-      "O implante dentário é uma estrutura de titânio (ou material biocompatível) inserida no osso da maxila ou mandíbula para substituir a raiz do dente perdido. Sobre ele instala-se coroa, ponte ou protocolo, devolvendo mastigação e estética com alta previsibilidade quando bem planejado.",
+      "O implante dentário é uma estrutura de titânio (ou material biocompatível) inserida no osso da maxila ou mandíbula para substituir a raiz do dente perdido. Sobre ele instala-se coroa, ponte ou protocolo, devolvendo mastigação e estética com alta previsibilidade. Realizamos cirurgia guiada, em que o Dr. Danilo planeja a cirurgia com base na tomografia do paciente e em softwares específicos para desenhar a guia, impressa em nossa impressora 3D — o que aumenta precisão, previsibilidade, conforto e velocidade de recuperação, tornando o procedimento minimamente invasivo. Em casos selecionados aplicamos carga imediata no implante unitário (com prótese provisória) e protocolo de carga imediata, com prótese fixa definitiva instalada no mesmo dia (cirurgia, moldagem e instalação), graças ao protético que acompanha a clínica durante o atendimento.",
     benefits: [
       "Substituição fixa e estável do dente perdido",
       "Estética natural e harmoniosa",
-      "Melhora da mastigação",
-      "Preservação do osso alveolar",
-      "Não desgasta dentes vizinhos como em algumas pontes convencionais",
+      "Cirurgia guiada com planejamento digital e impressão 3D",
+      "Carga imediata em unitário com prótese provisória (casos indicados)",
+      "Protocolo de carga imediata com prótese fixa definitiva no mesmo dia",
+      "Procedimento minimamente invasivo e melhor recuperação",
       "Alta durabilidade com manutenção",
-      "Melhora da autoestima e da qualidade de vida",
     ],
     indication:
       "Para quem perdeu um ou mais dentes, tem dificuldade com prótese removível, busca reabilitação fixa, apresenta boa saúde geral e gengival e osso suficiente — ou possibilidade de enxerto — e deseja solução duradoura.",
     duration:
-      "Cirurgia em geral 40 a 90 minutos por etapa; osseointegração frequentemente entre 2 e 6 meses antes da prótese definitiva (variável)",
+      "Cirurgia em geral 40 a 90 minutos por etapa; em carga imediata, prótese provisória ou fixa no mesmo dia em casos selecionados; osseointegração frequentemente entre 2 e 6 meses para a prótese definitiva convencional",
     icon: "plus",
     image: "/images/treatments/implantes.png",
   },
@@ -353,9 +391,9 @@ export const treatments = [
     id: "disfuncao-temporomandibular",
     title: "Disfunção temporomandibular (DTM)",
     shortDescription:
-      "Dor, estalos ou travamento na mandíbula? Avaliação e tratamento conservador da ATM e dos músculos da mastigação.",
+      "Dor, estalos ou travamento na mandíbula? Avaliação e tratamento da ATM, dos músculos da mastigação e da relação com a oclusão e a cirurgia ortognática.",
     fullDescription:
-      "A DTM é um conjunto de alterações na articulação temporomandibular (ATM), nos músculos da mastigação e estruturas associadas — não é uma única doença, mas um grupo de condições que podem causar dor, estalos, limitação de movimento e desconforto facial. O manejo costuma ser conservador e multidisciplinar.",
+      "A DTM é um conjunto de alterações na articulação temporomandibular (ATM), nos músculos da mastigação e estruturas associadas — não é uma única doença, mas um grupo de condições que podem causar dor, estalos, limitação de movimento e desconforto facial. O manejo costuma ser conservador e multidisciplinar; em desarmonias esqueléticas significativas pode haver indicação de cirurgia ortognática associada à ortodontia, com objetivo de equilibrar a mordida, a função mandibular e a estética facial.",
     benefits: [
       "Redução da dor facial e muscular",
       "Melhora da função mastigatória",
@@ -375,42 +413,23 @@ export const treatments = [
     id: "clareamento",
     title: "Clareamento dental",
     shortDescription:
-      "Clareamento em consultório, caseiro supervisionado ou combinado, com agentes à base de peróxidos e acompanhamento clínico.",
+      "Clareamento supervisionado a distância (com placa personalizada e gel) ou em consultório (1 a 3 sessões), com escaneamento da arcada e acompanhamento clínico.",
     fullDescription:
-      "O clareamento dental profissional clareia dentes naturais com agentes à base de peróxidos, sob supervisão do cirurgião-dentista, com segurança, controle e previsibilidade. Atua por oxidação no esmalte e dentina, sem alterar cor de restaurações, coroas ou facetas.",
+      "O clareamento dental profissional clareia dentes naturais com agentes à base de peróxidos, sob supervisão do cirurgião-dentista, com segurança, controle e previsibilidade. Atua por oxidação no esmalte e na dentina e não altera a cor de restaurações, coroas ou facetas. Trabalhamos com duas técnicas: na técnica supervisionada, fazemos o escaneamento da arcada, confeccionamos a placa personalizada e entregamos a placa junto com o gel clareador — o tratamento é feito todos os dias em casa, com retorno em aproximadamente 20 dias para reavaliação. Na técnica de consultório, o clareamento é realizado apenas na clínica, em 1 a 3 sessões conforme o caso. Não realizamos as técnicas combinada e interna.",
     benefits: [
       "Melhora significativa da estética do sorriso",
       "Procedimento minimamente invasivo",
       "Preservação da estrutura dental",
-      "Aumento da autoestima e autoconfiança",
-      "Possibilidade de associação com outros tratamentos estéticos",
-      "Resultados naturais e progressivos (conforme a técnica)",
+      "Conforto da técnica supervisionada (uso em casa) com acompanhamento clínico",
+      "Resultado mais imediato com a técnica de consultório",
+      "Resultados naturais e progressivos conforme a técnica escolhida",
     ],
     indication:
-      "Indicado para escurecimento por pigmentos alimentares, amarelamento natural, alterações leves a moderadas de cor, dentes vitais ou não vitais com técnicas específicas, em pacientes com boa saúde bucal geral.",
+      "Indicado para escurecimento por pigmentos alimentares, amarelamento natural e alterações leves a moderadas de cor em dentes vitais, em pacientes com boa saúde bucal geral.",
     duration:
-      "Consultório: em geral 40 a 90 minutos por sessão; caseiro supervisionado: cerca de 2 a 4 semanas; combinado conforme protocolo",
+      "Supervisionado: tratamento diário em casa por ~20 dias e retorno para reavaliação. Consultório: 1 a 3 sessões na clínica, conforme o caso.",
     icon: "sun",
     image: "/images/treatments/clareamento.png",
-  },
-  {
-    id: "alinhadores-transparentes",
-    title: "Aparelhos transparentes",
-    shortDescription:
-      "Alinhadores ortodônticos removíveis e discretos, com escaneamento digital e trocas programadas sob supervisão do ortodontista.",
-    fullDescription:
-      "Os aparelhos ortodônticos transparentes (alinhadores) são placas individuais, quase imperceptíveis, fabricadas após digitalização da arcada. Cada etapa aplica força controlada até a posição planejada, com orientação de tempo de uso diário e consultas de controle.",
-    benefits: [
-      "Estética durante o tratamento ativo",
-      "Higiene oral facilitada em relação a muitos aparelhos fixos",
-      "Menos irritação de mucosa em diversos casos",
-      "Planejamento digital com previsibilidade de movimentos",
-    ],
-    indication:
-      "Para adolescentes e adultos com boa colaboração (horas de uso diárias), higiene adequada e maloclusões compatíveis com mecânica por placas — avaliação ortodôntica define se substituem ou complementam o aparelho fixo.",
-    duration: "Em muitos casos cerca de 6 a 24 meses, conforme complexidade e refinamentos",
-    icon: "alignCenter",
-    image: "/images/treatments/alinhadores-transparentes.png",
   },
   {
     id: "extracao-dentaria",
@@ -526,12 +545,17 @@ export const faqData = [
   {
     question: "Quanto custa uma avaliação?",
     answer:
-      "A avaliação inicial é gratuita. Nela, realizamos um exame completo da sua saúde bucal, tiramos dúvidas e apresentamos um plano de tratamento personalizado com valores detalhados.",
+      "A consulta de avaliação e diagnóstico é realizada com o Dr. Danilo e tem o valor de R$410,00, já incluindo os exames realizados em consultório: exame clínico, videomicroscopia digital, escaneamento intraoral e radiografias interproximais quando necessárias. Com base nesses exames, o Dr. Danilo elabora o planejamento personalizado do tratamento.",
+  },
+  {
+    question: "Vocês atendem por convênio?",
+    answer:
+      "Não atendemos por convênios. Realizamos a emissão de nota fiscal e relatório clínico para que você solicite o reembolso junto ao seu plano, conforme as condições de cada convênio.",
   },
   {
     question: "Quais formas de pagamento são aceitas?",
     answer:
-      "Aceitamos dinheiro, PIX, cartões de débito e crédito (com parcelamento em até 12x), além de convênios odontológicos. Consulte nossas condições especiais.",
+      "Aceitamos dinheiro, PIX, cartões de débito e crédito (com parcelamento em até 12x). Consulte nossas condições especiais.",
   },
   {
     question: "O clareamento dental é seguro?",
@@ -709,7 +733,7 @@ Com os cuidados adequados, as lentes de contato dental podem durar de 10 a 15 an
 
 ---
 
-**Quer saber se as lentes são indicadas para você?** Agende uma avaliação gratuita e venha conhecer as possibilidades para transformar seu sorriso!
+**Quer saber se as lentes são indicadas para você?** Agende sua avaliação e venha conhecer as possibilidades para transformar seu sorriso!
     `,
     image: "/blog/lentes-dental.jpg",
     category: "Estética Dental",

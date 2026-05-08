@@ -83,20 +83,13 @@ export function LocationSection() {
                   <Phone className="h-5 w-5 text-primary" />
                 </div>
                 <div>
-                  <p className="font-medium text-foreground">Telefones</p>
+                  <p className="font-medium text-foreground">Telefone</p>
                   <p className="text-sm text-muted-foreground">
                     <a
                       href={`tel:${phoneDigits(clinicData.phone)}`}
                       className="text-primary hover:underline"
                     >
                       {clinicData.phone}
-                    </a>
-                    <span className="text-muted-foreground"> · </span>
-                    <a
-                      href={`tel:${phoneDigits(clinicData.phoneMobile)}`}
-                      className="text-primary hover:underline"
-                    >
-                      {clinicData.phoneMobile}
                     </a>
                   </p>
                 </div>

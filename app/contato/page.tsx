@@ -12,12 +12,21 @@ import {
 } from "@/components/ui/accordion"
 import { clinicData, faqData } from "@/lib/data"
 import { formatAddressStreet, phoneDigits } from "@/lib/utils"
-import { MapPin, Phone, Mail, Clock, MessageCircle, Navigation } from "lucide-react"
+import {
+  MapPin,
+  Phone,
+  Mail,
+  Clock,
+  MessageCircle,
+  Navigation,
+  ClipboardList,
+  ShieldCheck,
+} from "lucide-react"
 
 export const metadata: Metadata = {
   title: "Contato",
   description:
-    "Entre em contato com a Base Odontologia na Vila Clementino, São Paulo. Telefones (11) 2985-2965 e (11) 95959-3508, WhatsApp e formulário.",
+    "Entre em contato com a Base Odontologia na Vila Clementino, São Paulo. Telefone, WhatsApp, formulário e como funciona a consulta de avaliação.",
 }
 
 export default function ContatoPage() {
@@ -95,18 +104,11 @@ export default function ContatoPage() {
               <p className="text-sm text-muted-foreground mb-4">
                 Ligue para agendar ou tirar dúvidas
               </p>
-              <div className="flex w-full flex-col gap-2">
-                <Button className="w-full" variant="outline" asChild>
-                  <a href={`tel:${phoneDigits(clinicData.phone)}`}>
-                    {clinicData.phone}
-                  </a>
-                </Button>
-                <Button className="w-full" variant="outline" asChild>
-                  <a href={`tel:${phoneDigits(clinicData.phoneMobile)}`}>
-                    {clinicData.phoneMobile}
-                  </a>
-                </Button>
-              </div>
+              <Button className="w-full" variant="outline" asChild>
+                <a href={`tel:${phoneDigits(clinicData.phone)}`}>
+                  {clinicData.phone}
+                </a>
+              </Button>
             </CardContent>
           </Card>
 
@@ -183,7 +185,7 @@ export default function ContatoPage() {
                     name="phone"
                     required
                     className="w-full px-4 py-3 rounded-xl border border-border bg-card text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
-                    placeholder="(11) 2985-2965"
+                    placeholder="(11) 95959-3508"
                   />
                 </div>
               </div>
@@ -287,10 +289,12 @@ export default function ContatoPage() {
                   </p>
                   <p className="text-muted-foreground">
                     {clinicData.hours.weekdays}
-                    <br />
-                    {clinicData.hours.saturday}
-                    <br />
-                    {clinicData.hours.sunday}
+                    {clinicData.hours.saturday ? (
+                      <>
+                        <br />
+                        {clinicData.hours.saturday}
+                      </>
+                    ) : null}
                   </p>
                 </div>
               </div>
@@ -302,25 +306,18 @@ export default function ContatoPage() {
                 <div>
                   <p className="font-medium text-foreground mb-1">Contato</p>
                   <p className="text-muted-foreground">
-                    Telefones:{" "}
+                    Telefone:{" "}
                     <a
                       href={`tel:${phoneDigits(clinicData.phone)}`}
                       className="text-primary hover:underline"
                     >
                       {clinicData.phone}
                     </a>
-                    {" · "}
-                    <a
-                      href={`tel:${phoneDigits(clinicData.phoneMobile)}`}
-                      className="text-primary hover:underline"
-                    >
-                      {clinicData.phoneMobile}
-                    </a>
                     <br />
                     E-mail:{" "}
                     <a
                       href={`mailto:${clinicData.email}`}
-                      className="text-primary hover:underline"
+                      className="text-primary hover:underline break-all"
                     >
                       {clinicData.email}
                     </a>
@@ -347,8 +344,88 @@ export default function ContatoPage() {
         </div>
       </Section>
 
-      {/* FAQ */}
+      {/* Como funciona a avaliação */}
       <Section variant="muted">
+        <SectionHeader
+          subtitle="Como funciona"
+          title="Sua consulta de avaliação na Base"
+          description="Uma avaliação completa, com diagnóstico realizado pelo Dr. Danilo e exames já inclusos no atendimento."
+        />
+
+        <div className="grid items-start gap-6 lg:grid-cols-[1.4fr_1fr] lg:gap-10">
+          <Card className="border-0 shadow-sm">
+            <CardContent className="p-6 sm:p-8">
+              <div className="mb-5 flex items-center gap-3">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-primary/10">
+                  <ClipboardList className="h-6 w-6 text-primary" />
+                </div>
+                <h3 className="text-xl font-semibold text-foreground">
+                  Avaliação e diagnóstico — R$ 410,00
+                </h3>
+              </div>
+              <p className="mb-4 text-muted-foreground leading-relaxed">
+                A consulta para avaliação e diagnóstico é realizada com o{" "}
+                <span className="text-foreground font-medium">Dr. Danilo</span>,
+                gestor clínico e especialista em reabilitação oral. Já estão
+                inclusos todos os exames diagnósticos necessários realizados em
+                consultório:
+              </p>
+              <ul className="mb-5 space-y-2.5">
+                {[
+                  "Exame clínico detalhado",
+                  "Videomicroscopia digital",
+                  "Escaneamento intraoral",
+                  "Radiografias interproximais quando necessárias",
+                ].map((item) => (
+                  <li
+                    key={item}
+                    className="flex items-start gap-3 text-muted-foreground"
+                  >
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <p className="text-muted-foreground leading-relaxed">
+                Com base nesses exames, o Dr. Danilo avalia suas necessidades
+                com mais precisão e elabora o{" "}
+                <span className="text-foreground font-medium">
+                  planejamento personalizado
+                </span>{" "}
+                do seu tratamento, indicando as especialidades adequadas a cada
+                caso.
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card className="border-0 shadow-sm">
+            <CardContent className="p-6 sm:p-8">
+              <div className="mb-5 flex items-center gap-3">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-primary/10">
+                  <ShieldCheck className="h-6 w-6 text-primary" />
+                </div>
+                <h3 className="text-xl font-semibold text-foreground">
+                  Convênios e reembolso
+                </h3>
+              </div>
+              <p className="mb-4 text-muted-foreground leading-relaxed">
+                Não atendemos por convênios.
+              </p>
+              <p className="text-muted-foreground leading-relaxed">
+                Realizamos a emissão de{" "}
+                <span className="text-foreground font-medium">
+                  nota fiscal e relatório clínico
+                </span>{" "}
+                para que você solicite o reembolso junto ao seu convênio,
+                conforme as condições de cada plano.
+              </p>
+            </CardContent>
+          </Card>
+        </div>
+      </Section>
+
+      {/* FAQ */}
+      <Section>
         <SectionHeader
           subtitle="Dúvidas Frequentes"
           title="Perguntas sobre agendamento"

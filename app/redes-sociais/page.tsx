@@ -60,7 +60,7 @@ const socialNetworks = [
     color: "bg-green-500",
     url: `https://wa.me/${clinicData.whatsapp}`,
     followers: null,
-    handle: clinicData.phoneMobile,
+    handle: clinicData.phone,
   },
 ]
 

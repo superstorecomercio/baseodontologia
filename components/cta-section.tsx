@@ -14,7 +14,7 @@ interface CTASectionProps {
 
 export function CTASection({
   title = "Pronto para transformar seu sorriso?",
-  description = "Agende sua avaliação gratuita e descubra como podemos ajudar você a conquistar o sorriso dos seus sonhos.",
+  description = "Agende sua avaliação e descubra como podemos ajudar você a conquistar o sorriso dos seus sonhos.",
   variant = "primary",
   whatsappOnly = false,
 }: CTASectionProps) {
@@ -106,7 +106,7 @@ export function CTASection({
               <Button size="lg" variant="outline" asChild>
                 <a href={`tel:${phoneDigits(clinicData.phone)}`}>
                   <Phone className="mr-2 h-5 w-5" />
-                  {clinicData.phonesDisplay}
+                  {clinicData.phone}
                 </a>
               </Button>
             </div>
@@ -146,7 +146,7 @@ export function CTASection({
             >
               <a href={`tel:${phoneDigits(clinicData.phone)}`}>
                 <Phone className="mr-2 h-5 w-5" />
-                {clinicData.phonesDisplay}
+                {clinicData.phone}
               </a>
             </Button>
           </div>

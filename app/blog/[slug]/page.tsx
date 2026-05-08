@@ -234,7 +234,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             Pronto para cuidar do seu sorriso?
           </h2>
           <p className="text-muted-foreground mb-8">
-            Agende sua avaliação gratuita e descubra o tratamento ideal para você.
+            Agende sua avaliação e descubra o tratamento ideal para você.
           </p>
           <Button size="lg" asChild>
             <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">

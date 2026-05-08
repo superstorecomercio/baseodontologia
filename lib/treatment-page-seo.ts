@@ -28,6 +28,92 @@ export interface TreatmentPageSeo {
 }
 
 export const treatmentPageSeoById: Record<string, TreatmentPageSeo> = {
+  prevencao: {
+    h1WhatIs: "O que é a odontologia preventiva?",
+    whatIsParagraph:
+      "A odontologia preventiva é a base de uma boca saudável: reúne consultas periódicas, profilaxia profissional, controle de placa, aplicação de flúor quando indicado, instrução de higiene personalizada e o acompanhamento de hábitos e fatores de risco. Boa parte das doenças bucais — cárie, doença gengival e desgaste — começa de forma silenciosa e pode ser identificada e tratada cedo, com mais conforto, menos custo e melhor resultado a longo prazo. A prevenção também é essencial para manter a estabilidade de tratamentos como ortodontia, próteses, lentes e implantes.",
+    whoCanH2: "Para quem a prevenção é indicada?",
+    indications: [
+      "Todas as faixas etárias — bebês, crianças, adolescentes, adultos e idosos.",
+      "Pacientes com alto risco de cárie ou doença gengival (gestantes, diabéticos, fumantes, pacientes em uso de medicações que reduzem saliva, entre outros).",
+      "Pacientes que finalizaram tratamentos como ortodontia, próteses, lentes ou implantes — para preservar o resultado.",
+      "Pacientes em ortodontia em andamento — controle de placa em torno de bráquetes ou de alinhadores.",
+      "Pacientes com bruxismo, refluxo, alimentação muito ácida ou outros fatores de desgaste e risco oral.",
+    ],
+    contraindications: [
+      "Quadros agudos de saúde geral: aguardar liberação médica e priorizar atendimento urgente quando houver dor, infecção ou trauma.",
+      "Aplicação de flúor profissional sem indicação clínica adequada — a recomendação é individualizada.",
+      "“Limpezas” caseiras agressivas ou aparelhos sem orientação podem prejudicar o esmalte e a gengiva.",
+    ],
+    howItWorksH2: "Como funciona o atendimento preventivo?",
+    procedureSteps: [
+      "Avaliação clínica completa, levantamento de fatores de risco e plano de prevenção individualizado.",
+      "Profilaxia profissional: remoção de placa bacteriana e cálculo (tártaro), polimento e, quando indicado, aplicação tópica de flúor.",
+      "Instrução de higiene personalizada (escova adequada, fio dental, escovas interdentais, irrigador, técnica e momentos do dia).",
+      "Selantes em molares com sulcos retentivos em crianças e adolescentes ou em adultos com alto risco oclusal de cárie.",
+      "Avaliação de hábitos parafuncionais (bruxismo, mordidas atípicas) e indicação de placa miorrelaxante quando necessário.",
+      "Acompanhamento periódico: definição de intervalo de retorno conforme risco — em geral a cada 6 meses; em risco mais alto, intervalos menores.",
+    ],
+    procedureDurationDetail:
+      "A consulta de manutenção/profilaxia costuma levar de 40 a 60 minutos. Pacientes com mais cálculo, manchas ou retornos mais espaçados podem precisar de tempo adicional ou de mais de uma sessão.",
+    technologies: [
+      "Profilaxia profissional com ultrassom e jato de bicarbonato/glicina para remoção de placa, cálculo e pigmentações superficiais.",
+      "Aplicação tópica de flúor em casos de risco aumentado de cárie.",
+      "Selantes em fóssulas e fissuras oclusais para reduzir o risco de cárie em molares.",
+      "Escaneamento intraoral para acompanhamento de desgaste, recessão gengival ou pequenas alterações ao longo do tempo.",
+      "Recursos educativos com instrução de higiene personalizada (escovas e técnicas adequadas a cada paciente, com ou sem ortodontia).",
+    ],
+    benefitsH2: "Quais são os benefícios da prevenção?",
+    recoveryH2: "Após a consulta de prevenção",
+    recoveryTime:
+      "Não há recuperação no sentido cirúrgico. Após a profilaxia, podem ocorrer leve sensibilidade temporária ao frio em pacientes mais sensíveis, em geral autolimitada em poucos dias.",
+    painAndSwelling:
+      "Procedimentos preventivos costumam ser indolores. Em pacientes com gengivite ou tártaro acumulado, leve sangramento durante a limpeza pode acontecer e tende a melhorar nas semanas seguintes com a higiene adequada.",
+    postOpCare:
+      "Manter higiene rigorosa (escovação 2 a 3 vezes ao dia, fio dental diário, escova interdental quando indicada), reduzir açúcares e bebidas ácidas, hidratar-se, evitar tabaco e seguir o intervalo de retorno definido pelo dentista.",
+    returnToActivities:
+      "Não há restrição: pode-se retomar trabalho, estudos e atividades físicas no mesmo dia.",
+    resultsH2: "Quais resultados esperar com a prevenção?",
+    expectedResults: [
+      "Menor risco de cárie e gengivite ao longo do tempo.",
+      "Diagnóstico precoce de pequenas alterações, com tratamentos mais simples.",
+      "Maior estabilidade e durabilidade de restaurações, lentes, próteses e implantes.",
+      "Hálito mais fresco e gengiva mais saudável.",
+      "Custo total de tratamento menor a médio e longo prazo.",
+    ],
+    timeToFinalResult:
+      "Os benefícios são contínuos: cada consulta de manutenção reforça a estabilidade clínica. Pacientes com alto risco percebem melhora consistente nos primeiros 3 a 6 meses, com menos sangramento e placa.",
+    beforeAfterNote: null,
+    faqH2: "Principais dúvidas sobre prevenção",
+    faqItems: [
+      {
+        question: "Com que frequência devo fazer a limpeza?",
+        answer:
+          "Em geral a cada 6 meses, mas o intervalo é individual e definido pelo seu risco de cárie e doença gengival.",
+      },
+      {
+        question: "A limpeza profissional desgasta o dente?",
+        answer:
+          "Não. Quando feita com indicação e técnica adequadas, remove placa, cálculo e pigmentações sem prejudicar o esmalte.",
+      },
+      {
+        question: "Quem usa aparelho ou alinhadores precisa de mais cuidados?",
+        answer:
+          "Sim. Pacientes em ortodontia têm maior risco de placa e cárie, com indicação de instruções específicas e, em geral, intervalos menores entre as manutenções.",
+      },
+      {
+        question: "Implante também precisa de manutenção?",
+        answer:
+          "Sim. A higiene e o acompanhamento profissional são essenciais para evitar peri-implantite e prolongar a vida útil dos implantes.",
+      },
+      {
+        question: "Selante é só para criança?",
+        answer:
+          "Não. É mais comum em crianças e adolescentes, mas pode ser indicado em adultos com alto risco de cárie em molares.",
+      },
+    ],
+  },
+
   periodontia: {
     h1WhatIs: "O que são os tratamentos e cirurgias gengivais?",
     whatIsParagraph:
@@ -146,7 +232,7 @@ export const treatmentPageSeoById: Record<string, TreatmentPageSeo> = {
   implantes: {
     h1WhatIs: "O que é implante dentário?",
     whatIsParagraph:
-      "O implante dentário é uma estrutura de titânio ou outro material biocompatível, inserida cirurgicamente no osso maxilar ou mandibular para substituir a raiz do dente perdido. Sobre ele instala-se prótese (coroa, ponte ou protocolo), devolvendo mastigação e estética. Funciona como raiz artificial e permite reabilitações fixas, estáveis e muito duradouras.",
+      "O implante dentário é uma estrutura de titânio ou outro material biocompatível, inserida cirurgicamente no osso maxilar ou mandibular para substituir a raiz do dente perdido. Sobre ele instala-se prótese (coroa, ponte ou protocolo), devolvendo mastigação e estética. Funciona como raiz artificial e permite reabilitações fixas, estáveis e muito duradouras. Na Base, oferecemos cirurgia guiada (planejamento digital com tomografia, software específico e guia impressa em nossas impressoras 3D), carga imediata em implante unitário com prótese provisória e protocolo de carga imediata com prótese fixa definitiva instalada no mesmo dia (cirurgia, moldagem e instalação), graças à presença do protético na clínica durante o procedimento.",
     whoCanH2: "Para quem o implante dentário é indicado?",
     indications: [
       "Perda de um ou mais dentes com indicação de reposição fixa.",
@@ -164,20 +250,23 @@ export const treatmentPageSeoById: Record<string, TreatmentPageSeo> = {
     ],
     howItWorksH2: "Como funciona o tratamento com implante dentário?",
     procedureSteps: [
-      "Avaliação inicial: exame clínico completo, radiografias e tomografia para medir osso e definir posição tridimensional dos implantes.",
-      "Planejamento cirúrgico: escolha do tipo de reabilitação (unitário, ponte, protocolo ou overdenture), número de implantes e, quando disponível, planejamento digital ou guia cirúrgico.",
-      "Cirurgia de instalação: anestesia local, inserção do implante no osso, suturas e, em casos selecionados, prótese provisória no mesmo período (carga imediata).",
-      "Período de osseointegração: cicatrização óssea ao redor do implante — em muitos casos entre cerca de 2 e 6 meses, variável com protocolo e qualidade óssea.",
-      "Instalação da prótese definitiva: coroa unitária, ponte sobre implantes ou protocolo, com ajustes de mordida e estética; em overdenture, acoplamento da prótese removível aos pilares.",
+      "Avaliação inicial: exame clínico, radiografias e tomografia computadorizada (cone beam) para medir o osso e definir a posição tridimensional dos implantes.",
+      "Planejamento digital: o Dr. Danilo planeja a cirurgia com base na tomografia e em softwares específicos para definir tipo de reabilitação, número de implantes e desenho da guia cirúrgica.",
+      "Cirurgia guiada: a guia é impressa nas nossas impressoras 3D e direciona a perfuração e a instalação dos implantes no exato planejamento — mais precisão, previsibilidade e procedimento minimamente invasivo.",
+      "Cirurgia de instalação: anestesia local, inserção dos implantes guiados, suturas quando necessário e instalação imediata da prótese (provisória ou definitiva) nos casos de carga imediata.",
+      "Período de osseointegração nos protocolos convencionais: cicatrização óssea ao redor do implante — em muitos casos entre cerca de 2 e 6 meses, variável com protocolo e qualidade óssea.",
+      "Instalação da prótese definitiva (quando não realizada no mesmo dia): coroa unitária, ponte sobre implantes ou protocolo, com ajustes de mordida e estética; em overdenture, acoplamento da prótese removível aos pilares.",
     ],
     procedureDurationDetail:
-      "A cirurgia de uma unidade costuma levar de 40 a 90 minutos; arcos completos ou enxertos prolongam o tempo. O tratamento completo até a prótese definitiva frequentemente leva de 2 a 6 meses ou mais, conforme osso, enxertos e tipo de carga.",
+      "A cirurgia de uma unidade costuma levar de 40 a 90 minutos. Em carga imediata em unitário, o paciente sai com prótese provisória no mesmo dia. No protocolo de carga imediata, a prótese fixa definitiva é instalada no mesmo dia (cirurgia, moldagem e instalação), graças à presença do protético na clínica. Nos protocolos convencionais, o tratamento completo até a prótese definitiva fica em torno de 2 a 6 meses, conforme osso, enxertos e tipo de carga.",
     technologies: [
-      "Implante unitário: um implante e coroa individual para substituir um único dente, preservando vizinhos saudáveis.",
+      "Cirurgia guiada: planejamento digital com tomografia e softwares de planejamento; guia cirúrgica desenhada para cada paciente e impressa nas impressoras 3D da própria clínica — maior precisão, previsibilidade, conforto, recuperação mais rápida e cirurgia minimamente invasiva.",
+      "Carga imediata em implante unitário: implante instalado e prótese provisória entregue no mesmo dia em casos selecionados com boa estabilidade primária e critérios estéticos rigorosos; prótese definitiva colocada após a osseointegração.",
+      "Protocolo de carga imediata: reabilitação fixa total ou em maior extensão com prótese fixa definitiva instalada no mesmo dia — cirurgia, moldagem e instalação realizadas em uma única jornada, com o protético presente na clínica.",
+      "Implante unitário convencional: um implante e coroa individual para substituir um único dente, preservando vizinhos saudáveis.",
       "Implantes múltiplos (ponte sobre implantes): dois ou mais implantes sustentando prótese fixa com vários elementos — indicado para perda de vários dentes consecutivos e para evitar removível quando possível.",
       "Implante total (protocolo sobre implantes): reabilitação fixa da arcada com distribuição estratégica em cerca de 4 a 6 implantes — para pacientes desdentados ou com dentadura instável.",
       "Overdenture: prótese removível estabilizada por implantes, com mais retenção que dentadura convencional e remoção para higiene.",
-      "Carga imediata: implante e prótese provisória no mesmo período em casos selecionados com boa estabilidade primária e critérios estéticos rigorosos.",
       "Enxertos ósseos e regeneração: aumento de volume antes ou junto ao implante quando há perda óssea severa ou reabsorção após extrações antigas.",
     ],
     benefitsH2: "Quais são os benefícios do implante dentário?",
@@ -368,13 +457,12 @@ export const treatmentPageSeoById: Record<string, TreatmentPageSeo> = {
   clareamento: {
     h1WhatIs: "O que é o clareamento dental profissional?",
     whatIsParagraph:
-      "O clareamento dental profissional é um procedimento estético para clarear a cor dos dentes naturais, reduzindo pigmentações extrínsecas e algumas alterações intrínsecas, com agentes à base de peróxidos sob supervisão do cirurgião-dentista — garantindo segurança, controle e previsibilidade. O gel atua por oxidação: penetra esmalte e dentina e fragmenta moléculas pigmentadas, deixando o dente visualmente mais claro. O clareamento não muda a cor de restaurações, coroas ou facetas, atuando só em tecido dental natural.",
+      "O clareamento dental profissional é um procedimento estético para clarear a cor dos dentes naturais, reduzindo pigmentações extrínsecas e algumas alterações intrínsecas, com agentes à base de peróxidos sob supervisão do cirurgião-dentista — garantindo segurança, controle e previsibilidade. O gel atua por oxidação: penetra esmalte e dentina e fragmenta moléculas pigmentadas, deixando o dente visualmente mais claro. O clareamento não muda a cor de restaurações, coroas ou facetas, atuando só em tecido dental natural. Na Base trabalhamos com duas técnicas: a supervisionada, em que fazemos o escaneamento da arcada, confeccionamos a placa personalizada e entregamos a placa com o gel para uso diário em casa, com retorno em aproximadamente 20 dias para reavaliação; e a de consultório, realizada apenas na clínica, em 1 a 3 sessões, conforme o caso. Não realizamos as técnicas combinada e interna.",
     whoCanH2: "Para quem o clareamento dental é indicado?",
     indications: [
       "Escurecimento por pigmentos alimentares (café, vinho, tabaco etc.).",
       "Amarelamento natural dos dentes ao longo do tempo.",
       "Alterações leves a moderadas de cor em dentes vitais.",
-      "Dentes não vitais, quando indicado clareamento interno ou protocolos específicos.",
       "Pacientes com boa saúde bucal geral e expectativas alinhadas ao plano clínico.",
     ],
     contraindications: [
@@ -383,23 +471,20 @@ export const treatmentPageSeoById: Record<string, TreatmentPageSeo> = {
       "Hipersensibilidade dentária severa não controlada.",
       "Cáries ativas ou doença periodontal não tratada.",
       "Restaurações extensas na região estética: o resultado pode ser limitado ou desuniforme em relação ao dente natural.",
+      "Dentes não vitais com escurecimento intracoronário: na Base não realizamos clareamento interno.",
     ],
     howItWorksH2: "Como funciona o procedimento?",
     procedureSteps: [
-      "Avaliação clínica, definição do protocolo (consultório, caseiro supervisionado, combinado ou interno em dente tratado endodonticamente), profilaxia prévia e controle de cáries ou gengiva quando necessário.",
-      "Clareamento em consultório (in-office): proteção gengival e de tecidos moles, aplicação do gel clareador de alta concentração em sessões controladas por tempo (em geral 40 a 90 minutos), remoção e avaliação; fonte de luz (LED) ou laser pode ou não fazer parte do protocolo.",
-      "Clareamento caseiro supervisionado: moldagem ou escaneamento digital, confecção de moldeiras personalizadas, orientação de uso do gel de menor concentração por período diário definido, acompanhamento periódico e ajuste de concentração ou tempo se necessário (tratamento frequentemente na faixa de 2 a 4 semanas).",
-      "Clareamento combinado: sessão inicial em consultório com continuidade em moldeiras em casa para potencializar resultado e previsibilidade em escurecimentos moderados a graves.",
-      "Clareamento interno (quando indicado): aplicação do agente na câmara pulpar de dente escurecido após canal, trocas periódicas até a cor desejada e vedação final.",
-      "Encerramento do protocolo ativo com avaliação de cor, orientações de manutenção (hábitos, higiene e retouches futuros) e uso de produtos de suporte à sensibilidade quando prescritos.",
+      "Avaliação clínica, definição da técnica (supervisionada para uso em casa ou de consultório), profilaxia prévia e controle de cáries ou gengiva quando necessário.",
+      "Técnica supervisionada: escaneamento da arcada, confecção de placas personalizadas e entrega da placa com o gel clareador; o paciente realiza o tratamento todos os dias em casa, conforme orientação, e retorna em aproximadamente 20 dias para reavaliação e ajuste, se necessário.",
+      "Técnica de consultório: realizada exclusivamente na clínica, com proteção gengival e aplicação do gel clareador de alta concentração em sessões controladas — em 1 a 3 sessões, a depender da resposta do paciente.",
+      "Encerramento do protocolo ativo com avaliação de cor, orientações de manutenção (hábitos, higiene e novos retoques quando indicado no futuro) e uso de produtos de suporte à sensibilidade quando prescritos.",
     ],
     procedureDurationDetail:
-      "Consultório: em geral sessões de 40 a 90 minutos, com possível efeito mais imediato. Caseiro supervisionado: frequentemente cerca de 2 a 4 semanas de uso conforme orientação. Prazo total varia com técnica, pigmentação inicial e resposta individual.",
+      "Técnica supervisionada: uso diário em casa por aproximadamente 20 dias, com retorno para reavaliação. Técnica de consultório: 1 a 3 sessões na clínica. Não realizamos as técnicas combinada e interna.",
     technologies: [
-      "Clareamento de consultório (in-office): gel de alta concentração, isolamento gengival, sessões controladas; opcionalmente fonte de luz (LED ou laser) conforme protocolo — resultados em geral mais rápidos.",
-      "Clareamento caseiro supervisionado (home bleaching): moldeiras personalizadas, gel de menor concentração, uso diário por período definido — resultados progressivos e bom controle de sensibilidade.",
-      "Clareamento combinado: associação consultório + caseiro para maior eficácia e estabilidade em alguns casos.",
-      "Clareamento interno: técnica específica para dentes tratados endodonticamente com escurecimento.",
+      "Técnica supervisionada (uso em casa): escaneamento da arcada, placa personalizada e gel clareador entregues para uso diário, com acompanhamento clínico e retorno em ~20 dias para reavaliação.",
+      "Técnica de consultório: realizada apenas na clínica, com isolamento gengival e gel de alta concentração; 1 a 3 sessões conforme a resposta do paciente.",
     ],
     benefitsH2: "Quais são os benefícios do clareamento dental?",
     recoveryH2: "Sensibilidade e recuperação pós-tratamento",
@@ -413,8 +498,9 @@ export const treatmentPageSeoById: Record<string, TreatmentPageSeo> = {
       "Trabalho, estudos e rotina seguem normalmente; recomenda-se cautela temporária com alimentos e bebidas pigmentadas conforme orientação pós-sessão ou durante o protocolo domiciliar.",
     resultsH2: "Quais são os resultados esperados?",
     expectedResults: [
-      "Clareamento visível já nas primeiras sessões ou nas primeiras semanas, conforme a técnica (consultório x caseiro).",
-      "Resultado final em torno de 1 a 4 semanas em muitos protocolos caseiros, ou evolução mais imediata/progressiva em consultório, conforme o caso.",
+      "Clareamento visível já nas primeiras sessões ou nos primeiros dias de uso da placa, conforme a técnica.",
+      "Técnica supervisionada: resultado avaliado em ~20 dias com retorno na clínica.",
+      "Técnica de consultório: ganho perceptível por sessão, em 1 a 3 sessões conforme o caso.",
       "Sorriso mais claro e harmonioso, com naturalidade compatível com a cor inicial e o tipo de pigmentação.",
       "Estabilidade da cor variável ao longo dos meses e anos, conforme hábitos alimentares, tabaco e manutenção.",
     ],
@@ -470,9 +556,14 @@ export const treatmentPageSeoById: Record<string, TreatmentPageSeo> = {
           "Podem ser coadjuvantes em alguns protocolos, mas o efeito principal vem do gel clareador e do planejamento clínico.",
       },
       {
-        question: "Qual a diferença entre clareamento caseiro e de consultório?",
+        question: "Qual a diferença entre a técnica supervisionada e a de consultório?",
         answer:
-          "O caseiro supervisionado costuma ser mais gradual; o de consultório costuma ser mais rápido, sempre com supervisão direta na clínica.",
+          "Na supervisionada o paciente faz o clareamento em casa todos os dias com placa personalizada e gel, com retorno em ~20 dias para reavaliação. Na de consultório o tratamento é feito apenas na clínica, em 1 a 3 sessões.",
+      },
+      {
+        question: "Vocês realizam clareamento combinado ou interno?",
+        answer:
+          "Não. Trabalhamos apenas com a técnica supervisionada (uso em casa) e a técnica de consultório.",
       },
     ],
   },
@@ -591,14 +682,14 @@ export const treatmentPageSeoById: Record<string, TreatmentPageSeo> = {
   ortodontia: {
     h1WhatIs: "O que são tratamentos ortodônticos?",
     whatIsParagraph:
-      "Os tratamentos ortodônticos corrigem o alinhamento dos dentes e a posição relativa dos ossos maxilares, melhorando a estética do sorriso, a mastigação e a saúde bucal. Podem afetar crianças, adolescentes e adultos e são realizados principalmente com aparelhos fixos, expansores, elásticos e outras mecânicas; alinhadores transparentes podem integrar o plano em casos selecionados. Em desarmonias esqueléticas severas pode haver indicação de cirurgia ortognática associada.",
-    whoCanH2: "Quais problemas a ortodontia trata?",
+      "Os tratamentos ortodônticos corrigem o alinhamento dos dentes e a posição relativa dos ossos maxilares, melhorando a estética do sorriso, a mastigação e a saúde bucal. O ponto de partida é uma avaliação clínica e radiográfica completa: documentação ortodôntica, radiografia panorâmica e, para alinhadores, escaneamento intraoral para planejamento digital. A partir daí define-se a abordagem certa — ortodontia preventiva, interceptativa, corretiva, ortopedia funcional para crianças ou preparo pré-cirurgia ortognática — em crianças, adolescentes e adultos. Em desarmonias esqueléticas severas pode haver indicação de cirurgia ortognática associada.",
+    whoCanH2: "Quais tipos de ortodontia existem e quais problemas tratam?",
     indications: [
-      "Apinhamento dentário: falta de espaço, dentes sobrepostos ou tortos.",
-      "Diastema: espaço entre dentes, em geral entre incisivos centrais superiores.",
-      "Mordida cruzada: dentes superiores oclusando por dentro dos inferiores, anterior ou posterior.",
-      "Prognatismo e outras discrepâncias esqueléticas: mandíbula projetada ou desalinhamento facial e oclusal que necessitem correção dentária e/ou óssea.",
-      "Recidivas leves de tratamentos anteriores ou planejamento interceptivo em crianças, quando indicado.",
+      "Ortodontia preventiva: orientação e acompanhamento em fases de crescimento para evitar maloclusões — manejo de hábitos (sucção de dedo, mamadeira, chupeta), respiração oral, perda precoce de dentes de leite e mantenedores de espaço.",
+      "Ortodontia interceptativa: intervenção precoce em crianças para interromper alterações em desenvolvimento — mordida cruzada, mordida aberta, deficiência transversal e desvios funcionais antes do tratamento corretivo definitivo.",
+      "Ortodontia corretiva: correção de apinhamento, diastema, mordida cruzada, mordida profunda ou aberta, prognatismo e outras maloclusões com aparelho fixo, alinhadores ou combinações.",
+      "Ortopedia funcional dos maxilares: aparelhos ortopédicos e expansores em crianças, antes da fase corretiva, para guiar o crescimento ósseo e abrir espaço (ex.: expansor palatino).",
+      "Preparo pré-cirurgia ortognática: ortodontia que prepara as arcadas para a cirurgia das bases ósseas, em casos de desarmonia esquelética significativa, e finaliza o ajuste oclusal no pós-operatório.",
     ],
     contraindications: [
       "Doença periodontal ativa sem terapia prévia — a movimentação exige suporte gengival e ósseo estável.",
@@ -608,21 +699,23 @@ export const treatmentPageSeoById: Record<string, TreatmentPageSeo> = {
     ],
     howItWorksH2: "Como funciona o tratamento ortodôntico?",
     procedureSteps: [
-      "Avaliação clínica e radiográfica (e tomografia ou outros exames quando indicados ao planejamento).",
-      "Moldagens ou escaneamento digital da arcada.",
-      "Diagnóstico ortodôntico e definição do tipo de mecânica: fixa, alinhadores, expansor, elásticos ou combinações.",
-      "Planejamento do tratamento com metas de oclusão, estética e saúde periodontal.",
-      "Instalação do aparelho fixo ou início do protocolo com alinhadores; ajustes periódicos conforme a evolução.",
+      "Avaliação clínica e radiográfica completa: documentação ortodôntica (fotos intra e extraorais, modelos), radiografia panorâmica e telerradiografia para análise cefalométrica.",
+      "Para alinhadores, escaneamento intraoral 3D para o planejamento digital da movimentação dos dentes.",
+      "Diagnóstico ortodôntico e definição da abordagem: preventiva, interceptativa, corretiva, ortopedia funcional ou preparo pré-cirurgia ortognática.",
+      "Definição da mecânica: aparelho fixo, alinhadores, expansor palatino, aparelhos ortopédicos, elásticos intermaxilares ou combinações.",
+      "Instalação do aparelho ou início do protocolo com alinhadores; ajustes periódicos conforme a evolução.",
       "Conclusão da fase ativa e instalação de contenções fixas ou removíveis para estabilidade.",
-      "Manutenção com retornos para checagem de contenção e saúde bucal.",
+      "Quando há cirurgia ortognática associada, ortodontia pré-cirúrgica para preparar as arcadas e finalização ortodôntica após a cirurgia.",
     ],
     procedureDurationDetail:
       "Em muitos casos o tratamento ativo leva em média cerca de 12 a 36 meses, variando com a severidade da maloclusão, idade, tipo de aparelho e necessidade de cirurgia ou expansão. Consultas de ajuste costumam ocorrer a cada algumas semanas conforme o protocolo.",
     technologies: [
-      "Apinhamento: aparelho fixo com bráquetes e fios; alinhadores transparentes em casos leves a moderados; expansão de arcada (comum em crianças e adolescentes); extrações selecionadas para ganho de espaço quando indicado pelo diagnóstico.",
-      "Diastema: fechamento ortodôntico progressivo; frenectomia quando o freio labial contribui para recidiva; em alguns casos lentes de contato ou resinas para fechamento estético complementar.",
-      "Mordida cruzada: expansores palatinos (eficazes principalmente em fases de crescimento); aparelho fixo; alinhadores em casos leves a moderados; cirurgia ortognática em discrepâncias severas entre arcadas.",
-      "Prognatismo: ortodontia compensatória em casos leves; aparelho com elásticos intermaxilares quando indicado; cirurgia ortognática para reposicionamento da mandíbula ou maxila em casos moderados a graves.",
+      "Aparelho fixo: bráquetes metálicos ou estéticos com fios ortodônticos para correção da maioria das maloclusões; permite controle preciso em três planos.",
+      "Alinhadores transparentes: placas removíveis fabricadas após escaneamento intraoral para movimentação progressiva e estética em casos leves a moderados.",
+      "Expansor palatino e aparelhos ortopédicos: ortopedia funcional em crianças, em geral antes da fase corretiva, para guiar o crescimento ósseo e abrir espaço.",
+      "Mantenedores de espaço e aparelhos preventivos: usados em odontopediatria após perda precoce de dente de leite ou em hábitos que possam alterar a oclusão.",
+      "Elásticos intermaxilares e mecânicas auxiliares: para correção de relação entre maxila e mandíbula em casos selecionados.",
+      "Preparo ortodôntico pré-cirurgia ortognática: descompensação dentária para que a cirurgia das bases ósseas alcance oclusão, função e estética planejadas, com finalização ortodôntica no pós-operatório.",
     ],
     benefitsH2: "Quais são os benefícios do tratamento ortodôntico?",
     recoveryH2: "Recuperação e pós-tratamento",
@@ -778,34 +871,44 @@ export const treatmentPageSeoById: Record<string, TreatmentPageSeo> = {
   odontopediatria: {
     h1WhatIs: "O que é odontopediatria?",
     whatIsParagraph:
-      "A odontopediatria é a especialidade responsável pela saúde bucal de bebês, crianças e adolescentes, desde o nascimento até o início da vida adulta. Seu objetivo é prevenir doenças, tratar problemas e promover hábitos saudáveis, garantindo o desenvolvimento adequado dos dentes, dos ossos e das funções orais. O acompanhamento desde cedo ajuda a prevenir cáries e gengivite, favorecer a erupção correta, reduzir medo futuro do consultório e interceptar alterações oclusais quando necessário.",
+      "A odontopediatria é a especialidade responsável pela saúde bucal desde o pré-natal odontológico, passando por bebês, crianças e adolescentes, até o início da vida adulta. Seu objetivo é prevenir doenças, tratar problemas e promover hábitos saudáveis, garantindo o desenvolvimento adequado dos dentes, dos ossos e das funções orais. Na Base, o atendimento contempla pré-natal odontológico, frenectomia em bebês com dificuldade de amamentação ou ganho de peso e em crianças maiores com impacto na fala ou alimentação, manejo de hábitos de sucção (dedo, mamadeira e chupeta), atendimento de emergência em traumas (com possibilidade de reimplantação dental quando indicada), atendimento humanizado a pacientes especiais e no espectro autista e uso de laser de baixa potência para auxiliar na cicatrização e reduzir inflamação. Quando necessário, oferecemos sedação na própria clínica com equipe especializada para garantir conforto e segurança.",
     whoCanH2: "Quem deve ser acompanhado pelo odontopediatra?",
     indications: [
-      "Bebês: idealmente a partir do primeiro dente ou até 1 ano — primeira consulta, orientação aos pais, higiene de gengivas e prevenção da cárie de mamadeira.",
-      "Crianças de aproximadamente 3 a 12 anos: dentição decídua e mista — profilaxia, flúor, selantes, restaurações, pulpotomia/pulpectomia quando indicada, manutenção de espaço após perda precoce.",
+      "Pré-natal odontológico: gestantes — orientação sobre saúde bucal materna, alimentação, higiene, hábitos e cuidados com a futura amamentação.",
+      "Bebês: idealmente a partir do primeiro dente ou até 1 ano — primeira consulta, orientação aos pais, higiene de gengivas e prevenção da cárie de mamadeira; avaliação de freio lingual e labial e indicação de frenectomia precoce nos casos com impacto na amamentação ou ganho de peso.",
+      "Crianças de aproximadamente 3 a 12 anos: dentição decídua e mista — profilaxia, flúor, selantes, restaurações, pulpotomia/pulpectomia quando indicada, manutenção de espaço, frenectomia em casos com impacto na fala ou alimentação e manejo de hábitos de sucção (dedo, mamadeira, chupeta).",
       "Adolescentes de cerca de 12 a 18 anos: dentição permanente — ortodontia, profilaxia e controle de tártaro, restaurações estéticas, clareamento apenas se houver indicação rigorosa, placa para bruxismo quando necessário.",
-      "Qualquer faixa etária com trauma dental, dor, inchaço, alteração na erupção ou hábitos (sucção digital prolongada, respiração oral) que mereçam avaliação.",
+      "Pacientes especiais e pacientes no espectro autista: atendimento humanizado, com adaptações de ambiente, abordagem e tempo de consulta para conforto e cooperação.",
+      "Qualquer faixa etária com trauma dental, dor, inchaço, alteração na erupção ou hábitos (sucção digital prolongada, respiração oral) que mereçam avaliação imediata.",
     ],
     contraindications: [
       "Procedimentos eletivos devem ser postergados em quadros agudos graves de saúde geral até liberação médica.",
-      "Sedação ou anestesia geral, quando necessárias, exigem centro e equipe habilitados — planejamento específico, não impeditivo à própria especialidade.",
+      "Sedação realizada apenas com indicação clínica, equipe especializada e protocolo de segurança — não substitui adaptação comportamental quando ela for possível.",
       "Uso de flúor, clareamento ou produtos sem dosagem e indicação profissional — evitar automedicação ou “caseiro”.",
     ],
     howItWorksH2: "Como funciona o tratamento odontopediátrico?",
     procedureSteps: [
-      "Avaliação clínica completa com abordagem humanizada, adaptada à idade e ao comportamento.",
+      "Acolhimento da família, anamnese (incluindo gestação e alimentação), avaliação do comportamento e adaptação ao ambiente.",
+      "Avaliação clínica completa adaptada à idade — incluindo freios labial e lingual, padrão de sucção, oclusão e hábitos.",
       "Diagnóstico do desenvolvimento bucal (erupção, oclusão, higiene, hábitos e risco de cárie).",
-      "Plano de tratamento individualizado — preventivo, restaurador ou encaminhamento ortodôntico quando for o caso.",
-      "Procedimentos preventivos (profilaxia, flúor, selantes) ou restauradores (resina, ionômero) conforme necessidade.",
+      "Plano de tratamento individualizado — preventivo, restaurador, frenectomia, manejo de traumas, encaminhamento ortodôntico ou tratamento sob sedação quando indicado.",
+      "Procedimentos preventivos (profilaxia, flúor, selantes), restauradores (resina, ionômero) e cirúrgicos conservadores (frenectomia) conforme necessidade.",
+      "Uso de laser de baixa potência como recurso de apoio para cicatrização e redução da inflamação em pós-tratamentos, aftas, lesões de mão-pé-boca, mucosites e outras condições.",
       "Orientação de higiene para pais e, conforme a maturidade, para o próprio paciente; dieta e controle de açúcar.",
       "Acompanhamento periódico com intervalos definidos pelo risco de cárie e pelo estágio de desenvolvimento.",
     ],
     procedureDurationDetail:
-      "Consultas de rotina costumam levar de 30 a 45 minutos. Tratamentos mais longos ou múltiplas restaurações podem ser fracionados em várias visitas para conforto da criança.",
+      "Consultas de rotina costumam levar de 30 a 45 minutos. Tratamentos mais longos, múltiplas restaurações ou consultas sob sedação podem ser fracionados em várias visitas para conforto da criança e segurança clínica.",
     technologies: [
-      "Bebês (0 a 3 anos): primeira consulta com avaliação da boca e orientação; higiene precoce com gaze ou escova infantil; prevenção da cárie de mamadeira com orientação alimentar e controle de açúcar e mamadeira noturna.",
-      "Crianças (3 a 12 anos): profilaxia; aplicação de flúor; selantes em molares; restaurações com resina ou ionômero; pulpotomia/pulpectomia em dentes decíduos comprometidos; mantenedor de espaço após perda precoce de dente de leite.",
-      "Adolescentes (12 a 18 anos): ortodontia para alinhamento e oclusão; profilaxia e controle de gengivite; restaurações estéticas; clareamento somente em casos selecionados; placa miorrelaxante para bruxismo quando indicado.",
+      "Pré-natal odontológico: orientações para gestantes, controle de saúde bucal materna, abordagem da amamentação e preparo para os primeiros cuidados com o bebê.",
+      "Bebês (0 a 3 anos): primeira consulta, higiene precoce, prevenção da cárie de mamadeira, controle de açúcar e mamadeira noturna; avaliação de freio lingual/labial e frenectomia em casos com impacto na amamentação ou ganho de peso.",
+      "Crianças (3 a 12 anos): profilaxia, flúor, selantes em molares, restaurações com resina ou ionômero, pulpotomia/pulpectomia em dentes decíduos comprometidos, mantenedor de espaço; frenectomia quando há impacto na fala ou alimentação.",
+      "Adolescentes (12 a 18 anos): ortodontia, profilaxia, controle de gengivite, restaurações estéticas, placa miorrelaxante para bruxismo quando indicado.",
+      "Manejo de hábitos: sucção de dedo, mamadeira e chupeta — orientação de pais, dispositivos quando necessário e acompanhamento ortodôntico/comportamental para minimizar efeitos sobre arcada e oclusão.",
+      "Trauma dental: atendimento imediato e cuidados emergenciais (cuidados com a boca, transporte do dente em meio adequado, possibilidade de reimplantação dental e acompanhamento radiográfico ao longo do tempo).",
+      "Sedação na clínica com equipe especializada (anestesiologista) para crianças com necessidade clínica ou comportamental — protocolo de segurança e jejum, monitorização e recuperação.",
+      "Pacientes especiais e no espectro autista: planejamento individualizado, ambiente preparado, comunicação visual e tempos de consulta adaptados.",
+      "Laser de baixa potência (laserterapia): apoio em pós-cirúrgicos, aftas, herpes simples, mão-pé-boca, mucosites e cicatrização — anti-inflamatório e analgésico não invasivo.",
     ],
     benefitsH2: "Quais são os benefícios da odontopediatria?",
     recoveryH2: "Recuperação e pós-tratamento",
@@ -997,7 +1100,7 @@ export const treatmentPageSeoById: Record<string, TreatmentPageSeo> = {
   "disfuncao-temporomandibular": {
     h1WhatIs: "O que é disfunção temporomandibular (DTM)?",
     whatIsParagraph:
-      "A disfunção temporomandibular (DTM) é um conjunto de alterações que afetam a articulação temporomandibular (ATM), os músculos da mastigação e estruturas associadas. A ATM liga a mandíbula ao crânio e é essencial para mastigar, falar e mover a mandíbula. A DTM não é uma única doença, e sim um grupo de condições musculares e articulares que podem causar dor, estalos, limitação de movimento e desconforto facial.",
+      "A disfunção temporomandibular (DTM) é um conjunto de alterações que afetam a articulação temporomandibular (ATM), os músculos da mastigação e estruturas associadas. A ATM liga a mandíbula ao crânio e é essencial para mastigar, falar e mover a mandíbula. A DTM não é uma única doença, e sim um grupo de condições musculares e articulares que podem causar dor, estalos, limitação de movimento e desconforto facial. Em casos com desarmonia esquelética significativa entre maxila e mandíbula, a DTM pode ter componente associado à oclusão e à posição das bases ósseas — situações em que a cirurgia ortognática, sempre integrada à ortodontia, pode ser parte do plano de tratamento para reequilibrar mordida, função mandibular e estética facial.",
     whoCanH2: "Quais são os principais sintomas da DTM?",
     indications: [
       "Dor na mandíbula ou na face.",
@@ -1031,6 +1134,7 @@ export const treatmentPageSeoById: Record<string, TreatmentPageSeo> = {
       "DTM articular: deslocamento do disco com redução (estalo ao abrir/fechar com amplitude em geral preservada); sem redução (travamento e limitação importante); ou doença degenerativa (desgaste, dor, limitação, possível crepitação).",
       "DTM mista: combinação de componente muscular e articular — muito comum na prática clínica.",
       "Recursos de apoio: placa oclusal acrílica removível, protocolos fisioterápicos, medicação conforme prescrição, toxina botulínica selecionada, artrocentese ou infiltrações quando indicadas.",
+      "Cirurgia ortognática (em desarmonias esqueléticas): reposicionamento das bases ósseas — maxila, mandíbula ou ambas — sempre integrada à ortodontia (preparo pré-cirúrgico e finalização pós-cirúrgica) para reequilibrar oclusão e função em casos selecionados.",
     ],
     benefitsH2: "Quais são os benefícios do tratamento da DTM?",
     recoveryH2: "Recuperação e pós-tratamento da DTM",
@@ -1223,7 +1327,7 @@ export const treatmentPageSeoById: Record<string, TreatmentPageSeo> = {
   "tratamento-de-canal": {
     h1WhatIs: "O que é tratamento de canal?",
     whatIsParagraph:
-      "O tratamento de canal, também chamado de endodontia, trata infecções ou inflamações na polpa do dente — o tecido interno com nervos e vasos. O objetivo é remover a polpa comprometida, desinfetar os canais radiculares e obturá-los com material biocompatível, preservando o dente natural e evitando extração quando o dente pode ser restaurado. Saiba quando fazer, quais tipos existem, como funciona a recuperação e as principais dúvidas com seu cirurgião-dentista.",
+      "O tratamento de canal, também chamado de endodontia, trata infecções ou inflamações na polpa do dente — o tecido interno com nervos e vasos. O objetivo é remover a polpa comprometida, desinfetar os canais radiculares e obturá-los com material biocompatível, preservando o dente natural e evitando extração quando o dente pode ser restaurado. Na Base, realizamos o procedimento com microscopia digital, recurso que oferece grande aumento e iluminação direta da área tratada — permitindo localizar canais de difícil acesso, controlar a limpeza e melhorar a previsibilidade do tratamento.",
     whoCanH2: "Quando o tratamento de canal é indicado?",
     indications: [
       "Cárie profunda que atingiu ou compromete a polpa.",
@@ -1251,9 +1355,10 @@ export const treatmentPageSeoById: Record<string, TreatmentPageSeo> = {
     procedureDurationDetail:
       "Costuma levar de 1 a 3 sessões por dente, conforme número de canais, anatomia, presença de infecção aguda e necessidade de medicação intracanal temporária. A sessão única pode ser possível em casos selecionados.",
     technologies: [
+      "Microscopia digital: aumento e iluminação direta dos canais para identificar com precisão entradas estreitas, anatomia complexa e remanescentes de tecido — auxilia na limpeza, na obturação e na previsibilidade do tratamento e do retratamento.",
       "Canal em dente vital (pulpectomia parcial ou total): polpa ainda viva porém inflamada — remoção parcial ou total da polpa, limpeza, desinfecção e obturação; indicações incluem dor intensa e pulpites reversíveis ou irreversíveis conforme diagnóstico.",
       "Canal em dente necrosado: polpa morta e infectada — remoção do tecido necrótico, desinfecção rigorosa, medicação intracanal quando necessário e selamento final; indicações incluem abscesso, infecção crônica ou fístula.",
-      "Retratamento de canal: remoção do material de obturação prévio, nova desinfecção e reobturação quando há falha, dor persistente, infecção ou obturação inadequada.",
+      "Retratamento de canal: remoção do material de obturação prévio, nova desinfecção e reobturação quando há falha, dor persistente, infecção ou obturação inadequada — situação em que a microscopia digital agrega ainda mais valor.",
       "Canal com infecção avançada (abscesso agudo): pode incluir drenagem, limpeza dos canais, medicação intracanal e finalização em etapas até resolução dos sintomas.",
     ],
     benefitsH2: "Quais são os benefícios do tratamento de canal?",

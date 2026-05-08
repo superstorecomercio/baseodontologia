@@ -120,13 +120,6 @@ export function Footer() {
                 >
                   {clinicData.phone}
                 </a>
-                <span className="mx-1.5 text-muted-foreground/35">·</span>
-                <a
-                  href={`tel:${phoneDigits(clinicData.phoneMobile)}`}
-                  className="text-foreground/85 underline-offset-4 transition-colors hover:text-foreground hover:underline"
-                >
-                  {clinicData.phoneMobile}
-                </a>
               </p>
               <p>
                 <a
@@ -145,9 +138,20 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-10 border-t border-border/60 pt-7 text-xs text-muted-foreground">
+        <div className="mt-10 flex flex-col gap-2 border-t border-border/60 pt-7 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between sm:gap-4">
           <span>
             © {year} {clinicData.clinicName}. Todos os direitos reservados.
+          </span>
+          <span>
+            Desenvolvido por{" "}
+            <a
+              href="https://siteparamedico.com.br"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-foreground/80 underline-offset-4 transition-colors hover:text-foreground hover:underline"
+            >
+              Site para Médico
+            </a>
           </span>
         </div>
       </div>
