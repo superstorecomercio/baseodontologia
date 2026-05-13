@@ -23,14 +23,13 @@ export function AboutSection() {
               photoFrameLgHeroEnd,
             )}
           >
-            <div className="relative overflow-hidden rounded-2xl shadow-xl ring-1 ring-black/5">
+            <div className="relative aspect-[500/550] overflow-hidden rounded-2xl shadow-xl ring-1 ring-black/5">
               <Image
-                src="/images/dr-danilo-conheca-home.png"
+                src="/images/hero-dr-danilo-recepcao.png"
                 alt={`${clinicData.name} — gestor clínico da ${clinicData.clinicName}`}
-                width={866}
-                height={1024}
+                fill
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 280px, 352px"
-                className="h-auto w-full"
+                className="object-cover object-left"
                 loading="lazy"
                 fetchPriority="low"
               />
@@ -55,7 +54,7 @@ export function AboutSection() {
           </p>
 
           <ul className="mb-10 space-y-4">
-            {aboutData.credentials.slice(0, 4).map((credential) => (
+            {aboutData.credentials.slice(0, 6).map((credential) => (
               <li key={credential} className="flex items-center gap-3">
                 <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0" />
                 <span className="text-muted-foreground">{credential}</span>

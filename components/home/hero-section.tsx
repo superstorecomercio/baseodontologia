@@ -26,34 +26,34 @@ export function HeroSection() {
               <div className={cn(photoFrameWidthMatchHero, photoFrameLgHeroEnd)}>
                 <div className="relative aspect-[500/550] w-full overflow-hidden rounded-2xl shadow-xl ring-1 ring-black/5">
                   <Image
-                    src="/images/hero-dr-danilo-recepcao.png"
-                    alt={`${clinicData.name} na recepção da ${clinicData.clinicName}`}
+                    src="/images/equipe-contato-fachada.png"
+                    alt={`Fachada da ${clinicData.clinicName} na Vila Clementino`}
                     width={500}
                     height={550}
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 280px, 320px"
-                    className="h-full w-full object-cover object-left"
+                    className="h-full w-full object-cover object-center"
                     priority
                     fetchPriority="high"
                     decoding="sync"
                   />
                   {/* Mobile: card sobre a foto, colado na base interna da imagem */}
                   <div className="absolute inset-x-2.5 bottom-2.5 z-10 rounded-lg border border-border/60 bg-card/92 px-2.5 py-1.5 text-center shadow-lg backdrop-blur-sm sm:hidden">
-                    <p className="text-xs font-semibold leading-tight text-foreground">{clinicData.name}</p>
-                    <p className="mt-0.5 text-[0.6875rem] leading-tight text-primary">{clinicData.cro}</p>
+                    <p className="text-xs font-semibold leading-tight text-foreground">{clinicData.clinicName}</p>
+                    <p className="mt-0.5 text-[0.6875rem] leading-tight text-primary">Vila Clementino — SP</p>
                   </div>
                 </div>
 
                 <div
                   className={cn(
                     "relative z-10 hidden w-full rounded-2xl border border-border/50 bg-card p-3 shadow-md sm:mt-4 sm:block sm:p-4 sm:text-left",
-                    "lg:absolute lg:-bottom-6 lg:left-2 lg:mt-0 lg:max-w-[200px] lg:bg-card/95 lg:p-4 lg:shadow-lg lg:backdrop-blur-sm",
+                    "lg:absolute lg:-bottom-6 lg:left-2 lg:mt-0 lg:max-w-[220px] lg:bg-card/95 lg:p-4 lg:shadow-lg lg:backdrop-blur-sm",
                   )}
                 >
-                  <p className="text-sm font-semibold text-foreground">{clinicData.name}</p>
+                  <p className="text-sm font-semibold text-foreground">{clinicData.clinicName}</p>
                   <p className="text-[0.6875rem] leading-snug text-muted-foreground sm:text-xs">
-                    {clinicData.specialty}
+                    {clinicData.address.street} — {clinicData.address.neighborhood}
                   </p>
-                  <p className="mt-1 text-xs text-primary">{clinicData.cro}</p>
+                  <p className="mt-1 text-xs text-primary">Vila Clementino — São Paulo</p>
                 </div>
               </div>
             </div>

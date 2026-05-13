@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Instagram, Facebook, Youtube } from "lucide-react"
+import { Clock, Facebook, Instagram, Mail, MapPin, Phone, Youtube } from "lucide-react"
 import { clinicData } from "@/lib/data"
 import { cn, formatAddressStreet, phoneDigits } from "@/lib/utils"
 
@@ -112,8 +112,12 @@ export function Footer() {
               <p className="mb-0.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
                 Contato
               </p>
-              <p>{addressLine}</p>
-              <p>
+              <p className="flex items-start gap-2.5">
+                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden />
+                <span>{addressLine}</span>
+              </p>
+              <p className="flex items-start gap-2.5">
+                <Phone className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden />
                 <a
                   href={`tel:${phoneDigits(clinicData.phone)}`}
                   className="text-foreground/85 underline-offset-4 transition-colors hover:text-foreground hover:underline"
@@ -121,18 +125,22 @@ export function Footer() {
                   {clinicData.phone}
                 </a>
               </p>
-              <p>
+              <p className="flex items-start gap-2.5">
+                <Mail className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden />
                 <a
                   href={`mailto:${clinicData.email}`}
-                  className="text-foreground/85 underline-offset-4 transition-colors hover:text-foreground hover:underline"
+                  className="break-all text-foreground/85 underline-offset-4 transition-colors hover:text-foreground hover:underline"
                 >
                   {clinicData.email}
                 </a>
               </p>
-              <p className="text-xs leading-relaxed text-muted-foreground">
-                {clinicData.hours.weekdays}
-                <br />
-                {clinicData.hours.saturday}
+              <p className="flex items-start gap-2.5 text-xs leading-relaxed text-muted-foreground">
+                <Clock className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden />
+                <span>
+                  {clinicData.hours.weekdays}
+                  <br />
+                  {clinicData.hours.saturday}
+                </span>
               </p>
             </div>
           </div>

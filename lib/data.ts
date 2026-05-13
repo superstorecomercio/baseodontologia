@@ -114,8 +114,8 @@ Em sua jornada acadêmica, também publicou diversos artigos voltados ao segment
     "Especialização em Prótese Dentária — FORP/USP",
     "Mestrado e Doutorado em Reabilitação Oral — FORP/USP",
     "Pós-graduações em Implantodontia e Odontologia Estética",
-    "Coordenador do curso de especialização em Implantodontia e Periodontia — IOA",
-    "Speaker do Grupo Straumann (implantodontia)",
+    "Coordenador do Curso de pós-graduação em Periodontia e Implantodontia no IOA/ITC — São Paulo",
+    "Speaker Neodent e Straumann",
     "Autor de artigos científicos em revistas nacionais e internacionais",
   ],
   mission:
@@ -296,7 +296,7 @@ export const treatments = [
       "Para idosos com boca seca, cáries ou raiz exposta, perda parcial ou total de dentes, saburra lingual ou halitose, dificuldade com próteses ou necessidade de reabilitação e manutenção periódica.",
     duration: "Variável: consultas de manutenção em geral a cada 6 meses; tratamentos específicos conforme o plano",
     icon: "heart",
-    image: "/images/treatments/avaliacao.jpg",
+    image: "/images/treatments/terceira-idade.png",
   },
   {
     id: "implantes",
@@ -407,7 +407,7 @@ export const treatments = [
       "Para quem apresenta dor na mandíbula ou face, dor ao mastigar ou falar, estalos ou crepitação na ATM, travamento ou limitação de abertura, cefaleia tensional frequente, dor ou pressão auricular e tensão em face ou pescoço.",
     duration: "Variável: semanas a meses conforme o tipo de DTM e o plano de tratamento",
     icon: "heartPulse",
-    image: "/images/treatments/harmonizacao.png",
+    image: "/images/treatments/dtm.png",
   },
   {
     id: "clareamento",
@@ -449,7 +449,7 @@ export const treatments = [
       "Indicada em cáries irreversíveis, infecções recorrentes, periodontite avançada com mobilidade, fraturas sem reparo, dentes inclusos ou por necessidade de espaço na arcada, entre outras situações avaliadas clinicamente.",
     duration: "Em geral 20 minutos a 1 hora (conforme a complexidade)",
     icon: "plus",
-    image: "/images/treatments/periodontia.png",
+    image: "/images/treatments/extracao-dentaria.png",
   },
 ]
 
