@@ -4,6 +4,7 @@ import { AnalyticsLoader } from "@/components/layout/analytics-loader"
 import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
 import { WhatsAppButton } from "@/components/layout/whatsapp-button"
+import { Toaster } from "@/components/ui/sonner"
 import "./globals.css"
 
 const playfair = Playfair_Display({
@@ -88,6 +89,7 @@ export default function RootLayout({
         <main>{children}</main>
         <Footer />
         <WhatsAppButton />
+        <Toaster richColors position="top-center" />
         <AnalyticsLoader />
       </body>
     </html>

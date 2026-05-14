@@ -10,6 +10,8 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
+import { ContactForm } from "@/components/contact/contact-form"
+import { ContatoEnvioToast } from "@/components/contact/contato-envio-toast"
 import { clinicData, faqData } from "@/lib/data"
 import { formatAddressStreet, phoneDigits } from "@/lib/utils"
 import {
@@ -37,6 +39,7 @@ export default function ContatoPage() {
 
   return (
     <>
+      <ContatoEnvioToast />
       {/* Hero Section */}
       <PageHero className="bg-muted pb-16 pt-28 md:pb-20 md:pt-32">
         <div className="page-container">
@@ -154,101 +157,7 @@ export default function ContatoPage() {
             <h2 className="text-2xl font-semibold text-foreground mb-6">
               Envie uma mensagem
             </h2>
-            <form className="space-y-6">
-              <div className="grid sm:grid-cols-2 gap-4">
-                <div>
-                  <label
-                    htmlFor="name"
-                    className="block text-sm font-medium text-foreground mb-2"
-                  >
-                    Nome completo
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    required
-                    className="w-full px-4 py-3 rounded-xl border border-border bg-card text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
-                    placeholder="Seu nome"
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="phone"
-                    className="block text-sm font-medium text-foreground mb-2"
-                  >
-                    Telefone / WhatsApp
-                  </label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    required
-                    className="w-full px-4 py-3 rounded-xl border border-border bg-card text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
-                    placeholder="(11) 95959-3508"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium text-foreground mb-2"
-                >
-                  E-mail
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  required
-                  className="w-full px-4 py-3 rounded-xl border border-border bg-card text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
-                  placeholder="seu@email.com"
-                />
-              </div>
-
-              <div>
-                <label
-                  htmlFor="subject"
-                  className="block text-sm font-medium text-foreground mb-2"
-                >
-                  Assunto
-                </label>
-                <select
-                  id="subject"
-                  name="subject"
-                  required
-                  className="w-full px-4 py-3 rounded-xl border border-border bg-card text-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
-                >
-                  <option value="">Selecione um assunto</option>
-                  <option value="agendamento">Agendar Consulta</option>
-                  <option value="orcamento">Solicitar Orçamento</option>
-                  <option value="duvida">Tirar Dúvidas</option>
-                  <option value="outro">Outro</option>
-                </select>
-              </div>
-
-              <div>
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-medium text-foreground mb-2"
-                >
-                  Mensagem
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows={5}
-                  required
-                  className="w-full px-4 py-3 rounded-xl border border-border bg-card text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors resize-none"
-                  placeholder="Como podemos ajudar?"
-                />
-              </div>
-
-              <Button type="submit" size="lg" className="w-full">
-                Enviar Mensagem
-              </Button>
-            </form>
+            <ContactForm />
           </div>
 
           {/* Info */}
