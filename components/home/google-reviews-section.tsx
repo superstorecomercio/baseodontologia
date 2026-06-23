@@ -32,10 +32,13 @@ export async function GoogleReviewsSection() {
         ))}
       </div>
 
-      {googleBusinessData.reviewsSource !== "live" ? (
+      {googleBusinessData.reviewsSource === "mock" ? (
         <p className="mt-3 text-xs text-muted-foreground">
-          Exibindo conteúdo de reserva até a API e as variáveis de ambiente estarem
-          ativas.
+          Exibindo conteúdo de reserva. Execute{" "}
+          <code className="rounded bg-muted px-1 py-0.5 text-[0.7rem]">
+            npm run sync:google-reviews
+          </code>{" "}
+          para carregar avaliações reais do Google.
         </p>
       ) : null}
 

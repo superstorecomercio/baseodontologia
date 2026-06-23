@@ -12,7 +12,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "sync:google-reviews": "node --env-file=.env.local scripts/sync-google-reviews.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",

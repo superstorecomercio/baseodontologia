@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "syncedAt": "2026-06-23T01:45:36.663Z",
+  "placeId": "ChIJu4qvJ5FbzpQRPyfjAKD_MsY",
+  "rating": 5,
+  "totalReviews": 86,
+  "reviews": [
+    {
+      "id": "places/ChIJu4qvJ5FbzpQRPyfjAKD_MsY/reviews/Ci9DQUlRQUNvZENodHljRjlvT2s5SE4ydGxORUZ1VkU1RGMxRjFkbGcxYUMxUGVGRRAB",
+      "author": "Anderson Medeiro",
+      "rating": 5,
+      "text": "Fiz uma cirurgia na Base Odontologia para colocação de protocolo, primeiro uma avaliação e planejamento bem criterioso. O cirurgia muito tranquila, feita com competência, carinho e muita atenção de toda equipe. Pós cirúrgico, sem dor, sem inchaço e sem sangramento.\nUm tratamento impar!\nDeixo aqui minha gratidão e respeito ao Dr Danilo e equipe. Deus os abençoe!",
+      "publishTime": "2026-05-06T13:30:16.505104430Z"
+    },
+    {
+      "id": "places/ChIJu4qvJ5FbzpQRPyfjAKD_MsY/reviews/Ci9DQUlRQUNvZENodHljRjlvT25jMlRXTnVaVXRJVm5SQlNtSkJhQzF2TFRKbWJGRRAB",
+      "author": "Camilla Martins",
+      "rating": 5,
+      "text": "Atendimento excelente da Dra Marina!! Esclareceu as dúvidas que tínhamos em relação ao caso da minha filha, foi super cuidadosa com o atendimento em termos de higiene e segurança, pois minha bebê é RN… Iremos voltar com certeza.",
+      "publishTime": "2025-10-29T18:34:24.120379278Z"
+    },
+    {
+      "id": "places/ChIJu4qvJ5FbzpQRPyfjAKD_MsY/reviews/Ci9DQUlRQUNvZENodHljRjlvT2xKNWNYbGlkMGx6VlZoV1lXRjBlVFZuYlZwTldHYxAB",
+      "author": "Maria Das Neves",
+      "rating": 5,
+      "text": "Dr. Danilo é um excelente profissional, muito paciente e atencioso. Recomendo!",
+      "publishTime": "2026-01-13T13:39:56.220065375Z"
+    },
+    {
+      "id": "places/ChIJu4qvJ5FbzpQRPyfjAKD_MsY/reviews/Ci9DQUlRQUNvZENodHljRjlvT25KeGFVMHphMGhqT1VWc2JIWmpTWEV5TTNoeWNuYxAB",
+      "author": "Eudes Holanda",
+      "rating": 5,
+      "text": "Poderia dizer muito mas acho que um sorriso sincero diz tudo. Me devolveu a segurança de sorrir sem ter medo. Todo o tratamento com o Dr Danilo foi ímpar , o cara além de um profissional extremamente cuidadoso te deixa seguro em todos os momentos. Te explica , avisa antes , tem equipamentos top, uma equipe empática e super competente. Não poderia estar em melhores mãos , passei também pelo Dr Breno que é um excelente profissional também e a Drª Natália , super simpática e outra mega profissional. Um time de titans ! Agradeço e indico pra todos quando alguém me pergunta se tem algum dentista pra indicar, digo com segurança , vai sem medo . Obrigado pelo apoio, pelo tratamento empático e humano , por todas as etapas. Vocês são TODOS muito necessários!",
+      "publishTime": "2025-12-04T18:39:57.308646871Z"
+    },
+    {
+      "id": "places/ChIJu4qvJ5FbzpQRPyfjAKD_MsY/reviews/Ci9DQUlRQUNvZENodHljRjlvT2pOWmJXSXlhME56VFhGS056bDJOVmRVZVZsMFdYYxAB",
+      "author": "Ana Claudia Pinto",
+      "rating": 5,
+      "text": "A localização da clínica é excelente, com estacionamento que facilita muito o acesso. Desde o agendamento até o atendimento, a atenção e a competência dos profissionais são notáveis. Minha filha, de apenas 4 anos, realizou alguns atendimentos e, em todos eles, foi tratada com respeito, cuidado e atenção únicos. Uma experiência que transmite confiança e acolhimento!",
+      "publishTime": "2025-12-19T14:53:32.427738951Z"
+    }
+  ]
+}

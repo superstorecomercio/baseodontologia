@@ -453,8 +453,8 @@ export const treatments = [
   },
 ]
 
-// Dados mockados para integração futura com Google Business Profile
-// TODO: Substituir por dados reais via API do Google quando disponível
+// Reserva local — usada só se `data/google-business-cache.json` não existir.
+// Atualizar cache: npm run sync:google-reviews
 export interface GoogleReview {
   id: string
   author: string
@@ -468,8 +468,8 @@ export interface GoogleBusinessData {
   rating: number
   totalReviews: number
   reviews: GoogleReview[]
-  /** `live` = Places API (New); omit ou `mock` = dados locais de reserva */
-  reviewsSource?: "live" | "mock"
+  /** `cached` = arquivo `data/google-business-cache.json`; `mock` = reserva local */
+  reviewsSource?: "cached" | "mock"
 }
 
 export const googleBusinessData: GoogleBusinessData = {

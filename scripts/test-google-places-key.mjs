@@ -1,5 +1,6 @@
 /**
- * Testa GOOGLE_PLACES_API_KEY + resolução do lugar (mesmo fluxo do site).
+ * Testa GOOGLE_PLACES_API_KEY + resolução do lugar (diagnóstico).
+ * Para gravar no site: npm run sync:google-reviews
  * Uso: node --env-file=.env.local scripts/test-google-places-key.mjs
  */
 
